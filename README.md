@@ -20,10 +20,15 @@ Run: ```./gradlew bootRun```
   
 ### Developer
 
-Developers should use the alias ```gw``` as it starts the Gradle daemon.
+Developers should use the alias ```gw``` as it starts the Gradle daemon
+and is easy to type.
 
 Build: ```./gw clean build```
 
+Build skip tests: ```./gw clean build -x test```
+
+Run: ```./gw bootRun```
+  
 ## application.yml
 
 Spring Boot applications utilize the file ```application.yml```.  It defines
