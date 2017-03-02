@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * @TODO Temporary - remove this class.
+ * REST API used to ping the app.
  */
 @RestController
 @RequestMapping("${api.context-path}/ping")
