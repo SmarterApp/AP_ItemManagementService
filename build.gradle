@@ -1,22 +1,29 @@
+import com.bmuschko.gradle.docker.tasks.image.DockerBuildImage
+import com.bmuschko.gradle.docker.tasks.image.DockerPushImage
+import org.apache.tools.ant.filters.ReplaceTokens
+
 buildscript {
 	ext {
 		springBootVersion = '1.5.1.RELEASE'
 	}
 	repositories {
 		mavenCentral()
+		jcenter()
 	}
 	dependencies {
-		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+		classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
+		classpath "com.bmuschko:gradle-docker-plugin:3.0.5"
 	}
 }
 
 plugins {
-    id "com.gorylenko.gradle-git-properties" version "1.4.16"
+	id "com.gorylenko.gradle-git-properties" version "1.4.16"
 }
 
 apply plugin: 'java'
-apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
+apply plugin: 'com.bmuschko.docker-remote-api'
+
 
 group = appGroup
 version = appVersion
@@ -28,12 +35,16 @@ jar {
 
 repositories {
 	mavenCentral()
+	maven { url "https://repo.spring.io/milestone" }
 }
 
 dependencies {
 	compile 'org.springframework.boot:spring-boot-starter-actuator'
 	compile 'org.springframework.boot:spring-boot-starter-security'
 	compile 'org.springframework.boot:spring-boot-starter-web'
+    compile 'org.springframework.cloud:spring-cloud-starter-config'
+
+    compile 'com.google.guava:guava:21.0'
 
 	runtime 'org.springframework.boot:spring-boot-devtools'
 
@@ -42,15 +53,67 @@ dependencies {
 	testCompile 'org.springframework.boot:spring-boot-starter-test'
 }
 
-springBoot  {
-    buildInfo()
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:Dalston.M1"
+    }
 }
 
-processResources {
-    expand(project.properties)
+/***************************
+ * build information
+ ***************************/
+
+springBoot  {
+    buildInfo()
 }
 
 gitProperties {
     dateFormat = "yyyy-MM-dd'T'HH:mmZ"
     dateFormatTimeZone = "PST"
+}
+
+processResources {
+    filesMatching("**/application.yml") {
+        expand project.properties
+    }
+}
+
+
+/***************************
+ * docker
+ ***************************/
+
+docker {
+    registryCredentials {
+        username = dockerHubUser
+        password = dockerHubPass
+        email = dockerHubEmail
+    }
+}
+
+task dockerCopyFiles(type: Copy) {
+    dependsOn 'bootRepackage'
+
+    from ('src/main/docker/') {
+        filter(ReplaceTokens, tokens: [USER_HOME: System.env.HOME])
+    }
+
+    from("build/libs/${jar.archiveName}") {
+        // drop version from artifact name
+        rename { String fileName ->
+            fileName.replace("-${project.version}", "")
+        }
+    }
+
+    into  'build/docker'
+}
+
+task dockerBuildImage(type: DockerBuildImage) {
+    dependsOn 'dockerCopyFiles'
+    inputDir = project.file('build/docker/')
+    tag = "${dockerTagBase}/${jar.baseName}"
+}
+
+task dockerPushImage(type: DockerPushImage) {
+    imageName = "${dockerTagBase}/${jar.baseName}"
 }
