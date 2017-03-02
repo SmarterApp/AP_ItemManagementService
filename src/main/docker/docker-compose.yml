@@ -25,10 +25,8 @@ services:
             CONFIG_SERVICE_ENABLED: "true"
             CONFIG_SERVICE_URL: "http://config-server:8888"
             SPRING_CONFIG_LOCATION: "/tmp/security/ap-ims/ap-ims-security.yml"
-        expose:
-            - 8082
         ports:
-            - 8082:8082
+            - 8081:8080
         networks:
             - spring-cloud-network
         links:
