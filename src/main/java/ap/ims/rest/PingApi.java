@@ -8,11 +8,11 @@ import org.springframework.web.bind.annotation.RestController;
  * @TODO Temporary - remove this class.
  */
 @RestController
-@RequestMapping("${api.context-path}")
-public class RestApi {
+@RequestMapping("${api.context-path}/ping")
+public class PingApi {
 
-    @GetMapping("/get")
+    @GetMapping
     public String get() {
-        return "This seems to be working..., or does it?";
+        return "pong";
     }
 }
