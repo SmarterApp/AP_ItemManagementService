@@ -2,7 +2,7 @@ version: '2'
 services:
     config-server:
         container_name: config-server
-        image: fwsbac/configuration-service:latest
+        image: fwsbac/configuration-service
         environment:
           CONFIG_SERVICE_REPO: "file://tmp"
         expose:
@@ -19,18 +19,17 @@ services:
         container_name: ap-ims-dev
         build:
           context: .
-        image: fwsbac/ap-ims:latest
+        image: fwsbac/ap-ims
         entrypoint: /docker-startup.sh
         environment:
             CONFIG_SERVICE_ENABLED: "true"
             CONFIG_SERVICE_URL: "http://config-server:8888"
-            SPRING_CONFIG_LOCATION: "/tmp/security/ap-ims/ap-ims-security.yml"
         ports:
             - 8081:8080
         networks:
             - spring-cloud-network
         links:
-            - config-server:config-server
+            - config-server
         depends_on:
             - config-server
         volumes:
