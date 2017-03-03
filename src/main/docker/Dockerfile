@@ -1,11 +1,11 @@
 #
 # The exposed port is 8080, it is the docker default.
 #
-# docker-startup.sh is used by docker compose.  When
-# not using docker compose the spring boot app is
-# simply run using the entrypoint and cmd below.
+# The image should be run from docker-compose.  Running
+# the image standalone will result in an infinite loop
+# while the ims-startup.sh listens for http://config-server:8888
 #
-# netcat-openbsd is used in docker-startup.sh where
+# netcat-openbsd is used in ims-startup.sh where
 # it loops until it detects the config-service
 # is available.  This is used when docker
 # compose stands up the app and its required
@@ -21,11 +21,11 @@ VOLUME ["/tmp"]
 
 COPY ap-ims.jar /
 
-COPY docker-startup.sh /
+COPY ims-startup.sh /
 
-RUN chmod 755 /docker-startup.sh
+RUN chmod 755 /ims-startup.sh
 
-ENTRYPOINT ["/usr/bin/java"]
+ENTRYPOINT ["/ims-startup.sh"]
 
-CMD ["-jar", "/ap-ims.jar"]
+
 

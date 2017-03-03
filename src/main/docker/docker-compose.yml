@@ -16,11 +16,8 @@ services:
         logging:
             driver: json-file
     ap-ims:
-        container_name: ap-ims-dev
-        build:
-          context: .
+        container_name: ap-ims
         image: fwsbac/ap-ims
-        entrypoint: /docker-startup.sh
         environment:
             CONFIG_SERVICE_ENABLED: "true"
             CONFIG_SERVICE_URL: "http://config-server:8888"
