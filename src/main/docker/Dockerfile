@@ -15,17 +15,12 @@ FROM frolvlad/alpine-oraclejdk8:slim
 
 MAINTAINER Smarter Balanced "opentestsystem.org"
 
-RUN apk --no-cache add netcat-openbsd
-
 VOLUME ["/tmp"]
 
 COPY ap-ims.jar /
 
-COPY ims-startup.sh /
+RUN apk --no-cache add curl
 
-RUN chmod 755 /ims-startup.sh
+ENTRYPOINT ["/usr/bin/java"]
 
-ENTRYPOINT ["/ims-startup.sh"]
-
-
-
+CMD ["-jar", "/ap-ims.jar"]
