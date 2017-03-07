@@ -3,56 +3,60 @@ import com.bmuschko.gradle.docker.tasks.image.DockerPushImage
 import org.apache.tools.ant.filters.ReplaceTokens
 
 buildscript {
-	ext {
-		springBootVersion = '1.5.1.RELEASE'
-	}
-	repositories {
-		mavenCentral()
-		jcenter()
-	}
-	dependencies {
-		classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
-		classpath "com.bmuschko:gradle-docker-plugin:3.0.5"
-	}
+    ext {
+        springBootVersion = '1.5.1.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
+    dependencies {
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
+        classpath "com.bmuschko:gradle-docker-plugin:3.0.5"
+    }
 }
 
 plugins {
-	id "com.gorylenko.gradle-git-properties" version "1.4.16"
+    id "com.gorylenko.gradle-git-properties" version "1.4.16"
 }
 
 apply plugin: 'java'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'com.bmuschko.docker-remote-api'
-
+apply plugin: 'checkstyle'
+apply plugin: 'pmd'
+apply plugin: 'findbugs'
+apply plugin: "jacoco"
 
 group = appGroup
 version = appVersion
 
 jar {
-	baseName = appArtifact
-	version = appVersion
+    baseName = appArtifact
+    version = appVersion
 }
 
 repositories {
-	mavenCentral()
-	maven { url "https://repo.spring.io/milestone" }
+    mavenCentral()
+    maven { url "https://repo.spring.io/milestone" }
 }
 
 dependencies {
-	compile 'org.springframework.boot:spring-boot-starter-actuator'
-	compile 'org.springframework.boot:spring-boot-starter-security'
-	compile 'org.springframework.boot:spring-boot-starter-web'
+    compile 'org.springframework.boot:spring-boot-starter-actuator'
+    compile 'org.springframework.boot:spring-boot-starter-security'
+    compile 'org.springframework.boot:spring-boot-starter-web'
     compile 'org.springframework.cloud:spring-cloud-starter-config'
 
     compile 'com.google.guava:guava:21.0'
     compile 'io.springfox:springfox-swagger2:2.6.1'
     compile 'io.springfox:springfox-swagger-ui:2.6.1'
 
-	runtime 'org.springframework.boot:spring-boot-devtools'
+    runtime 'org.springframework.boot:spring-boot-devtools'
 
-	compileOnly 'org.projectlombok:lombok'
+    compileOnly 'org.projectlombok:lombok'
 
-	testCompile 'org.springframework.boot:spring-boot-starter-test'
+    testCompile 'org.springframework.boot:spring-boot-starter-test'
+    testCompile 'org.assertj:assertj-core:3.6.2'
 }
 
 dependencyManagement {
@@ -65,7 +69,7 @@ dependencyManagement {
  * build information
  ***************************/
 
-springBoot  {
+springBoot {
     buildInfo()
 }
 
@@ -79,7 +83,6 @@ processResources {
         expand project.properties
     }
 }
-
 
 /***************************
  * docker
@@ -96,7 +99,7 @@ docker {
 task dockerCopyFiles(type: Copy) {
     dependsOn 'bootRepackage'
 
-    from ('src/main/docker/') {
+    from('src/main/docker/') {
         filter(ReplaceTokens, tokens: [USER_HOME: System.env.HOME])
     }
 
@@ -107,7 +110,7 @@ task dockerCopyFiles(type: Copy) {
         }
     }
 
-    into  'build/docker'
+    into 'build/docker'
 }
 
 task dockerBuildImage(type: DockerBuildImage) {
@@ -119,3 +122,83 @@ task dockerBuildImage(type: DockerBuildImage) {
 task dockerPushImage(type: DockerPushImage) {
     imageName = "${dockerTagBase}/${jar.baseName}"
 }
+
+/***************************
+ * Checkstyle
+ ***************************/
+
+checkstyle {
+    ignoreFailures = true
+}
+
+/***************************
+ * PMD
+ ***************************/
+
+pmd {
+    ignoreFailures = true
+
+    ruleSets = [
+            'java-basic',
+            'java-braces',
+            'java-clone',
+            'java-codesize',
+            'java-coupling',
+            'java-design',
+            'java-empty',
+            'java-finalizers',
+            'java-imports',
+            'java-j2ee',
+            'java-javabeans',
+            'java-junit',
+            'java-naming',
+            'java-optimizations',
+            'java-strictexception',
+            'java-strings',
+            'java-sunsecure',
+            'java-typeresolution',
+            'java-unnecessary',
+            'java-unusedcode'
+    ]
+}
+
+/***************************
+ * FindBugs
+ ***************************/
+
+findbugs {
+    ignoreFailures = true
+    reportLevel = "low"
+}
+
+tasks.withType(FindBugs) {
+    reports {
+        xml.enabled = false
+        html.enabled = true
+    }
+}
+
+/***************************
+ * Jacoco
+ ***************************/
+
+jacocoTestReport {
+    reports {
+        xml.enabled false
+        csv.enabled false
+        html.destination "${buildDir}/reports/jacoco"
+    }
+}
+
+/***************************
+ * gradle wrapper
+ ***************************/
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '3.4.1'
+}
+
+
+/***************************
+ * task dependencies
+ ***************************/
