@@ -1,0 +1,50 @@
+version: '2.1'
+services:
+    config-server:
+        container_name: config-server
+        image: fwsbac/configuration-service
+        healthcheck:
+          test: ["CMD", "curl", "-f", "http://localhost:8888/health"]
+          interval: 30s
+          timeout: 5s
+          retries: 3
+        environment:
+          CONFIG_SERVICE_REPO: "file://tmp"
+        expose:
+            - 8888
+        ports:
+            - 8888:8888
+        networks:
+            - spring-cloud-network
+        volumes:
+            - @USER_HOME@/smarter_app/sbac-config-repo:/tmp
+        logging:
+            driver: json-file
+    ap-ims:
+        container_name: ap-ims
+        image: fwsbac/ap-ims
+        healthcheck:
+          test: ["CMD", "curl", "-f", "http://localhost:8080/manage/health"]
+          interval: 30s
+          timeout: 5s
+          retries: 3
+        environment:
+            CONFIG_SERVICE_ENABLED: "true"
+            CONFIG_SERVICE_URL: "http://config-server:8888"
+        ports:
+            - 8081:8080
+        networks:
+            - spring-cloud-network
+        links:
+            - config-server
+        depends_on:
+          config-server:
+            condition: service_healthy
+        volumes:
+            - @USER_HOME@/smarter_app:/tmp
+        logging:
+            driver: json-file
+networks:
+    spring-cloud-network:
+        driver: bridge
+
