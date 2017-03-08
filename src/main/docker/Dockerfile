@@ -1,15 +1,9 @@
 #
-# The exposed port is 8080, it is the docker default.
+# The app runs on port 8080 unless configured
+# otherwise.
 #
-# The image should be run from docker-compose.  Running
-# the image standalone will result in an infinite loop
-# while the ims-startup.sh listens for http://config-server:8888
-#
-# netcat-openbsd is used in ims-startup.sh where
-# it loops until it detects the config-service
-# is available.  This is used when docker
-# compose stands up the app and its required
-# services.
+# The app can be enabled to pull its
+# configuration from a Spring Cloud Config-Server.
 #
 FROM frolvlad/alpine-oraclejdk8:slim
 
