@@ -178,16 +178,6 @@ tasks.withType(FindBugs) {
 }
 
 /***************************
- * Jacoco
- ***************************/
-
-jacocoTestReport {
-    reports {
-        xml.enabled true
-    }
-}
-
-/***************************
  * gradle wrapper
  ***************************/
 
