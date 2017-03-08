@@ -26,7 +26,7 @@ apply plugin: 'com.bmuschko.docker-remote-api'
 apply plugin: 'checkstyle'
 apply plugin: 'pmd'
 apply plugin: 'findbugs'
-apply plugin: "jacoco"
+apply plugin: 'jacoco'
 
 group = appGroup
 version = appVersion
@@ -172,10 +172,6 @@ findbugs {
 }
 
 tasks.withType(FindBugs) {
-    reports {
-        xml.enabled = false
-        html.enabled = true
-    }
 }
 
 /***************************
@@ -184,9 +180,7 @@ tasks.withType(FindBugs) {
 
 jacocoTestReport {
     reports {
-        xml.enabled false
-        csv.enabled false
-        html.destination "${buildDir}/reports/jacoco"
+        xml.enabled true
     }
 }
 
@@ -198,7 +192,8 @@ task wrapper(type: Wrapper) {
     gradleVersion = '3.4.1'
 }
 
-
 /***************************
- * task dependencies
+ * Lifecycle enhancements
  ***************************/
+
+test.finalizedBy(jacocoTestReport)
