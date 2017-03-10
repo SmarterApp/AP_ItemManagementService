@@ -6,3 +6,8 @@ spring:
       uri: ${CONFIG_SERVICE_URL:http://localhost:8888}
       enabled: ${CONFIG_SERVICE_ENABLED:false}
       fail-fast: ${CONFIG_SERVICE_ENABLED:false}
+      retry:
+        initial-interval: ${CS_RETRY_INITIAL_INTERVAL:1000}
+        max-attempts: ${CS_RETRY_MAX_ATTEMPTS:25}
+        max-interval: ${CS_RETRY_MAX_INTERVAL:4000}
+        multiplier: ${CS_RETRY_MULTIPLIER:1.2}

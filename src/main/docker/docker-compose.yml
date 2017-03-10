@@ -39,7 +39,7 @@ services:
             - config-server
         depends_on:
           config-server:
-            condition: service_healthy
+            condition: service_started
         volumes:
             - @USER_HOME@/smarter_app:/tmp
         logging:
