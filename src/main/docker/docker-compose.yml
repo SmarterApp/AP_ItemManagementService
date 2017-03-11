@@ -2,7 +2,7 @@ version: '2.1'
 services:
     config-server:
         container_name: config-server
-        image: fwsbac/configuration-service
+        image: @dockerTagBase@/configuration-service:@configServerVersion@
         healthcheck:
           test: ["CMD", "curl", "-f", "http://localhost:8888/health"]
           interval: 30s
@@ -22,7 +22,7 @@ services:
             driver: json-file
     ap-ims:
         container_name: ap-ims
-        image: fwsbac/ap-ims
+        image: @dockerTagBase@/ap-ims:@version@
         healthcheck:
           test: ["CMD", "curl", "-f", "http://localhost:8080/manage/health"]
           interval: 30s

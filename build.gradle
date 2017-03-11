@@ -18,6 +18,7 @@ buildscript {
 
 plugins {
     id "com.gorylenko.gradle-git-properties" version "1.4.16"
+    id 'net.researchgate.release' version '2.4.0'
 }
 
 apply plugin: 'java'
@@ -27,14 +28,7 @@ apply plugin: 'checkstyle'
 apply plugin: 'pmd'
 apply plugin: 'findbugs'
 apply plugin: 'jacoco'
-
-group = appGroup
-version = appVersion
-
-jar {
-    baseName = appArtifact
-    version = appVersion
-}
+apply plugin: 'maven-publish'
 
 repositories {
     mavenCentral()
@@ -88,6 +82,18 @@ processResources {
 }
 
 /***************************
+ * maven publishing
+ ***************************/
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+        }
+    }
+}
+
+/***************************
  * docker
  ***************************/
 
@@ -103,7 +109,10 @@ task dockerCopyFiles(type: Copy) {
     dependsOn 'bootRepackage'
 
     from('src/main/docker/') {
-        filter(ReplaceTokens, tokens: [USER_HOME: System.env.HOME])
+        filter(ReplaceTokens, tokens: [USER_HOME: System.env.HOME,
+                                       configServerVersion: configServerVersion,
+                                       version: version,
+                                       dockerTagBase: dockerTagBase])
     }
 
     from("build/libs/${jar.archiveName}") {
@@ -119,11 +128,11 @@ task dockerCopyFiles(type: Copy) {
 task dockerBuildImage(type: DockerBuildImage) {
     dependsOn 'dockerCopyFiles'
     inputDir = project.file('build/docker/')
-    tag = "${dockerTagBase}/${jar.baseName}"
+    tag = "${dockerTagBase}/${jar.baseName}:${version}"
 }
 
 task dockerPushImage(type: DockerPushImage) {
-    imageName = "${dockerTagBase}/${jar.baseName}"
+    imageName = "${dockerTagBase}/${jar.baseName}:${version}"
 }
 
 /***************************
@@ -189,6 +198,7 @@ tasks.withType(FindBugs) {
 task wrapper(type: Wrapper) {
     gradleVersion = '3.4.1'
 }
+
 
 /***************************
  * Lifecycle enhancements
