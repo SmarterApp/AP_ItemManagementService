@@ -1,6 +1,7 @@
 import com.bmuschko.gradle.docker.tasks.image.DockerBuildImage
 import com.bmuschko.gradle.docker.tasks.image.DockerPushImage
 import org.apache.tools.ant.filters.ReplaceTokens
+import org.ajoberstar.grgit.Credentials
 
 buildscript {
     ext {
@@ -38,7 +39,8 @@ apply plugin: 'maven-publish'
  ***************************/
 
 release {
-    grgit = org.ajoberstar.grgit.Grgit.open(dir: project.rootDir)
+    grgit = org.ajoberstar.grgit.Grgit.open(dir: project.rootDir,
+                                            creds: new Credentials(username: gitUser, password: gitPassword))
 }
 
 /***************************
@@ -50,8 +52,6 @@ ext {
 
     revision = grgit.head().id
     shortMessage = grgit.head().shortMessage
-
-    println "${revision} - ${shortMessage} - ${project.version.toString()}"
 }
 
 /***************************
