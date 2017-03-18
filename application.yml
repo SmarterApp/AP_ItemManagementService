@@ -1,3 +1,17 @@
+# --------------------------------------------------------
+# These properties are the local development properties.
+#
+# Spring boot uses this file when the application is launched
+# with the root of the project set as the working directory.
+# These properties take precendence over the classpath
+# application.yml.
+#
+# Using gradle from the commandline means the working
+# directory is by defaul the project root.
+#
+# Using Intellij you need to setup your run config so the
+# working directory is the project root.
+# --------------------------------------------------------
 server:
   port: 8081
 

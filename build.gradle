@@ -1,5 +1,6 @@
 import com.bmuschko.gradle.docker.tasks.image.DockerBuildImage
 import com.bmuschko.gradle.docker.tasks.image.DockerPushImage
+import org.ajoberstar.gradle.git.release.opinion.Strategies
 import org.apache.tools.ant.filters.ReplaceTokens
 
 buildscript {
@@ -17,7 +18,9 @@ buildscript {
 }
 
 plugins {
-    id "com.gorylenko.gradle-git-properties" version "1.4.16"
+    id 'org.ajoberstar.grgit'                   version '1.6.0'
+    id 'org.ajoberstar.release-opinion'         version '1.6.0'
+    id 'com.gorylenko.gradle-git-properties'    version '1.4.17'
 }
 
 apply plugin: 'java'
@@ -27,14 +30,35 @@ apply plugin: 'checkstyle'
 apply plugin: 'pmd'
 apply plugin: 'findbugs'
 apply plugin: 'jacoco'
+apply plugin: 'maven-publish'
 
-group = appGroup
-version = appVersion
 
-jar {
-    baseName = appArtifact
-    version = appVersion
+/***************************
+ * release - this must be
+ * above the 'ext' block
+ ***************************/
+
+release {
+    grgit = org.ajoberstar.grgit.Grgit.open(dir: project.rootDir)
+    defaultVersionStrategy = Strategies.SNAPSHOT
 }
+
+/***************************
+ * extended properties
+ ***************************/
+
+ext {
+    def grgit = org.ajoberstar.grgit.Grgit.open(dir: project.rootDir)
+
+    revision = grgit.head().id
+    shortMessage = grgit.head().shortMessage
+
+    println "${revision} - ${shortMessage} - ${project.version.toString()}"
+}
+
+/***************************
+ * dependency management
+ ***************************/
 
 repositories {
     mavenCentral()
@@ -45,7 +69,11 @@ dependencies {
     compile 'org.springframework.boot:spring-boot-starter-actuator'
     compile 'org.springframework.boot:spring-boot-starter-security'
     compile 'org.springframework.boot:spring-boot-starter-web'
+    compile 'org.springframework.boot:spring-boot-starter-aop'
+
     compile 'org.springframework.cloud:spring-cloud-starter-config'
+
+    compile 'org.springframework.retry:spring-retry'
 
     compile 'com.google.guava:guava:21.0'
     compile 'io.springfox:springfox-swagger2:2.6.1'
@@ -63,6 +91,7 @@ dependencyManagement {
         mavenBom "org.springframework.cloud:spring-cloud-dependencies:Dalston.M1"
     }
 }
+
 
 /***************************
  * build information
@@ -84,6 +113,16 @@ processResources {
 }
 
 /***************************
+ * maven publishing
+ ***************************/
+
+publishing.publications {
+    mavenJava(MavenPublication) {
+        from components.java
+    }
+}
+
+/***************************
  * docker
  ***************************/
 
@@ -99,7 +138,10 @@ task dockerCopyFiles(type: Copy) {
     dependsOn 'bootRepackage'
 
     from('src/main/docker/') {
-        filter(ReplaceTokens, tokens: [USER_HOME: System.env.HOME])
+        filter(ReplaceTokens, tokens: [USER_HOME: System.env.HOME,
+                                       configServerVersion: configServerVersion,
+                                       version: version,
+                                       dockerTagBase: dockerTagBase])
     }
 
     from("build/libs/${jar.archiveName}") {
@@ -115,12 +157,30 @@ task dockerCopyFiles(type: Copy) {
 task dockerBuildImage(type: DockerBuildImage) {
     dependsOn 'dockerCopyFiles'
     inputDir = project.file('build/docker/')
-    tag = "${dockerTagBase}/${jar.baseName}"
+    tag = "${dockerTagBase}/${jar.baseName}:${version}"
 }
 
 task dockerPushImage(type: DockerPushImage) {
-    imageName = "${dockerTagBase}/${jar.baseName}"
+    imageName = "${dockerTagBase}/${jar.baseName}:${version}"
 }
+
+//task releaseCreateBranch(type: Exec) {
+//    println "***** version = $version"
+//    def versionToBuildAndRelease = version
+//
+//    if (project.hasProperty('releaseVersion')) {
+//        versionToBuildAndRelease = releaseVersion
+//    } else {
+//        if (version.contains('-SNAPSHOT')) {
+//            versionToBuildAndRelease = version.replace('-SNAPSHOT', '')
+//        }
+//    }
+
+//    println "***************** ${versionToBuildAndRelease} *******************"
+//    commandLine 'git', 'checkout', '-b', "release/${releaseVersion}"
+//    commandLine 'git', 'version'
+//}
+
 
 /***************************
  * Checkstyle
@@ -174,17 +234,7 @@ tasks.withType(FindBugs) {
     reports {
         xml.enabled = false
         html.enabled = true
-        html.stylesheet resources.text.fromFile('config/findbugs/findbugs-color.xsl')
-    }
-}
-
-/***************************
- * Jacoco
- ***************************/
-
-jacocoTestReport {
-    reports {
-        xml.enabled true
+	    html.stylesheet resources.text.fromFile('config/findbugs/findbugs-color.xsl')
     }
 }
 
@@ -199,5 +249,7 @@ task wrapper(type: Wrapper) {
 /***************************
  * Lifecycle enhancements
  ***************************/
+
+tasks.release.dependsOn 'build'
 
 test.finalizedBy(jacocoTestReport)
