@@ -40,7 +40,7 @@ apply plugin: 'maven-publish'
 
 release {
     grgit = org.ajoberstar.grgit.Grgit.open(dir: project.rootDir)
-    defaultVersionStrategy = Strategies.SNAPSHOT
+//    defaultVersionStrategy = Strategies.SNAPSHOT
 }
 
 /***************************
