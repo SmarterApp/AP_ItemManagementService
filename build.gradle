@@ -1,6 +1,7 @@
 import com.bmuschko.gradle.docker.tasks.image.DockerBuildImage
 import com.bmuschko.gradle.docker.tasks.image.DockerPushImage
 import org.apache.tools.ant.filters.ReplaceTokens
+import org.ajoberstar.gradle.git.release.opinion.Strategies
 
 buildscript {
     ext {
@@ -17,7 +18,9 @@ buildscript {
 }
 
 plugins {
-    id "com.gorylenko.gradle-git-properties" version "1.4.16"
+    id 'org.ajoberstar.grgit'                   version '1.6.0'
+    id 'org.ajoberstar.release-opinion'         version '1.6.0'
+    id 'com.gorylenko.gradle-git-properties'    version '1.4.17'
 }
 
 apply plugin: 'java'
@@ -28,6 +31,25 @@ apply plugin: 'pmd'
 apply plugin: 'findbugs'
 apply plugin: 'jacoco'
 apply plugin: 'maven-publish'
+
+/***************************
+ * release
+ ***************************/
+
+release {
+    grgit = org.ajoberstar.grgit.Grgit.open(dir: project.rootDir)
+    defaultVersionStrategy = Strategies.SNAPSHOT
+
+}
+
+ext {
+    def grgit = org.ajoberstar.grgit.Grgit.open(dir: project.rootDir)
+
+    revision = grgit.head().id
+    shortMessage = grgit.head().shortMessage
+
+//    println "${revision} - ${shortMessage}"
+}
 
 repositories {
     mavenCentral()
@@ -61,6 +83,7 @@ dependencyManagement {
     }
 }
 
+
 /***************************
  * build information
  ***************************/
@@ -84,11 +107,9 @@ processResources {
  * maven publishing
  ***************************/
 
-publishing {
-    publications {
-        mavenJava(MavenPublication) {
-            from components.java
-        }
+publishing.publications {
+    mavenJava(MavenPublication) {
+        from components.java
     }
 }
 
@@ -138,9 +159,22 @@ task dockerPushImage(type: DockerPushImage) {
  * Release
  ***************************/
 
-task releaseCreateBranch(type: Exec) {
-    commandLine 'git', 'checkout', '-b', "${}"
-}
+//task releaseCreateBranch(type: Exec) {
+//    println "***** version = $version"
+//    def versionToBuildAndRelease = version
+//
+//    if (project.hasProperty('releaseVersion')) {
+//        versionToBuildAndRelease = releaseVersion
+//    } else {
+//        if (version.contains('-SNAPSHOT')) {
+//            versionToBuildAndRelease = version.replace('-SNAPSHOT', '')
+//        }
+//    }
+
+//    println "***************** ${versionToBuildAndRelease} *******************"
+//    commandLine 'git', 'checkout', '-b', "release/${releaseVersion}"
+//    commandLine 'git', 'version'
+//}
 
 
 /***************************
@@ -206,7 +240,6 @@ tasks.withType(FindBugs) {
 task wrapper(type: Wrapper) {
     gradleVersion = '3.4.1'
 }
-
 
 /***************************
  * Lifecycle enhancements
