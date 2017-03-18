@@ -1,7 +1,7 @@
 import com.bmuschko.gradle.docker.tasks.image.DockerBuildImage
 import com.bmuschko.gradle.docker.tasks.image.DockerPushImage
-import org.apache.tools.ant.filters.ReplaceTokens
 import org.ajoberstar.gradle.git.release.opinion.Strategies
+import org.apache.tools.ant.filters.ReplaceTokens
 
 buildscript {
     ext {
@@ -32,15 +32,20 @@ apply plugin: 'findbugs'
 apply plugin: 'jacoco'
 apply plugin: 'maven-publish'
 
+
 /***************************
- * release
+ * release - this must be
+ * above the 'ext' block
  ***************************/
 
 release {
     grgit = org.ajoberstar.grgit.Grgit.open(dir: project.rootDir)
     defaultVersionStrategy = Strategies.SNAPSHOT
-
 }
+
+/***************************
+ * extended properties
+ ***************************/
 
 ext {
     def grgit = org.ajoberstar.grgit.Grgit.open(dir: project.rootDir)
@@ -48,8 +53,12 @@ ext {
     revision = grgit.head().id
     shortMessage = grgit.head().shortMessage
 
-//    println "${revision} - ${shortMessage}"
+    println "${revision} - ${shortMessage} - ${project.version.toString()}"
 }
+
+/***************************
+ * dependency management
+ ***************************/
 
 repositories {
     mavenCentral()
@@ -155,10 +164,6 @@ task dockerPushImage(type: DockerPushImage) {
     imageName = "${dockerTagBase}/${jar.baseName}:${version}"
 }
 
-/***************************
- * Release
- ***************************/
-
 //task releaseCreateBranch(type: Exec) {
 //    println "***** version = $version"
 //    def versionToBuildAndRelease = version
@@ -244,5 +249,7 @@ task wrapper(type: Wrapper) {
 /***************************
  * Lifecycle enhancements
  ***************************/
+
+tasks.release.dependsOn 'build'
 
 test.finalizedBy(jacocoTestReport)
