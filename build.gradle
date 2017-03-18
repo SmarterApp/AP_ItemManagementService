@@ -2,6 +2,7 @@ import com.bmuschko.gradle.docker.tasks.image.DockerBuildImage
 import com.bmuschko.gradle.docker.tasks.image.DockerPushImage
 import org.apache.tools.ant.filters.ReplaceTokens
 import org.ajoberstar.grgit.Credentials
+import org.ajoberstar.gradle.git.release.opinion.Strategies
 
 buildscript {
     ext {
@@ -41,6 +42,8 @@ apply plugin: 'maven-publish'
 release {
     grgit = org.ajoberstar.grgit.Grgit.open(dir: project.rootDir,
                                             creds: new Credentials(username: gitUser, password: gitPassword))
+    defaultVersionStrategy = Strategies.SNAPSHOT
+
 }
 
 /***************************
