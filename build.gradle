@@ -34,8 +34,8 @@ plugins {
  ***************************/
 
 release {
-    grgit = org.ajoberstar.grgit.Grgit.open(dir: project.rootDir, creds: new Credentials(username: gitUser, password: gitPassword))
     defaultVersionStrategy = Strategies.SNAPSHOT
+    grgit = org.ajoberstar.grgit.Grgit.open(dir: project.rootDir, creds: new Credentials(username: gitUser, password: gitPassword))
 }
 
 /***************************
@@ -119,7 +119,7 @@ artifactory {
 
     publish {
         repository {
-            repoKey  = project.version.toString().contains('-') ? artifactorySnapshotPublish : artifactoryReleasePublish
+            repoKey  = project.version.toString().contains('-SNAPSHOT') ? artifactorySnapshotPublish : artifactoryReleasePublish
             username = artifactoryUser
             password = artifactoryPassword
             maven	 = true
