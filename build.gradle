@@ -39,17 +39,6 @@ release {
 }
 
 /***************************
- * extended properties
- ***************************/
-
-ext {
-    def grgit = org.ajoberstar.grgit.Grgit.open(dir: project.rootDir)
-
-    revision = grgit.head().id
-    shortMessage = grgit.head().shortMessage
-}
-
-/***************************
  * dependency management
  ***************************/
 
