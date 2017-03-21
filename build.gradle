@@ -2,45 +2,46 @@ import com.bmuschko.gradle.docker.tasks.image.DockerBuildImage
 import com.bmuschko.gradle.docker.tasks.image.DockerPushImage
 import org.apache.tools.ant.filters.ReplaceTokens
 import org.ajoberstar.grgit.Credentials
+import org.ajoberstar.gradle.git.release.opinion.Strategies
 
 buildscript {
     ext {
-        springBootVersion = '1.5.1.RELEASE'
+        springBootVersion = '1.5.2.RELEASE'
     }
     repositories {
         mavenCentral()
         jcenter()
     }
     dependencies {
-        classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
-        classpath "com.bmuschko:gradle-docker-plugin:3.0.5"
+        classpath 'io.github.robwin:jgitflow-gradle-plugin:0.5.0'
     }
 }
 
 plugins {
+    id 'java'
+    id 'checkstyle'
+    id 'pmd'
+    id 'findbugs'
+    id 'jacoco'
+    id 'maven-publish'
+    id 'org.springframework.boot'               version '1.5.2.RELEASE'
     id 'org.ajoberstar.grgit'                   version '1.6.0'
     id 'org.ajoberstar.release-opinion'         version '1.6.0'
     id 'com.gorylenko.gradle-git-properties'    version '1.4.17'
+    id 'com.jfrog.artifactory'                  version '4.4.14'
+    id 'com.bmuschko.docker-remote-api'         version '3.0.5'
 }
 
-apply plugin: 'java'
-apply plugin: 'org.springframework.boot'
-apply plugin: 'com.bmuschko.docker-remote-api'
-apply plugin: 'checkstyle'
-apply plugin: 'pmd'
-apply plugin: 'findbugs'
-apply plugin: 'jacoco'
-apply plugin: 'maven-publish'
+apply plugin: 'io.github.robwin.jgitflow'
 
 
 /***************************
- * release - this must be
- * above the 'ext' block
+ * release - this must be above the 'ext' block and before any usage of 'project.version'
  ***************************/
 
 release {
-    grgit = org.ajoberstar.grgit.Grgit.open(dir: project.rootDir,
-                                            creds: new Credentials(username: gitUser, password: gitPassword))
+    defaultVersionStrategy = Strategies.SNAPSHOT
+    grgit = org.ajoberstar.grgit.Grgit.open(dir: project.rootDir, creds: new Credentials(username: gitUsername, password: gitPassword))
 }
 
 /***************************
@@ -48,10 +49,13 @@ release {
  ***************************/
 
 ext {
-    def grgit = org.ajoberstar.grgit.Grgit.open(dir: project.rootDir)
+//    def grgit = org.ajoberstar.grgit.Grgit.open(dir: project.rootDir)
+//
+//    revision = grgit.head().id
+//    shortMessage = grgit.head().shortMessage
 
-    revision = grgit.head().id
-    shortMessage = grgit.head().shortMessage
+    releaseVersion = project.version.toString()
+
 }
 
 /***************************
@@ -90,7 +94,6 @@ dependencyManagement {
     }
 }
 
-
 /***************************
  * build information
  ***************************/
@@ -120,6 +123,29 @@ publishing.publications {
     }
 }
 
+artifactory {
+    contextUrl = artifactoryUrl
+
+    publish {
+        repository {
+            repoKey  = project.version.toString().contains('-SNAPSHOT') ? artifactorySnapshotPublish : artifactoryReleasePublish
+            username = artifactoryUser
+            password = artifactoryPassword
+            maven	 = true
+        }
+        defaults {
+            publications ('mavenJava')
+        }
+    }
+
+    resolve {
+        repository {
+            repoKey = 'libs-releases'
+            maven	= true
+        }
+    }
+}
+
 /***************************
  * docker
  ***************************/
@@ -136,16 +162,16 @@ task dockerCopyFiles(type: Copy) {
     dependsOn 'bootRepackage'
 
     from('src/main/docker/') {
-        filter(ReplaceTokens, tokens: [USER_HOME: System.env.HOME,
+        filter(ReplaceTokens, tokens: [USER_HOME:           System.env.HOME,
                                        configServerVersion: configServerVersion,
-                                       version: version,
-                                       dockerTagBase: dockerTagBase])
+                                       version:             version.toString(),
+                                       dockerTagBase:       dockerTagBase])
     }
 
     from("build/libs/${jar.archiveName}") {
         // drop version from artifact name
         rename { String fileName ->
-            fileName.replace("-${project.version}", "")
+            fileName.replace("-${project.version.toString()}", "")
         }
     }
 
@@ -159,6 +185,7 @@ task dockerBuildImage(type: DockerBuildImage) {
 }
 
 task dockerPushImage(type: DockerPushImage) {
+    dependsOn 'dockerBuildImage'
     imageName = "${dockerTagBase}/${jar.baseName}:${version}"
 }
 
@@ -225,7 +252,7 @@ pmd {
 
 findbugs {
     ignoreFailures = true
-    reportLevel = "low"
+    reportLevel = "medium"
 }
 
 tasks.withType(FindBugs) {
@@ -248,6 +275,8 @@ task wrapper(type: Wrapper) {
  * Lifecycle enhancements
  ***************************/
 
-tasks.release.dependsOn 'build'
+tasks.artifactoryPublish.dependsOn 'build'
+
+tasks.release.dependsOn 'dockerPushImage', 'artifactoryPublish'
 
 test.finalizedBy(jacocoTestReport)
