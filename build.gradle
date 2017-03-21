@@ -1,0 +1,274 @@
+import com.bmuschko.gradle.docker.tasks.image.DockerBuildImage
+import com.bmuschko.gradle.docker.tasks.image.DockerPushImage
+import org.apache.tools.ant.filters.ReplaceTokens
+
+buildscript {
+    ext {
+        springBootVersion = '1.5.2.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
+    dependencies {
+        classpath 'io.github.robwin:jgitflow-gradle-plugin:0.5.0'
+    }
+}
+
+plugins {
+    id 'java'
+    id 'checkstyle'
+    id 'pmd'
+    id 'findbugs'
+    id 'jacoco'
+    id 'maven-publish'
+    id 'org.springframework.boot'               version '1.5.2.RELEASE'
+//    id 'org.ajoberstar.grgit'                   version '1.6.0'
+//    id 'org.ajoberstar.release-opinion'         version '1.6.0'
+//    id 'com.gorylenko.gradle-git-properties'    version '1.4.17'
+    id 'com.jfrog.artifactory'                  version '4.4.14'
+    id 'com.bmuschko.docker-remote-api'         version '3.0.5'
+}
+
+apply plugin: 'io.github.robwin.jgitflow'
+
+
+/***************************
+ * release - this must be above the 'ext' block and before any usage of 'project.version'
+ ***************************/
+
+//release {
+//    defaultVersionStrategy = Strategies.SNAPSHOT
+//    grgit = org.ajoberstar.grgit.Grgit.open(dir: project.rootDir, creds: new Credentials(username: gitUsername, password: gitPassword))
+//}
+
+/***************************
+ * extended properties
+ ***************************/
+
+ext {
+
+}
+
+/***************************
+ * dependency management
+ ***************************/
+
+repositories {
+    mavenCentral()
+    maven { url "https://repo.spring.io/milestone" }
+}
+
+dependencies {
+    compile 'org.springframework.boot:spring-boot-starter-actuator'
+    compile 'org.springframework.boot:spring-boot-starter-security'
+    compile 'org.springframework.boot:spring-boot-starter-web'
+    compile 'org.springframework.boot:spring-boot-starter-aop'
+
+    compile 'org.springframework.cloud:spring-cloud-starter-config'
+
+    compile 'org.springframework.retry:spring-retry'
+
+    compile 'com.google.guava:guava:21.0'
+    compile 'io.springfox:springfox-swagger2:2.6.1'
+    compile 'io.springfox:springfox-swagger-ui:2.6.1'
+
+    runtime 'org.springframework.boot:spring-boot-devtools'
+
+    compileOnly 'org.projectlombok:lombok'
+
+    testCompile 'org.springframework.boot:spring-boot-starter-test'
+}
+
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:Dalston.M1"
+    }
+}
+
+/***************************
+ * build information
+ ***************************/
+
+springBoot {
+    buildInfo()
+}
+
+//gitProperties {
+//    dateFormat = "yyyy-MM-dd'T'HH:mmZ"
+//    dateFormatTimeZone = "PST"
+//}
+
+processResources {
+    filesMatching("**/application.yml") {
+        expand project.properties
+    }
+}
+
+/***************************
+ * maven publishing
+ ***************************/
+
+publishing.publications {
+    mavenJava(MavenPublication) {
+        from components.java
+    }
+}
+
+artifactory {
+    contextUrl = artifactoryUrl
+
+    publish {
+        repository {
+            repoKey  = project.version.toString().contains('-SNAPSHOT') ? artifactorySnapshotPublish : artifactoryReleasePublish
+            username = artifactoryUser
+            password = artifactoryPassword
+            maven	 = true
+        }
+        defaults {
+            publications ('mavenJava')
+        }
+    }
+
+    resolve {
+        repository {
+            repoKey = 'libs-releases'
+            maven	= true
+        }
+    }
+}
+
+/***************************
+ * docker
+ ***************************/
+
+docker {
+    registryCredentials {
+        username = dockerHubUser
+        password = dockerHubPass
+        email = dockerHubEmail
+    }
+}
+
+task dockerCopyFiles(type: Copy) {
+    dependsOn 'bootRepackage'
+
+    from('src/main/docker/') {
+        filter(ReplaceTokens, tokens: [USER_HOME:           System.env.HOME,
+                                       configServerVersion: configServerVersion,
+                                       version:             version.toString(),
+                                       dockerTagBase:       dockerTagBase])
+    }
+
+    from("build/libs/${jar.archiveName}") {
+        // drop version from artifact name
+        rename { String fileName ->
+            fileName.replace("-${project.version.toString()}", "")
+        }
+    }
+
+    into 'build/docker'
+}
+
+task dockerBuildImage(type: DockerBuildImage) {
+    dependsOn 'dockerCopyFiles'
+    inputDir = project.file('build/docker/')
+    tag = "${dockerTagBase}/${jar.baseName}:${version}"
+}
+
+task dockerPushImage(type: DockerPushImage) {
+    dependsOn 'dockerBuildImage'
+    imageName = "${dockerTagBase}/${jar.baseName}:${version}"
+}
+
+//task releaseCreateBranch(type: Exec) {
+//    println "***** version = $version"
+//    def versionToBuildAndRelease = version
+//
+//    if (project.hasProperty('releaseVersion')) {
+//        versionToBuildAndRelease = releaseVersion
+//    } else {
+//        if (version.contains('-SNAPSHOT')) {
+//            versionToBuildAndRelease = version.replace('-SNAPSHOT', '')
+//        }
+//    }
+
+//    println "***************** ${versionToBuildAndRelease} *******************"
+//    commandLine 'git', 'checkout', '-b', "release/${releaseVersion}"
+//    commandLine 'git', 'version'
+//}
+
+
+/***************************
+ * Checkstyle
+ ***************************/
+
+checkstyle {
+    ignoreFailures = true
+}
+
+/***************************
+ * PMD
+ ***************************/
+
+pmd {
+    ignoreFailures = true
+
+    ruleSets = [
+            'java-basic',
+            'java-braces',
+            'java-clone',
+            'java-codesize',
+            'java-coupling',
+            'java-design',
+            'java-empty',
+            'java-finalizers',
+            'java-imports',
+            'java-j2ee',
+            'java-javabeans',
+            'java-junit',
+            'java-naming',
+            'java-optimizations',
+            'java-strictexception',
+            'java-strings',
+            'java-sunsecure',
+            'java-typeresolution',
+            'java-unnecessary',
+            'java-unusedcode'
+    ]
+}
+
+/***************************
+ * FindBugs
+ ***************************/
+
+findbugs {
+    ignoreFailures = true
+    reportLevel = "medium"
+}
+
+tasks.withType(FindBugs) {
+    reports {
+        xml.enabled = false
+        html.enabled = true
+	    html.stylesheet resources.text.fromFile('config/findbugs/findbugs-color.xsl')
+    }
+}
+
+/***************************
+ * gradle wrapper
+ ***************************/
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '3.4.1'
+}
+
+/***************************
+ * Lifecycle enhancements
+ ***************************/
+
+tasks.artifactoryPublish.dependsOn 'build'
+
+//tasks.release.dependsOn 'dockerPushImage', 'artifactoryPublish'
+
+test.finalizedBy(jacocoTestReport)
