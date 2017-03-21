@@ -12,6 +12,9 @@ buildscript {
         mavenCentral()
         jcenter()
     }
+    dependencies {
+        classpath 'io.github.robwin:jgitflow-gradle-plugin:0.5.0'
+    }
 }
 
 plugins {
@@ -29,13 +32,30 @@ plugins {
     id 'com.bmuschko.docker-remote-api'         version '3.0.5'
 }
 
+apply plugin: 'io.github.robwin.jgitflow'
+
+
 /***************************
  * release - this must be above the 'ext' block and before any usage of 'project.version'
  ***************************/
 
 release {
     defaultVersionStrategy = Strategies.SNAPSHOT
-    grgit = org.ajoberstar.grgit.Grgit.open(dir: project.rootDir, creds: new Credentials(username: gitUser, password: gitPassword))
+    grgit = org.ajoberstar.grgit.Grgit.open(dir: project.rootDir, creds: new Credentials(username: gitUsername, password: gitPassword))
+}
+
+/***************************
+ * extended properties
+ ***************************/
+
+ext {
+//    def grgit = org.ajoberstar.grgit.Grgit.open(dir: project.rootDir)
+//
+//    revision = grgit.head().id
+//    shortMessage = grgit.head().shortMessage
+
+    releaseVersion = project.version.toString()
+
 }
 
 /***************************
