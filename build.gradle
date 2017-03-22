@@ -23,32 +23,11 @@ plugins {
     id 'jacoco'
     id 'maven-publish'
     id 'org.springframework.boot'               version '1.5.2.RELEASE'
-//    id 'org.ajoberstar.grgit'                   version '1.6.0'
-//    id 'org.ajoberstar.release-opinion'         version '1.6.0'
-//    id 'com.gorylenko.gradle-git-properties'    version '1.4.17'
     id 'com.jfrog.artifactory'                  version '4.4.14'
     id 'com.bmuschko.docker-remote-api'         version '3.0.5'
 }
 
 apply plugin: 'io.github.robwin.jgitflow'
-
-
-/***************************
- * release - this must be above the 'ext' block and before any usage of 'project.version'
- ***************************/
-
-//release {
-//    defaultVersionStrategy = Strategies.SNAPSHOT
-//    grgit = org.ajoberstar.grgit.Grgit.open(dir: project.rootDir, creds: new Credentials(username: gitUsername, password: gitPassword))
-//}
-
-/***************************
- * extended properties
- ***************************/
-
-ext {
-
-}
 
 /***************************
  * dependency management
@@ -93,11 +72,6 @@ dependencyManagement {
 springBoot {
     buildInfo()
 }
-
-//gitProperties {
-//    dateFormat = "yyyy-MM-dd'T'HH:mmZ"
-//    dateFormatTimeZone = "PST"
-//}
 
 processResources {
     filesMatching("**/application.yml") {
@@ -181,24 +155,6 @@ task dockerPushImage(type: DockerPushImage) {
     imageName = "${dockerTagBase}/${jar.baseName}:${version}"
 }
 
-//task releaseCreateBranch(type: Exec) {
-//    println "***** version = $version"
-//    def versionToBuildAndRelease = version
-//
-//    if (project.hasProperty('releaseVersion')) {
-//        versionToBuildAndRelease = releaseVersion
-//    } else {
-//        if (version.contains('-SNAPSHOT')) {
-//            versionToBuildAndRelease = version.replace('-SNAPSHOT', '')
-//        }
-//    }
-
-//    println "***************** ${versionToBuildAndRelease} *******************"
-//    commandLine 'git', 'checkout', '-b', "release/${releaseVersion}"
-//    commandLine 'git', 'version'
-//}
-
-
 /***************************
  * Checkstyle
  ***************************/
@@ -268,7 +224,5 @@ task wrapper(type: Wrapper) {
  ***************************/
 
 tasks.artifactoryPublish.dependsOn 'build'
-
-//tasks.release.dependsOn 'dockerPushImage', 'artifactoryPublish'
 
 test.finalizedBy(jacocoTestReport)
