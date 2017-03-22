@@ -119,7 +119,7 @@ artifactory {
 docker {
     registryCredentials {
         username = dockerHubUser
-        password = dockerHubPass
+        password = dockerHubPassword
         email = dockerHubEmail
     }
 }
