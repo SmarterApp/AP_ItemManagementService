@@ -61,7 +61,7 @@ dependencies {
 
 dependencyManagement {
     imports {
-        mavenBom "org.springframework.cloud:spring-cloud-dependencies:Dalston.M1"
+        mavenBom 'org.springframework.cloud:spring-cloud-dependencies:Dalston.M1'
     }
 }
 
@@ -80,7 +80,7 @@ processResources {
 }
 
 /***************************
- * maven publishing
+ * publishing
  ***************************/
 
 task sourceJar(type: Jar) {
@@ -102,9 +102,9 @@ artifactory {
 
     publish {
         repository {
-            repoKey  = project.version.toString().contains('-SNAPSHOT') ? artifactorySnapshotPublish : artifactoryReleasePublish
-            username = artifactoryUser
-            password = artifactoryPassword
+            repoKey  = project.version.contains('-SNAPSHOT') ? project.artifactorySnapshotPublish : project.artifactoryReleasePublish
+            username = project.artifactoryUser
+            password = project.artifactoryPassword
             maven	 = true
         }
         defaults {
@@ -121,14 +121,26 @@ artifactory {
 }
 
 /***************************
+ * kubernetes
+ ***************************/
+task k8CopyFiles(type: Copy) {
+
+    from('src/main/kubernetes/') {
+        filter(ReplaceTokens, tokens: [version: project.version])
+    }
+
+    into 'build/kubernetes'
+}
+
+/***************************
  * docker
  ***************************/
 
 docker {
     registryCredentials {
-        username = dockerHubUser
-        password = dockerHubPassword
-        email = dockerHubEmail
+        username = project.dockerHubUser
+        password = project.dockerHubPassword
+        email = project.dockerHubEmail
     }
 }
 
@@ -137,15 +149,15 @@ task dockerCopyFiles(type: Copy) {
 
     from('src/main/docker/') {
         filter(ReplaceTokens, tokens: [USER_HOME:           System.env.HOME,
-                                       configServerVersion: configServerVersion,
-                                       version:             version.toString(),
-                                       dockerTagBase:       dockerTagBase])
+                                       configServerVersion: project.configServerVersion,
+                                       version:             project.version,
+                                       dockerTagBase:       project.dockerTagBase])
     }
 
     from("build/libs/${jar.archiveName}") {
         // drop version from artifact name
         rename { String fileName ->
-            fileName.replace("-${project.version.toString()}", "")
+            fileName.replace("-${project.version}", "")
         }
     }
 
@@ -155,12 +167,12 @@ task dockerCopyFiles(type: Copy) {
 task dockerBuildImage(type: DockerBuildImage) {
     dependsOn 'dockerCopyFiles'
     inputDir = project.file('build/docker/')
-    tag = "${dockerTagBase}/${jar.baseName}:${version}"
+    tag = "${project.dockerTagBase}/${jar.baseName}:${project.version}"
 }
 
 task dockerPushImage(type: DockerPushImage) {
     dependsOn 'dockerBuildImage'
-    imageName = "${dockerTagBase}/${jar.baseName}:${version}"
+    imageName = "${project.dockerTagBase}/${jar.baseName}:${project.version}"
 }
 
 /***************************

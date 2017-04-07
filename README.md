@@ -1,4 +1,4 @@
-# AP_ItemManagementService
+# Assessment Production - Item Management Service - ap-ims
 Micro-service exposing API for CRUD operations for assessment items in the item bank
 
 ## Technologies

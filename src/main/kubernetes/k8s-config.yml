@@ -1,0 +1,60 @@
+# Add a Service/Deployment for the TDS_SessionService
+apiVersion: v1
+kind: Service
+metadata:
+  name: ap-ims-service
+spec:
+  type: ClusterIP
+  ports:
+  - port: 80
+    targetPort: 8080
+  selector:
+    app: ap-ims
+    tier: backend
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: ap-ims-deployment
+spec:
+  revisionHistoryLimit: 3
+  replicas: 2
+  strategy:
+    rollingUpdate:
+      maxUnavailable: 25%
+      maxSurge: 50%
+  template:
+    metadata:
+      labels:
+        app: ap-ims
+        tier: backend
+    spec:
+      containers:
+      - name: ap-ims
+        image: fwsbac/ap-ims:@version@
+        imagePullPolicy: Always
+        readinessProbe:
+          httpGet:
+            path: /manage/health.json
+            port: 8080
+            scheme: HTTP
+          periodSeconds: 30
+          timeoutSeconds: 10
+        resources:
+          requests:
+            cpu: 100m
+            memory: 250M
+          limits:
+            cpu: 200m
+            memory: 500M
+        env:
+        - name: GET_HOSTS_FROM
+          value: dns
+        - name: CONFIG_SERVICE_URL
+          value: "http://configuration-service"
+        - name: CONFIG_SERVICE_ENABLED
+          value: "true"
+        - name: JAVA_OPTS
+          value: "-Xmx256m"
+        ports:
+        - containerPort: 8080
