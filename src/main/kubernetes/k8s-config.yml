@@ -1,4 +1,4 @@
-# Add a Service/Deployment for the TDS_SessionService
+# Add a Service/Deployment for the AP_ItemManagementService
 apiVersion: v1
 kind: Service
 metadata:
@@ -32,7 +32,6 @@ spec:
       containers:
       - name: ap-ims
         image: fwsbac/ap-ims:@version@
-        imagePullPolicy: Always
         readinessProbe:
           httpGet:
             path: /manage/health.json
@@ -43,10 +42,10 @@ spec:
         resources:
           requests:
             cpu: 100m
-            memory: 250M
+            memory: 512M
           limits:
             cpu: 200m
-            memory: 500M
+            memory: 1024M
         env:
         - name: GET_HOSTS_FROM
           value: dns

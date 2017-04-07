@@ -121,12 +121,16 @@ artifactory {
 }
 
 /***************************
- * kubernetes
+ * kubernetes (k8s)
  ***************************/
-task k8CopyFiles(type: Copy) {
+
+task k8sCopyFiles(type: Copy) {
 
     from('src/main/kubernetes/') {
-        filter(ReplaceTokens, tokens: [version: project.version])
+        filter(ReplaceTokens, tokens: [version: project.version,
+                                       dockerTagBase: project.dockerTagBase,
+                                       kubecfgState: project.kubecfgState,
+                                       kubecfgName: project.kubecfgName])
     }
 
     into 'build/kubernetes'
