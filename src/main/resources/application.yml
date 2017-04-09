@@ -7,6 +7,7 @@
 info:
   app:
     name: ${name}
+    version: ${version}
     description: ${description}
     java:
       source: ${sourceCompatibility}
