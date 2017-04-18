@@ -15,19 +15,15 @@
 server:
   port: 8081
 
-#management:
-#  security:
-#    enabled: "true"
-
 security:
-#  basic:
-#    enabled: "true"
+  basic:
+    enabled: "false"
   user:
     name: "admin"
     password: "admin"
 
-#spring:
-#  session:
-#    enabled: "true"
+spring:
+  session:
+    enabled: "false"
 
 
