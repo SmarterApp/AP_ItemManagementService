@@ -17,13 +17,13 @@ server:
 
 security:
   basic:
-    enabled: "false"
+    enabled: "${SECURITY_ENABLED:false}"
   user:
     name: "admin"
     password: "admin"
 
 spring:
   session:
-    enabled: "false"
+    enabled: "${SESSION_CLUSTER_ENABLED:false}"
 
 
