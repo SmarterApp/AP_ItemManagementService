@@ -26,4 +26,11 @@ spring:
   session:
     enabled: "${SESSION_CLUSTER_ENABLED:false}"
 
+gitlab:
+  host: "${GITLAB_HOST:https://gitlab-dev.smarterbalanced.org}"
+  user: "${GITLAB_USER}"
+  pass: "${GITLAB_PASSWORD}"
+  group: "${GITLAB_GROUP:brett-itembank}"
+  localBaseDir: "${GITLAB_LOCAL_BASE_DIR:/Users/brettdrainer/ImsGitlabRepo}"
+
 
