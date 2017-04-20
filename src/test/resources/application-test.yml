@@ -9,3 +9,6 @@ security:
 spring:
   session:
     enabled: "false"
+
+gitlab:
+  enabled: "false"
