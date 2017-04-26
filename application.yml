@@ -30,7 +30,7 @@ gitlab:
   host: "${GITLAB_HOST:https://gitlab-dev.smarterbalanced.org}"
   user: "${GITLAB_USER}"
   pass: "${GITLAB_PASSWORD}"
-  group: "${GITLAB_GROUP:brett-itembank}"
+  group: "${GITLAB_GROUP:iat-development}"
   localBaseDir: "${GITLAB_LOCAL_BASE_DIR:${HOME}/ImsGitlabRepo}"
 
 
