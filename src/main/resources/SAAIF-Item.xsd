@@ -86,7 +86,7 @@
                                         </xs:element>
                                         <xs:element type="xs:string" name="rationaleoptlist" minOccurs="0"/>
                                         <xs:element type="xs:string" name="illustration" minOccurs="0"/>
-                                        <xs:element type="xs:string" name="stem" minOccurs="0" />
+                                        <xs:element type="xs:string" name="stem" minOccurs="1" />
                                         <xs:element name="rubriclist" maxOccurs="unbounded" minOccurs="0">
                                             <xs:complexType mixed="true">
                                                 <xs:choice maxOccurs="unbounded" minOccurs="0">
