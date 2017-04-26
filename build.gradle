@@ -46,6 +46,26 @@ plugins {
 apply plugin: 'io.github.robwin.jgitflow'
 
 /***************************
+ * custom source sets
+ ***************************/
+
+sourceSets {
+    integrationTest {
+        java {
+            srcDir file('src/it/java')
+            compileClasspath += main.output + test.output
+            runtimeClasspath += main.output + test.output
+        }
+        resources.srcDir file('src/it/resources')
+    }
+}
+
+configurations {
+    integrationTestCompile.extendsFrom testCompile
+    integrationTestRuntime.extendsFrom testRuntime
+}
+
+/***************************
  * dependency management
  ***************************/
 
@@ -91,6 +111,16 @@ dependencyManagement {
     }
 }
 
+
+/***************************
+ * integration tests
+ ***************************/
+
+task integrationTest(type: Test) {
+    testClassesDir = sourceSets.integrationTest.output.classesDir
+    classpath = sourceSets.integrationTest.runtimeClasspath
+}
+
 /***************************
  * build information
  ***************************/
@@ -104,6 +134,7 @@ processResources {
         expand project.properties
     }
 }
+
 
 /***************************
  * publishing
@@ -273,6 +304,13 @@ task wrapper(type: Wrapper) {
  * Lifecycle enhancements
  ***************************/
 
+tasks.withType(Test) {
+    reports.html.destination = file("${reporting.baseDir}/${name}")
+}
+
 tasks.artifactoryPublish.dependsOn 'build'
 
 test.finalizedBy(jacocoTestReport)
+
+check.dependsOn integrationTest
+integrationTest.mustRunAfter test
