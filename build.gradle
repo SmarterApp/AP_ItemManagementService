@@ -96,6 +96,8 @@ dependencies {
 
     compile 'org.eclipse.jgit:org.eclipse.jgit:4.7.0.201704051617-r'
 
+    compile 'org.eclipse.persistence:org.eclipse.persistence.moxy:2.6.4'
+
     compileOnly 'org.projectlombok:lombok'
 
     runtime 'org.springframework.boot:spring-boot-devtools'
