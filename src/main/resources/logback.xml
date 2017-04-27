@@ -14,11 +14,8 @@
   ~  See the License for the specific language governing permissions and
   ~  limitations under the License.
   -->
-<included>
-  <include resource="org/springframework/boot/logging/logback/defaults.xml" />
-  <include resource="org/springframework/boot/logging/logback/console-appender.xml" />
-  <root level="INFO">
-    <appender-ref ref="CONSOLE" />
-  </root>
-</included>
+<configuration>
+  <include resource="org/springframework/boot/logging/logback/base.xml"/>
+  <logger name="org.springframework.web" level="INFO"/>
+</configuration>
 
