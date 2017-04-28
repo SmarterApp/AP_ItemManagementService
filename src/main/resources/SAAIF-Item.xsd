@@ -1,0 +1,209 @@
+<!--
+  ~  Copyright 2017 Regents of the University of California.
+  ~
+  ~  Licensed under the Educational Community License, Version 2.0 (the "license");
+  ~  you may not use this file except in compliance with the License. You may
+  ~  obtain a copy of the license at
+  ~
+  ~  https://opensource.org/licenses/ECL-2.0
+  ~
+  ~  Unless required by applicable law or agreed to in writing, software
+  ~  distributed under the License is distributed on an "AS IS" BASIS,
+  ~  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~  See the License for the specific language governing permissions and
+  ~  limitations under the License.
+  -->
+
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="itemrelease">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="item">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="associatedpassage" maxOccurs="unbounded" minOccurs="0" />
+                            <xs:element name="attriblist" minOccurs="0">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="attrib" maxOccurs="unbounded" minOccurs="0">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element type="xs:string" name="name"/>
+                                                    <xs:element type="xs:string" name="val"/>
+                                                    <xs:element type="xs:string" name="desc"/>
+                                                </xs:sequence>
+                                                <xs:attribute type="xs:string" name="attid" use="optional"/>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name='tutorial' maxOccurs="unbounded" minOccurs="0">
+                                <xs:complexType>
+                                    <xs:simpleContent>
+                                        <xs:extension base="xs:string">
+                                            <xs:attribute type="xs:short" name="id"/>
+                                            <xs:attribute type="xs:short" name="bankkey"/>
+                                        </xs:extension>
+                                    </xs:simpleContent>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="resourceslist" maxOccurs="unbounded" minOccurs="0">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="resource" maxOccurs="unbounded" minOccurs="0">
+                                            <xs:complexType>
+                                                <xs:simpleContent>
+                                                    <xs:extension base="xs:string">
+                                                        <xs:attribute type="xs:string" name="type"/>
+                                                        <xs:attribute type="xs:short" name="id"/>
+                                                        <xs:attribute type="xs:byte" name="index"/>
+                                                        <xs:attribute type="xs:short" name="bankkey"/>
+                                                    </xs:extension>
+                                                </xs:simpleContent>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element type="xs:string" name="statistic" minOccurs="0"/>
+                            <xs:element name="MachineRubric" maxOccurs="unbounded" minOccurs="0">
+                                <xs:complexType>
+                                    <xs:attribute type="xs:string" name="filename" use="optional"/>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="content" maxOccurs="unbounded" minOccurs="1">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="qti" minOccurs="0">
+                                            <xs:complexType>
+                                                <xs:simpleContent>
+                                                    <xs:extension base="xs:string">
+                                                        <xs:attribute type="xs:string" name="spec" use="optional"/>
+                                                    </xs:extension>
+                                                </xs:simpleContent>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element type="xs:string" name="rationaleoptlist" minOccurs="0"/>
+                                        <xs:element type="xs:string" name="illustration" minOccurs="0"/>
+                                        <xs:element type="xs:string" name="stem" minOccurs="1" />
+                                        <xs:element name="rubriclist" maxOccurs="unbounded" minOccurs="0">
+                                            <xs:complexType mixed="true">
+                                                <xs:choice maxOccurs="unbounded" minOccurs="0">
+                                                    <xs:element name="rubric">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element type="xs:string" name="name"/>
+                                                                <xs:element type="xs:string" name="val"/>
+                                                            </xs:sequence>
+                                                            <xs:attribute type="xs:byte" name="scorepoint"/>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                    <xs:element name="samplelist">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element name="sample" maxOccurs="unbounded" minOccurs="0">
+                                                                    <xs:complexType>
+                                                                        <xs:sequence>
+                                                                            <xs:element type="xs:string" name="name"/>
+                                                                            <xs:element type="xs:string" name="annotation"/>
+                                                                            <xs:element type="xs:string" name="samplecontent"/>
+                                                                        </xs:sequence>
+                                                                        <xs:attribute type="xs:string" name="purpose" use="optional"/>
+                                                                        <xs:attribute type="xs:byte" name="scorepoint" use="optional"/>
+                                                                    </xs:complexType>
+                                                                </xs:element>
+                                                                <xs:element type="xs:string" name="name" minOccurs="0"/>
+                                                                <xs:element type="xs:string" name="val" minOccurs="0"/>
+                                                            </xs:sequence>
+                                                            <xs:attribute type="xs:byte" name="maxval" use="optional"/>
+                                                            <xs:attribute type="xs:byte" name="minval" use="optional"/>
+                                                            <xs:attribute type="xs:byte" name="scorepoint" use="optional"/>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:choice>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="attachmentlist" minOccurs="0">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="attachment" maxOccurs="unbounded" minOccurs="0">
+                                                        <xs:complexType>
+                                                            <xs:attribute type="xs:string" name="id" use="optional"/>
+                                                            <xs:attribute type="xs:string" name="type" use="optional"/>
+                                                            <xs:attribute type="xs:string" name="subtype" use="optional"/>
+                                                            <xs:attribute type="xs:string" name="file" use="optional"/>
+                                                            <xs:attribute type="xs:string" name="pass" use="optional"/>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="apipAccessibility" maxOccurs="unbounded" minOccurs="0">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="accessibilityInfo">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element name="accessElement" maxOccurs="unbounded" minOccurs="0">
+                                                                    <xs:complexType>
+                                                                        <xs:sequence>
+                                                                            <xs:element name="contentLinkInfo">
+                                                                                <xs:complexType>
+                                                                                    <xs:sequence>
+                                                                                        <xs:element type="xs:string" name="objectLink"/>
+                                                                                    </xs:sequence>
+                                                                                    <xs:attribute type="xs:string" name="itsLinkIdentifierRef" use="optional"/>
+                                                                                    <xs:attribute type="xs:string" name="type" use="optional"/>
+                                                                                </xs:complexType>
+                                                                            </xs:element>
+                                                                            <xs:element name="relatedElementInfo">
+                                                                                <xs:complexType>
+                                                                                    <xs:sequence>
+                                                                                        <xs:element name="readAloud">
+                                                                                            <xs:complexType>
+                                                                                                <xs:sequence>
+                                                                                                    <xs:element type="xs:string" name="textToSpeechPronunciation"/>
+                                                                                                    <xs:element type="xs:string" name="textToSpeechPronunciationAlternate"/>
+                                                                                                </xs:sequence>
+                                                                                            </xs:complexType>
+                                                                                        </xs:element>
+                                                                                        <xs:element name="brailleText">
+                                                                                            <xs:complexType>
+                                                                                                <xs:sequence>
+                                                                                                    <xs:element type="xs:string" name="brailleTextString"/>
+                                                                                                </xs:sequence>
+                                                                                            </xs:complexType>
+                                                                                        </xs:element>
+                                                                                    </xs:sequence>
+                                                                                </xs:complexType>
+                                                                            </xs:element>
+                                                                        </xs:sequence>
+                                                                        <xs:attribute type="xs:string" name="identifier" use="optional"/>
+                                                                    </xs:complexType>
+                                                                </xs:element>
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                    <xs:attribute type="xs:string" name="language" use="required"/>
+                                    <xs:attribute type="xs:float" name="version" use="required"/>
+                                    <xs:attribute type="xs:byte" name="approvedVersion" use="optional"/>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                        <xs:attribute type="xs:string" name="type"/>
+                        <xs:attribute type="xs:string" name="format"/>
+                        <xs:attribute type="xs:string" name="id" use="required"/>
+                        <xs:attribute type="xs:string" name="version" use="required"/>
+                        <xs:attribute type="xs:string" name="bankkey"/>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <xs:attribute type="xs:float" name="version"/>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
