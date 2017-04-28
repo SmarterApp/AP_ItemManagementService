@@ -10,5 +10,6 @@ spring:
   session:
     enabled: "false"
 
-gitlab:
-  enabled: "false"
+itembank:
+  test:
+    enabled: "true"

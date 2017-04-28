@@ -26,11 +26,11 @@ spring:
   session:
     enabled: "${SESSION_CLUSTER_ENABLED:true}"
 
-gitlab:
+itembank:
   host: "${GITLAB_HOST:https://gitlab-dev.smarterbalanced.org}"
   user: "${GITLAB_USER}"
-  pass: "${GITLAB_PASSWORD}"
+  password: "${GITLAB_PASSWORD}"
   group: "${GITLAB_GROUP:iat-development}"
-  localBaseDir: "${GITLAB_LOCAL_BASE_DIR:${HOME}/ImsGitlabRepo}"
+  localBaseDir: "${GITLAB_LOCAL_BASE_DIR:${HOME}/ItemBank}"
 
 
