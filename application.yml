@@ -16,6 +16,21 @@ server:
   port: 8081
 
 security:
+  basic:
+    enabled: "${SECURITY_ENABLED:true}"
   user:
     name: "admin"
     password: "admin"
+
+spring:
+  session:
+    enabled: "${SESSION_CLUSTER_ENABLED:true}"
+
+itembank:
+  host: "${GITLAB_HOST:https://gitlab-dev.smarterbalanced.org}"
+  user: "${GITLAB_USER}"
+  password: "${GITLAB_PASSWORD}"
+  group: "${GITLAB_GROUP:iat-development}"
+  localBaseDir: "${GITLAB_LOCAL_BASE_DIR:${HOME}/ItemBank}"
+
+

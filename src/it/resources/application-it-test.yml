@@ -1,0 +1,15 @@
+# --------------------------------------------------------
+# Properties for unit tests.  Tests are run with an
+# active profile of 'test'
+# --------------------------------------------------------
+security:
+  basic:
+    enabled: "false"
+
+spring:
+  session:
+    enabled: "false"
+
+itembank:
+  test:
+    enabled: "true"
