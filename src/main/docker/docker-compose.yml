@@ -1,5 +1,14 @@
 version: '2.1'
 services:
+    redis-server:
+        container_name: redis-server
+        image: healthcheck/redis
+        networks:
+            - spring-cloud-network
+        ports:
+            - 6379:6379
+        logging:
+            driver: json-file
     config-server:
         container_name: config-server
         image: @dockerTagBase@/configuration-service:@configServerVersion@
@@ -20,6 +29,11 @@ services:
             - @USER_HOME@/smarter_app/sbac-config-repo:/tmp
         logging:
             driver: json-file
+        links:
+            - redis-server
+        depends_on:
+          redis-server:
+            condition: service_healthy
     ap-ims:
         container_name: ap-ims
         image: @dockerTagBase@/ap-ims:@version@
@@ -31,15 +45,19 @@ services:
         environment:
             CONFIG_SERVICE_ENABLED: "true"
             CONFIG_SERVICE_URL: "http://config-server:8888"
+            SPRING_PROFILES_ACTIVE: "localcompose"
         ports:
             - 8081:8080
         networks:
             - spring-cloud-network
         links:
             - config-server
+            - redis-server
         depends_on:
           config-server:
-            condition: service_started
+            condition: service_healthy
+          redis-server:
+            condition: service_healthy
         volumes:
             - @USER_HOME@/smarter_app:/tmp
         logging:
