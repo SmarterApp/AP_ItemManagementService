@@ -87,8 +87,11 @@ dependencies {
     compile 'org.springframework.retry:spring-retry'
     compile 'org.springframework.session:spring-session'
 
+    compile 'org.apache.commons:commons-collections4:4.1'
     compile 'org.apache.commons:commons-lang3:3.5'
+
     compile 'com.google.guava:guava:21.0'
+
     compile 'io.springfox:springfox-swagger2:2.6.1'
     compile 'io.springfox:springfox-swagger-ui:2.6.1'
 
