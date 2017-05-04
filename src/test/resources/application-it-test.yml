@@ -1,5 +1,5 @@
 # --------------------------------------------------------
-# Properties for unit tests.  Tests are run with an
+# Properties for integration tests.  Tests are run with an
 # active profile of 'test'
 # --------------------------------------------------------
 security:
