@@ -1,6 +1,6 @@
 # --------------------------------------------------------
 # Properties for integration tests.  Tests are run with an
-# active profile of 'it-itShouldCreateSAItemAndUpdateItWithChanges'
+# active profile of 'it-test'
 # --------------------------------------------------------
 security:
   basic:
@@ -22,10 +22,10 @@ security:
   basic:
     enabled: "true"
 
----
-spring:
-  profiles: "itembank-on"
-
-itembank:
-  test:
-    enabled: "false"
+#---
+#spring:
+#  profiles: "itembank-on"
+#
+#itembank:
+#  test:
+#    enabled: "false"
