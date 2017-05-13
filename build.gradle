@@ -76,7 +76,7 @@ dependencies {
     compile 'io.springfox:springfox-swagger2:2.6.1'
     compile 'io.springfox:springfox-swagger-ui:2.6.1'
 
-    compile 'org.gitlab:java-gitlab-api:1.2.7'
+    compile 'org.gitlab:java-gitlab-api:1.2.8'
 
     compile 'org.eclipse.jgit:org.eclipse.jgit:4.7.0.201704051617-r'
 
