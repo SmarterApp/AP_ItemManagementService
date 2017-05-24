@@ -86,8 +86,8 @@
                                         </xs:element>
                                         <xs:element type="xs:string" name="rationaleoptlist" minOccurs="0"/>
                                         <xs:element type="xs:string" name="illustration" minOccurs="0"/>
-                                        <xs:element type="xs:string" name="stem" minOccurs="1" />
-                                        <xs:element name="rubriclist" maxOccurs="unbounded" minOccurs="0">
+                                        <xs:element type="xs:string" name="stem" minOccurs="1" maxOccurs="1" />
+                                        <xs:element name="rubriclist" maxOccurs="1" minOccurs="0">
                                             <xs:complexType mixed="true">
                                                 <xs:choice maxOccurs="unbounded" minOccurs="0">
                                                     <xs:element name="rubric">
@@ -96,7 +96,8 @@
                                                                 <xs:element type="xs:string" name="name"/>
                                                                 <xs:element type="xs:string" name="val"/>
                                                             </xs:sequence>
-                                                            <xs:attribute type="xs:byte" name="scorepoint"/>
+                                                            <xs:attribute type="xs:string" name="scorepoint"/>
+                                                            <xs:attribute type="xs:int"  name="index" use="optional"/>
                                                         </xs:complexType>
                                                     </xs:element>
                                                     <xs:element name="samplelist">
@@ -109,16 +110,16 @@
                                                                             <xs:element type="xs:string" name="annotation"/>
                                                                             <xs:element type="xs:string" name="samplecontent"/>
                                                                         </xs:sequence>
-                                                                        <xs:attribute type="xs:string" name="purpose" use="optional"/>
-                                                                        <xs:attribute type="xs:byte" name="scorepoint" use="optional"/>
+                                                                        <xs:attribute type="xs:string" name="purpose"    use="optional"/>
+                                                                        <xs:attribute type="xs:string" name="scorepoint" use="optional"/>
                                                                     </xs:complexType>
                                                                 </xs:element>
                                                                 <xs:element type="xs:string" name="name" minOccurs="0"/>
-                                                                <xs:element type="xs:string" name="val" minOccurs="0"/>
+                                                                <xs:element type="xs:string" name="val"  minOccurs="0"/>
                                                             </xs:sequence>
                                                             <xs:attribute type="xs:byte" name="maxval" use="optional"/>
                                                             <xs:attribute type="xs:byte" name="minval" use="optional"/>
-                                                            <xs:attribute type="xs:byte" name="scorepoint" use="optional"/>
+                                                            <xs:attribute type="xs:int"  name="index"  use="optional"/>
                                                         </xs:complexType>
                                                     </xs:element>
                                                 </xs:choice>
@@ -139,7 +140,7 @@
                                                 </xs:sequence>
                                             </xs:complexType>
                                         </xs:element>
-                                        <xs:element name="apipAccessibility" maxOccurs="unbounded" minOccurs="0">
+                                        <xs:element name="apipAccessibility" minOccurs="0">
                                             <xs:complexType>
                                                 <xs:sequence>
                                                     <xs:element name="accessibilityInfo">

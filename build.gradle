@@ -33,6 +33,7 @@ buildscript {
 
 plugins {
     id 'java'
+    id 'idea'
     id 'checkstyle'
     id 'pmd'
     id 'findbugs'
@@ -44,26 +45,6 @@ plugins {
 }
 
 apply plugin: 'io.github.robwin.jgitflow'
-
-/***************************
- * custom source sets
- ***************************/
-
-sourceSets {
-    integrationTest {
-        java {
-            srcDir file('src/it/java')
-            compileClasspath += main.output + test.output
-            runtimeClasspath += main.output + test.output
-        }
-        resources.srcDir file('src/it/resources')
-    }
-}
-
-configurations {
-    integrationTestCompile.extendsFrom testCompile
-    integrationTestRuntime.extendsFrom testRuntime
-}
 
 /***************************
  * dependency management
@@ -87,12 +68,17 @@ dependencies {
     compile 'org.springframework.retry:spring-retry'
     compile 'org.springframework.session:spring-session'
 
+    compile 'org.apache.commons:commons-collections4:4.1'
     compile 'org.apache.commons:commons-lang3:3.5'
+
     compile 'com.google.guava:guava:21.0'
+
     compile 'io.springfox:springfox-swagger2:2.6.1'
     compile 'io.springfox:springfox-swagger-ui:2.6.1'
 
-    compile 'org.gitlab:java-gitlab-api:1.2.7'
+//    compile 'org.gitlab:java-gitlab-api:1.2.8'
+    compile 'org.gitlab4j:gitlab4j-api:4.2.0'
+
 
     compile 'org.eclipse.jgit:org.eclipse.jgit:4.7.0.201704051617-r'
 
@@ -111,16 +97,6 @@ dependencyManagement {
     imports {
         mavenBom 'org.springframework.cloud:spring-cloud-dependencies:Dalston.RELEASE'
     }
-}
-
-
-/***************************
- * integration tests
- ***************************/
-
-task integrationTest(type: Test) {
-    testClassesDir = sourceSets.integrationTest.output.classesDir
-    classpath = sourceSets.integrationTest.runtimeClasspath
 }
 
 /***************************
@@ -306,13 +282,6 @@ task wrapper(type: Wrapper) {
  * Lifecycle enhancements
  ***************************/
 
-tasks.withType(Test) {
-    reports.html.destination = file("${reporting.baseDir}/${name}")
-}
-
 tasks.artifactoryPublish.dependsOn 'build'
 
 test.finalizedBy(jacocoTestReport)
-
-check.dependsOn integrationTest
-integrationTest.mustRunAfter test

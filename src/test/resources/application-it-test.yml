@@ -1,0 +1,31 @@
+# --------------------------------------------------------
+# Properties for integration tests.  Tests are run with an
+# active profile of 'it-test'
+# --------------------------------------------------------
+security:
+  basic:
+    enabled: "false"
+
+spring:
+  session:
+    enabled: "false"
+
+itembank:
+  test:
+    enabled: "true"
+
+---
+spring:
+  profiles: "security-on"
+
+security:
+  basic:
+    enabled: "true"
+
+---
+spring:
+  profiles: "itembank-on"
+
+itembank:
+  test:
+    enabled: "false"
