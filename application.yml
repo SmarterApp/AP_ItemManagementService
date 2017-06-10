@@ -34,5 +34,6 @@ itembank:
   group: "${GITLAB_GROUP:iat-development}"
   localBaseDir: "${GITLAB_LOCAL_BASE_DIR:${HOME}/ItemBank}"
   apiVersion: "${GITLAB_API_VERSION:/api/v4}"
+  bankKey: "${GITLAB_BANK_KEY:187}"
 
 
