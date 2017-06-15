@@ -53,9 +53,12 @@ apply plugin: 'io.github.robwin.jgitflow'
 repositories {
     mavenCentral()
     maven { url "https://repo.spring.io/milestone" }
+    mavenLocal()
 }
 
 dependencies {
+    compile 'org.opentestsystem.ap:ap-common:0.1.0'
+
     compile 'org.springframework.boot:spring-boot-starter-actuator'
     compile 'org.springframework.boot:spring-boot-starter-security'
     compile 'org.springframework.boot:spring-boot-starter-web'
