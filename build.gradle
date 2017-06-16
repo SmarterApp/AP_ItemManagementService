@@ -51,9 +51,9 @@ apply plugin: 'io.github.robwin.jgitflow'
  ***************************/
 
 repositories {
+    mavenLocal()
     mavenCentral()
     maven { url "https://repo.spring.io/milestone" }
-    mavenLocal()
 }
 
 dependencies {
