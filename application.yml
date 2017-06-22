@@ -37,3 +37,9 @@ itembank:
   bankKey: "${GITLAB_BANK_KEY:187}"
 
 
+logging:
+  level:
+    org:
+      opentestsystem:
+        ap:
+          ims: DEBUG
