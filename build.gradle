@@ -23,6 +23,7 @@ buildscript {
         springBootVersion = '1.5.2.RELEASE'
     }
     repositories {
+        mavenLocal()
         mavenCentral()
         jcenter()
     }
@@ -57,7 +58,7 @@ repositories {
 }
 
 dependencies {
-    compile 'org.opentestsystem.ap:ap-common:0.1.2-SNAPSHOT'
+    compile 'org.opentestsystem.ap:ap-common:0.1.3-SNAPSHOT'
 
     compile 'org.springframework.boot:spring-boot-starter-actuator'
     compile 'org.springframework.boot:spring-boot-starter-security'
