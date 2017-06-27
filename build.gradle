@@ -58,7 +58,7 @@ repositories {
 }
 
 dependencies {
-    compile 'org.opentestsystem.ap:ap-common:0.1.6'
+    compile 'org.opentestsystem.ap:ap-common:0.1.7-SNAPSHOT'
 
     compile 'org.springframework.boot:spring-boot-starter-actuator'
     compile 'org.springframework.boot:spring-boot-starter-security'
@@ -148,6 +148,10 @@ artifactory {
     resolve {
         repository {
             repoKey = 'libs-releases'
+            maven	= true
+        }
+        repository {
+            repoKey = 'libs-snapshots'
             maven	= true
         }
     }
