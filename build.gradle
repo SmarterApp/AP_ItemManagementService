@@ -23,6 +23,7 @@ buildscript {
         springBootVersion = '1.5.2.RELEASE'
     }
     repositories {
+        mavenLocal()
         mavenCentral()
         jcenter()
     }
@@ -51,11 +52,14 @@ apply plugin: 'io.github.robwin.jgitflow'
  ***************************/
 
 repositories {
+    mavenLocal()
     mavenCentral()
     maven { url "https://repo.spring.io/milestone" }
 }
 
 dependencies {
+    compile 'org.opentestsystem.ap:ap-common:0.1.5-SNAPSHOT'
+
     compile 'org.springframework.boot:spring-boot-starter-actuator'
     compile 'org.springframework.boot:spring-boot-starter-security'
     compile 'org.springframework.boot:spring-boot-starter-web'
@@ -63,7 +67,6 @@ dependencies {
     compile 'org.springframework.boot:spring-boot-starter-data-redis'
 
     compile 'org.springframework.cloud:spring-cloud-starter-config'
-    compile 'org.springframework.cloud:spring-cloud-starter-feign'
 
     compile 'org.springframework.security.extensions:spring-security-saml2-core:1.0.2.RELEASE'
     compile 'org.springframework.retry:spring-retry'
@@ -78,14 +81,6 @@ dependencies {
 
     compile 'io.springfox:springfox-swagger2:2.6.1'
     compile 'io.springfox:springfox-swagger-ui:2.6.1'
-
-//    compile 'org.gitlab:java-gitlab-api:1.2.8'
-    compile 'org.gitlab4j:gitlab4j-api:4.2.0'
-
-
-    compile 'org.eclipse.jgit:org.eclipse.jgit:4.7.0.201704051617-r'
-
-    compile 'org.eclipse.persistence:org.eclipse.persistence.moxy:2.6.4'
 
     compileOnly 'org.projectlombok:lombok'
 
@@ -153,6 +148,10 @@ artifactory {
     resolve {
         repository {
             repoKey = 'libs-releases'
+            maven	= true
+        }
+        repository {
+            repoKey = 'libs-snapshots'
             maven	= true
         }
     }
