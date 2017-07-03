@@ -25,6 +25,10 @@ security:
 spring:
   session:
     enabled: "${SESSION_CLUSTER_ENABLED:true}"
+  datasource:
+    url: "${DB_URL:jdbc:mysql://localhost:3306/iat?useSSL=false}"
+    username: "${DB_USER:iat}"
+    password: "${DB_PASSWORD:Password}"
 
 itembank:
   host: "${GITLAB_HOST:https://gitlab-dev.smarterbalanced.org}"
@@ -35,7 +39,6 @@ itembank:
   localBaseDir: "${GITLAB_LOCAL_BASE_DIR:${HOME}/ItemBank}"
   apiVersion: "${GITLAB_API_VERSION:/api/v4}"
   bankKey: "${GITLAB_BANK_KEY:187}"
-
 
 logging:
   level:
