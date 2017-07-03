@@ -1,18 +1,19 @@
 #!/bin/bash
 
-EXPECTED_ARGS=3
+EXPECTED_ARGS=1
 E_BADARGS=65
 MYSQL=`which mysql`
 
-Q1="CREATE DATABASE IF NOT EXISTS $1;"
-Q2="GRANT USAGE ON *.* TO $2@localhost IDENTIFIED BY '$3';"
-Q3="GRANT ALL PRIVILEGES ON $1.* TO $2@localhost;"
+Q1="CREATE DATABASE IF NOT EXISTS iat;"
+Q2="GRANT USAGE ON *.* TO iat@localhost IDENTIFIED BY '$1';"
+Q3="GRANT ALL PRIVILEGES ON iat.* TO iat@localhost;"
 Q4="FLUSH PRIVILEGES;"
 SQL="${Q1}${Q2}${Q3}${Q4}"
 
 if [ $# -ne $EXPECTED_ARGS ]
 then
-  echo "Usage: $0 dbname dbuser dbpass"
+  echo "Script creates database 'iat' for user 'iat'.  You must provide password for user 'iat'."
+  echo "Usage: $0 {iat-user-password}"
   exit $E_BADARGS
 fi
 
