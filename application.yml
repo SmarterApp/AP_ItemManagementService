@@ -27,8 +27,8 @@ spring:
     enabled: "${SESSION_CLUSTER_ENABLED:true}"
   datasource:
     url: "${DB_URL:jdbc:mysql://localhost:3306/iat?useSSL=false}"
-    username: "${DB_USER:iat}"
-    password: "${DB_PASSWORD:Password}"
+    username: "${DB_USER}"
+    password: "${DB_PASSWORD}"
 
 itembank:
   host: "${GITLAB_HOST:https://gitlab-dev.smarterbalanced.org}"
@@ -46,3 +46,9 @@ logging:
       opentestsystem:
         ap:
           ims: DEBUG
+
+---
+spring:
+  profiles: dev
+  datasource:
+    url: "jdbc:mysql://iat-db.cjqp2fdamfoh.us-east-2.rds.amazonaws.com:3306/iat"
