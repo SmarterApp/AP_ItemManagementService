@@ -9,6 +9,8 @@ security:
 spring:
   session:
     enabled: "false"
+  jpa:
+    database: hsql
 
 itembank:
   test:

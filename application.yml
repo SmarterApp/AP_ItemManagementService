@@ -25,6 +25,10 @@ security:
 spring:
   session:
     enabled: "${SESSION_CLUSTER_ENABLED:true}"
+  datasource:
+    url: "${DB_URL:jdbc:mysql://iat-dev-db.cjqp2fdamfoh.us-east-2.rds.amazonaws.com:3306/iat?useSSL=false}"
+    username: "${DB_USER}"
+    password: "${DB_PASSWORD}"
 
 itembank:
   host: "${GITLAB_HOST:https://gitlab-dev.smarterbalanced.org}"
@@ -36,10 +40,15 @@ itembank:
   apiVersion: "${GITLAB_API_VERSION:/api/v4}"
   bankKey: "${GITLAB_BANK_KEY:187}"
 
-
 logging:
   level:
     org:
       opentestsystem:
         ap:
           ims: DEBUG
+
+---
+spring:
+  profiles: local
+  datasource:
+    url: "jdbc:mysql://localhost:3306/iat?useSSL=false"

@@ -1,0 +1,26 @@
+#!/bin/bash
+#
+# Creates a new database on the localhost instance of MySQL.  The
+# new database is named 'iat'.  A user is created for the new database
+# with the username 'iat'.  Running the script requires an argument
+# which is the password for the new user.
+#
+
+EXPECTED_ARGS=1
+E_BADARGS=65
+MYSQL=`which mysql`
+
+Q1="CREATE DATABASE IF NOT EXISTS iat;"
+Q2="GRANT USAGE ON *.* TO iat@localhost IDENTIFIED BY '$1';"
+Q3="GRANT ALL PRIVILEGES ON iat.* TO iat@localhost;"
+Q4="FLUSH PRIVILEGES;"
+SQL="${Q1}${Q2}${Q3}${Q4}"
+
+if [ $# -ne $EXPECTED_ARGS ]
+then
+  echo "Creating database 'iat' for user 'iat' failed.  You must provide password for user."
+  echo "Usage: $0 {password}"
+  exit $E_BADARGS
+fi
+
+$MYSQL -uroot -p -e "$SQL"
