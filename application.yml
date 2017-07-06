@@ -26,7 +26,7 @@ spring:
   session:
     enabled: "${SESSION_CLUSTER_ENABLED:true}"
   datasource:
-    url: "${DB_URL:jdbc:mysql://localhost:3306/iat?useSSL=false}"
+    url: "${DB_URL:jdbc:mysql://iat-db.cjqp2fdamfoh.us-east-2.rds.amazonaws.com:3306/iat?useSSL=false}"
     username: "${DB_USER}"
     password: "${DB_PASSWORD}"
 
@@ -49,6 +49,6 @@ logging:
 
 ---
 spring:
-  profiles: dev
+  profiles: local
   datasource:
-    url: "jdbc:mysql://iat-db.cjqp2fdamfoh.us-east-2.rds.amazonaws.com:3306/iat"
+    url: "jdbc:mysql://localhost:3306/iat?useSSL=false"
