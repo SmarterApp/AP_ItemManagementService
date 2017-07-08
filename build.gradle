@@ -153,6 +153,9 @@ artifactory {
         repository {
             repoKey = 'libs-releases'
             maven	= true
+        }repository {
+            repoKey = 'libs-snapshots'
+            maven	= true
         }
     }
 }
