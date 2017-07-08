@@ -52,3 +52,10 @@ spring:
   profiles: local
   datasource:
     url: "jdbc:mysql://localhost:3306/iat?useSSL=false"
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+
+data:
+  loader:
+    enabled: "true"

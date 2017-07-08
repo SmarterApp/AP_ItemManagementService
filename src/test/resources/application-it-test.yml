@@ -11,6 +11,8 @@ spring:
     enabled: "false"
   jpa:
     database: hsql
+    hibernate:
+      ddl-auto: create-drop
 
 itembank:
   test:
