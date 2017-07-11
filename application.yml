@@ -29,6 +29,12 @@ spring:
     url: "${DB_URL:jdbc:mysql://iat-dev-db.cjqp2fdamfoh.us-east-2.rds.amazonaws.com:3306/iat?useSSL=false}"
     username: "${DB_USER}"
     password: "${DB_PASSWORD}"
+  jpa:
+    properties:
+      hibernate:
+        show_sql: true
+        use_sql_comments: true
+        format_sql: true
 
 itembank:
   host: "${GITLAB_HOST:https://gitlab-dev.smarterbalanced.org}"
