@@ -40,6 +40,11 @@ itembank:
   apiVersion: "${GITLAB_API_VERSION:/api/v4}"
   bankKey: "${GITLAB_BANK_KEY:187}"
 
+# Uses a comma separated string to set the cache properties
+# http://static.javadoc.io/com.github.ben-manes.caffeine/caffeine/2.2.2/com/github/benmanes/caffeine/cache/CaffeineSpec.html
+cache:
+  spec: "expireAfterWrite=30s"
+
 logging:
   level:
     org:
@@ -52,3 +57,15 @@ spring:
   profiles: local
   datasource:
     url: "jdbc:mysql://localhost:3306/iat?useSSL=false"
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        show_sql: true
+        use_sql_comments: true
+        format_sql: true
+
+data:
+  loader:
+    enabled: "true"

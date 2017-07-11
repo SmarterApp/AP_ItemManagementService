@@ -9,11 +9,16 @@ security:
 spring:
   session:
     enabled: "false"
-  jpa:
-    database: hsql
+
+cache:
+  spec: "expireAfterWrite=30s"
 
 itembank:
   test:
+    enabled: "true"
+
+data:
+  loader:
     enabled: "true"
 
 ---
