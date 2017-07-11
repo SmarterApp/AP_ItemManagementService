@@ -153,13 +153,6 @@ artifactory {
             publications ('mavenJava')
         }
     }
-
-//    resolve {
-//        repository {
-//            repoKey = 'libs-releases'
-//            maven	= true
-//        }
-//    }
 }
 
 /***************************
