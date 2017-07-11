@@ -1,0 +1,175 @@
+{
+	"variables": [],
+	"info": {
+		"name": "IMS",
+		"_postman_id": "d770db31-3068-e6bb-54c4-9720325cc390",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Begin Create Transaction",
+			"request": {
+				"url": "http://localhost:8081/api/v1/items/transactions",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"type\":\"sa\",\n\t\"message\": \"being create transaction\"\n} "
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Begin Edit Transaction",
+			"request": {
+				"url": "http://localhost:8081/api/v1/items/1874873939/transactions",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"message\": \"begin edit transaction\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Save Transaction",
+			"request": {
+				"url": "http://localhost:8081/api/v1/items/1714239956/transactions/1721418281",
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"message\": \"saving transaction\",\n\t\"item\" : {\n\t\t\"type\": \"sa\",\n\t\t\"prompt\": \"What planet is closest to the sun?\",\n\t\t\"exemplarResponses\": [\"Mercury\"],\n\t\t\"stimulusId\": \"1171900071\",\n\t\t\"workflowStatusCode\": \"InitialReview\"\n\t}\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Save Transaction MC",
+			"request": {
+				"url": "http://localhost:8081/api/v1/items/1067966882/transactions/1333364963",
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"message\": \"saving MC transaction\",\n\t\"item\" : {\n\t\t\"type\": \"mc\",\n\t\t\"prompt\": \"Saving MC via REST endpoint\",\n\t\t\"options\": [\n\t\t\t{\n\t\t\t\t\"text\": \"Response A\", \n\t\t\t\t\"correctAnswer\": \"false\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"text\": \"Response B\", \n\t\t\t\t\"correctAnswer\": \"false\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"text\": \"Response C\", \n\t\t\t\t\"correctAnswer\": \"false\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"text\": \"Response D\", \n\t\t\t\t\"correctAnswer\": \"true\"\n\t\t\t}\n\t\t],\n\t\t\"stimulusId\": \"1171900071\"\n\t}\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Commit Transaction",
+			"request": {
+				"url": "http://localhost:8081/api/v1/items/1714239956/transactions/1721418281",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"message\": \"committing create transaction\",\n\t\"item\": {\n\t\t\"type\": \"sa\",\n\t\t\"prompt\": \"What planet comes after Earth?\",\n\t\t\"exemplarResponses\": [\"Mars\"],\n\t\t\"stimulusId\": null,\n\t\t\"workflowStatusCode\": \"AuditReview\"\n\t}\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Rollback Transaction",
+			"request": {
+				"url": "http://localhost:8081/api/v1/items/1015240094/transactions/2038735092",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get Item",
+			"request": {
+				"url": "http://localhost:8081/api/v1/items/1695379718",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get Item History",
+			"request": {
+				"url": "http://localhost:8081/api/v1/items/1123438434/history",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get Item Diff",
+			"request": {
+				"url": "http://localhost:8081/api/v1/items/1123438434/diff/1928a9f50c419a84f5d4919bb8907ca25a060679",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get Workflow Statuses",
+			"request": {
+				"url": "http://localhost:8081/api/v1/items/workflow-statuses",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
