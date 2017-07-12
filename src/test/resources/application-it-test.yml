@@ -9,6 +9,9 @@ security:
 spring:
   session:
     enabled: "false"
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
 
 cache:
   spec: "expireAfterWrite=30s"
@@ -20,6 +23,9 @@ itembank:
 data:
   loader:
     enabled: "true"
+
+flyway:
+  enabled: false
 
 ---
 spring:

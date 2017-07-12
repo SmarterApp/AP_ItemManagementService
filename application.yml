@@ -29,12 +29,19 @@ spring:
     url: "${DB_URL:jdbc:mysql://iat-dev-db.cjqp2fdamfoh.us-east-2.rds.amazonaws.com:3306/iat?useSSL=false}"
     username: "${DB_USER}"
     password: "${DB_PASSWORD}"
+    validationQuery: SELECT 1
   jpa:
+    hibernate:
+      ddl-auto: validate
     properties:
       hibernate:
         show_sql: true
         use_sql_comments: true
         format_sql: true
+
+flyway:
+  schemas: "iat"
+  enabled: true
 
 itembank:
   host: "${GITLAB_HOST:https://gitlab-dev.smarterbalanced.org}"
@@ -63,15 +70,7 @@ spring:
   profiles: local
   datasource:
     url: "jdbc:mysql://localhost:3306/iat?useSSL=false"
-  jpa:
-    hibernate:
-      ddl-auto: create-drop
-    properties:
-      hibernate:
-        show_sql: true
-        use_sql_comments: true
-        format_sql: true
 
-data:
-  loader:
-    enabled: "true"
+flyway:
+  enabled: true
+
