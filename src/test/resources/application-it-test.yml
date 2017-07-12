@@ -9,6 +9,9 @@ security:
 spring:
   session:
     enabled: "false"
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
 
 cache:
   spec: "expireAfterWrite=30s"
