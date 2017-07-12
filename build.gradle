@@ -23,7 +23,6 @@ buildscript {
         springBootVersion = '1.5.2.RELEASE'
     }
     repositories {
-        mavenLocal()
         mavenCentral()
         jcenter()
     }
@@ -43,6 +42,8 @@ plugins {
     id 'org.springframework.boot'               version '1.5.2.RELEASE'
     id 'com.jfrog.artifactory'                  version '4.4.14'
     id 'com.bmuschko.docker-remote-api'         version '3.0.5'
+    id "org.flywaydb.flyway"                    version "4.2.0"
+
 }
 
 apply plugin: 'io.github.robwin.jgitflow'
@@ -277,6 +278,9 @@ tasks.withType(FindBugs) {
  * DB Migration
  ***************************/
 
+// http://www.jeremyjarrell.com/using-flyway-db-with-distributed-version-control/
+// https://gist.github.com/jeremyjarrell/6083207
+// Had to adjust the gist and put a 'V' on the front of the file or Flyway wouldn't run it
 task prefixNewMigrations {
     fileTree(dir: 'src/main/resources/db/migration').exclude({ isFilePrefixed(it.file) }).each { file ->
         doLast {
@@ -291,6 +295,12 @@ task prefixNewMigrations {
 
 def isFilePrefixed(file) {
     return (file.name ==~ '^\\d+__.*\\.sql\$')
+}
+
+flyway {
+    url = project.dbUrl
+    user = project.dbUser
+    password = project.dbPassword
 }
 
 /***************************
