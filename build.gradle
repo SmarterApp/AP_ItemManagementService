@@ -23,7 +23,6 @@ buildscript {
         springBootVersion = '1.5.2.RELEASE'
     }
     repositories {
-        mavenLocal()
         mavenCentral()
         jcenter()
     }
@@ -43,6 +42,8 @@ plugins {
     id 'org.springframework.boot'               version '1.5.2.RELEASE'
     id 'com.jfrog.artifactory'                  version '4.4.14'
     id 'com.bmuschko.docker-remote-api'         version '3.0.5'
+    id "org.flywaydb.flyway"                    version "4.2.0"
+
 }
 
 apply plugin: 'io.github.robwin.jgitflow'
@@ -55,15 +56,19 @@ repositories {
     mavenLocal()
     mavenCentral()
     maven { url "https://repo.spring.io/milestone" }
+    maven { url "https://airdev.jfrog.io/airdev/libs-releases/" }
+    maven { url "https://airdev.jfrog.io/airdev/libs-snapshots/" }
 }
 
 dependencies {
-    compile 'org.opentestsystem.ap:ap-common:0.1.8'
+    compile 'org.opentestsystem.ap:ap-common:0.1.10'
     compile 'org.springframework.boot:spring-boot-starter-actuator'
     compile 'org.springframework.boot:spring-boot-starter-security'
     compile 'org.springframework.boot:spring-boot-starter-web'
     compile 'org.springframework.boot:spring-boot-starter-aop'
     compile 'org.springframework.boot:spring-boot-starter-data-redis'
+    compile 'org.springframework.boot:spring-boot-starter-data-jpa'
+    compile 'org.springframework.boot:spring-boot-starter-cache'
 
     compile 'org.springframework.cloud:spring-cloud-starter-config'
 
@@ -74,12 +79,18 @@ dependencies {
     compile 'org.apache.commons:commons-collections4:4.1'
     compile 'org.apache.commons:commons-lang3:3.5'
 
-    compile 'com.google.guava:guava:21.0'
+    compile 'com.google.guava:guava:22.0'
+
+    compile 'com.github.ben-manes.caffeine:caffeine:2.5.3'
 
     compile 'io.github.openfeign:feign-gson:9.3.1'
 
     compile 'io.springfox:springfox-swagger2:2.6.1'
     compile 'io.springfox:springfox-swagger-ui:2.6.1'
+
+    compile 'mysql:mysql-connector-java'
+
+    compile 'org.flywaydb:flyway-core:4.2.0'
 
     compileOnly 'org.projectlombok:lombok'
 
@@ -88,6 +99,8 @@ dependencies {
     testCompile 'org.springframework.boot:spring-boot-starter-test'
 
     testCompile 'org.projectlombok:lombok'
+
+    testCompile 'org.hsqldb:hsqldb'
 }
 
 dependencyManagement {
@@ -141,13 +154,6 @@ artifactory {
         }
         defaults {
             publications ('mavenJava')
-        }
-    }
-
-    resolve {
-        repository {
-            repoKey = 'libs-releases'
-            maven	= true
         }
     }
 }
@@ -265,6 +271,36 @@ tasks.withType(FindBugs) {
         html.enabled = true
 	    html.stylesheet resources.text.fromFile('config/findbugs/findbugs-color.xsl')
     }
+}
+
+
+/***************************
+ * DB Migration
+ ***************************/
+
+// http://www.jeremyjarrell.com/using-flyway-db-with-distributed-version-control/
+// https://gist.github.com/jeremyjarrell/6083207
+// Had to adjust the gist and put a 'V' on the front of the file or Flyway wouldn't run it
+task prefixNewMigrations {
+    fileTree(dir: 'src/main/resources/db/migration').exclude({ isFilePrefixed(it.file) }).each { file ->
+        doLast {
+            def timestamp = new Date().format('yyyyMMddHHmmssSSS', TimeZone.getTimeZone('GMT'))
+            println "Renaming $file.name to V${timestamp}__$file.name"
+            file.renameTo("${file.parentFile.absolutePath}${file.separator}V${timestamp}__$file.name")
+            // Sleep for a moment to avoid prefix conflicts when renaming multiple files
+            sleep(1*1000)
+        }
+    }
+}
+
+def isFilePrefixed(file) {
+    return (file.name ==~ '^\\d+__.*\\.sql\$')
+}
+
+flyway {
+    url = project.dbUrl
+    user = project.dbUser
+    password = project.dbPassword
 }
 
 /***************************
