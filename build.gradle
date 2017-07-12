@@ -55,7 +55,7 @@ repositories {
     mavenLocal()
     mavenCentral()
     maven { url "https://repo.spring.io/milestone" }
-    maven { url "https://airdev.jfrog.io/airdev/libs-releases/"}
+    maven { url "https://airdev.jfrog.io/airdev/libs-releases/" }
     maven { url "https://airdev.jfrog.io/airdev/libs-snapshots/" }
 }
 
@@ -88,6 +88,8 @@ dependencies {
     compile 'io.springfox:springfox-swagger-ui:2.6.1'
 
     compile 'mysql:mysql-connector-java'
+
+    compile 'org.flywaydb:flyway-core:4.2.0'
 
     compileOnly 'org.projectlombok:lombok'
 
@@ -268,6 +270,27 @@ tasks.withType(FindBugs) {
         html.enabled = true
 	    html.stylesheet resources.text.fromFile('config/findbugs/findbugs-color.xsl')
     }
+}
+
+
+/***************************
+ * DB Migration
+ ***************************/
+
+task prefixNewMigrations {
+    fileTree(dir: 'src/main/resources/db/migration').exclude({ isFilePrefixed(it.file) }).each { file ->
+        doLast {
+            def timestamp = new Date().format('yyyyMMddHHmmssSSS', TimeZone.getTimeZone('GMT'))
+            println "Renaming $file.name to V${timestamp}__$file.name"
+            file.renameTo("${file.parentFile.absolutePath}${file.separator}V${timestamp}__$file.name")
+            // Sleep for a moment to avoid prefix conflicts when renaming multiple files
+            sleep(1*1000)
+        }
+    }
+}
+
+def isFilePrefixed(file) {
+    return (file.name ==~ '^\\d+__.*\\.sql\$')
 }
 
 /***************************

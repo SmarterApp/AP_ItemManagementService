@@ -21,6 +21,9 @@ data:
   loader:
     enabled: "true"
 
+flyway:
+  enabled: false
+
 ---
 spring:
   profiles: "security-on"
