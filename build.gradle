@@ -294,7 +294,7 @@ task prefixNewMigrations {
 }
 
 def isFilePrefixed(file) {
-    return (file.name ==~ '^\\d+__.*\\.sql\$')
+    return (file.name ==~ '^[V]\\d+__.*\\.sql\$')
 }
 
 flyway {
