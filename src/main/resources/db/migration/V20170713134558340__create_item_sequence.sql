@@ -8,11 +8,11 @@ CREATE TABLE IF NOT EXISTS `iat`.`sequence`
 
 INSERT IGNORE INTO `iat`.`sequence` (`name`, `next`, `inc`) VALUES ('item_id', 1, 1);
 
-DROP FUNCTION IF EXISTS `iat`.`nextVal`;
+DROP FUNCTION IF EXISTS `iat`.`next_val`;
 
 DELIMITER //
 
-CREATE FUNCTION `iat`.`nextVal` (`vname` VARCHAR(70))
+CREATE FUNCTION `iat`.`next_val` (`vname` VARCHAR(70))
   RETURNS BIGINT DETERMINISTIC
   BEGIN
     IF EXISTS(SELECT 1 FROM `sequence` s WHERE `name` = vname) THEN
