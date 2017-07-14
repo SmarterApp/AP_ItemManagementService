@@ -301,6 +301,7 @@ flyway {
     url = project.dbUrl
     user = project.dbUser
     password = project.dbPassword
+    schemas = ['iat']
 }
 
 /***************************

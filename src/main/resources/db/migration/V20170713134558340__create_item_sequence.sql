@@ -15,10 +15,10 @@ DELIMITER;
 CALL CreateSequence('item_id_seq', 1, 1);
 
 DELIMITER //
-  CREATE FUNCTION NextVal (`vname` VARCHAR(30))
-    RETURNS INT
-    BEGIN
-      UPDATE `_sequences` SET `next` = (@next := `next`) + 1 WHERE `name` = vname;
-      RETURN @next;
+CREATE FUNCTION NextVal (`vname` VARCHAR(30))
+  RETURNS INT DETERMINISTIC
+  BEGIN
+    UPDATE `_sequences` SET `next` = (@next := `next`) + 1 WHERE `name` = vname;
+    RETURN @next;
   END //
 DELIMITER;
