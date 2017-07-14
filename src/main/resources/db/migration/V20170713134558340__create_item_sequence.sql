@@ -1,24 +1,23 @@
-DELIMITER //
-CREATE PROCEDURE CreateSequence (`name` VARCHAR(30), `start` INT, `inc` INT)
-  BEGIN
-    CREATE TABLE IF NOT EXISTS `_sequences`
-    (
-      `name` VARCHAR(70) NOT NULL UNIQUE,
-      `next` INT NOT NULL,
-      `inc` INT NOT NULL
-    );
+CREATE TABLE IF NOT EXISTS `iat`.`_sequences`
+(
+  `name` VARCHAR(70) NOT NULL UNIQUE,
+  `next` BIGINT NOT NULL,
+  `inc` BIGINT NOT NULL,
+  PRIMARY KEY (`name`)
+);
 
-    INSERT INTO `_sequences` VALUES (name, start, inc);
-  END //
-DELIMITER;
+INSERT IGNORE INTO `iat`.`_sequences` (`name`, `next`, `inc`) VALUES ('item_id', 1, 1);
 
-CALL CreateSequence('item_id_seq', 1, 1);
+DROP FUNCTION IF EXISTS `iat`.`NextVal`;
 
 DELIMITER //
-CREATE FUNCTION NextVal (`vname` VARCHAR(30))
-  RETURNS INT DETERMINISTIC
+
+CREATE FUNCTION `iat`.`NextVal` (`vname` VARCHAR(70))
+  RETURNS BIGINT DETERMINISTIC
   BEGIN
     UPDATE `_sequences` SET `next` = (@next := `next`) + 1 WHERE `name` = vname;
     RETURN @next;
   END //
 DELIMITER;
+
+# IF NOT EXISTS(SELECT EXISTS(SELECT 1 FROM mysql.proc p WHERE db = 'iat' AND name = 'NextVal')) THEN
