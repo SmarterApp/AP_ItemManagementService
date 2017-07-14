@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS `iat`.`_sequences`
+CREATE TABLE IF NOT EXISTS `iat`.`sequence`
 (
   `name` VARCHAR(70) NOT NULL UNIQUE,
   `next` BIGINT NOT NULL,
@@ -6,17 +6,22 @@ CREATE TABLE IF NOT EXISTS `iat`.`_sequences`
   PRIMARY KEY (`name`)
 );
 
-INSERT IGNORE INTO `iat`.`_sequences` (`name`, `next`, `inc`) VALUES ('item_id', 1, 1);
+INSERT IGNORE INTO `iat`.`sequence` (`name`, `next`, `inc`) VALUES ('item_id', 1, 1);
 
-DROP FUNCTION IF EXISTS `iat`.`NextVal`;
+DROP FUNCTION IF EXISTS `iat`.`nextVal`;
 
 DELIMITER //
 
-CREATE FUNCTION `iat`.`NextVal` (`vname` VARCHAR(70))
+CREATE FUNCTION `iat`.`nextVal` (`vname` VARCHAR(70))
   RETURNS BIGINT DETERMINISTIC
   BEGIN
-    UPDATE `_sequences` SET `next` = (@next := `next`) + 1 WHERE `name` = vname;
-    RETURN @next;
+    IF EXISTS(SELECT 1 FROM `sequence` s WHERE `name` = vname) THEN
+      UPDATE `sequence` SET `next` = (@next := `next`) + 1 WHERE `name` = vname;
+      RETURN @next;
+    ELSE
+      SIGNAL SQLSTATE '42S22'
+      SET MESSAGE_TEXT = 'Sequence not found.', MYSQL_ERRNO = 1054;
+    END IF;
   END //
 DELIMITER;
 
