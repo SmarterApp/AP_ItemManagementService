@@ -61,7 +61,7 @@ repositories {
 }
 
 dependencies {
-    compile 'org.opentestsystem.ap:ap-common:0.1.11'
+    compile 'org.opentestsystem.ap:ap-common:0.1.12-SNAPSHOT'
     compile 'org.springframework.boot:spring-boot-starter-actuator'
     compile 'org.springframework.boot:spring-boot-starter-security'
     compile 'org.springframework.boot:spring-boot-starter-web'
@@ -294,13 +294,14 @@ task prefixNewMigrations {
 }
 
 def isFilePrefixed(file) {
-    return (file.name ==~ '^\\d+__.*\\.sql\$')
+    return (file.name ==~ '^[V]\\d+__.*\\.sql\$')
 }
 
 flyway {
     url = project.dbUrl
     user = project.dbUser
     password = project.dbPassword
+    schemas = ['iat']
 }
 
 /***************************
