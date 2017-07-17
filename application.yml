@@ -26,7 +26,7 @@ spring:
   session:
     enabled: "${SESSION_CLUSTER_ENABLED:true}"
   datasource:
-    url: "${DB_URL:jdbc:mysql://iat-dev-db.cjqp2fdamfoh.us-east-2.rds.amazonaws.com:3306/iat?useSSL=false}"
+    url: "jdbc:mysql://localhost:3306/iat?useSSL=false"
     username: "${DB_USER}"
     password: "${DB_PASSWORD}"
     validationQuery: SELECT 1
@@ -44,14 +44,14 @@ flyway:
   enabled: true
 
 itembank:
-  host: "${GITLAB_HOST:https://gitlab-dev.smarterbalanced.org}"
+  host: "https://gitlab-dev.smarterbalanced.org"
   accessToken: "${GITLAB_ACCESS_TOKEN}"
   user: "${GITLAB_USER}"
   password: "${GITLAB_PASSWORD}"
-  group: "${GITLAB_GROUP:iat-development}"
-  localBaseDir: "${GITLAB_LOCAL_BASE_DIR:${HOME}/ItemBank}"
-  apiVersion: "${GITLAB_API_VERSION:/api/v4}"
-  bankKey: "${GITLAB_BANK_KEY:187}"
+  group: "${GITLAB_GROUP}"
+  localBaseDir: "${HOME}/ItemBank"
+  apiVersion: "/api/v4"
+  bankKey: "187"
 
 # Uses a comma separated string to set the cache properties
 # http://static.javadoc.io/com.github.ben-manes.caffeine/caffeine/2.2.2/com/github/benmanes/caffeine/cache/CaffeineSpec.html
@@ -67,10 +67,14 @@ logging:
 
 ---
 spring:
-  profiles: local
+  profiles: dev
+
   datasource:
-    url: "jdbc:mysql://localhost:3306/iat?useSSL=false"
+    url: "jdbc:mysql://iat-dev-db.cjqp2fdamfoh.us-east-2.rds.amazonaws.com:3306/iat?useSSL=false"
 
 flyway:
   enabled: true
+
+itembank:
+  group: "iat-development"
 
