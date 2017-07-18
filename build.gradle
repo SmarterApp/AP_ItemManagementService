@@ -16,6 +16,7 @@
 
 import com.bmuschko.gradle.docker.tasks.image.DockerBuildImage
 import com.bmuschko.gradle.docker.tasks.image.DockerPushImage
+import com.bmuschko.gradle.docker.tasks.image.DockerRemoveImage
 import org.apache.tools.ant.filters.ReplaceTokens
 
 buildscript {
@@ -41,7 +42,7 @@ plugins {
     id 'maven-publish'
     id 'org.springframework.boot'               version '1.5.2.RELEASE'
     id 'com.jfrog.artifactory'                  version '4.4.14'
-    id 'com.bmuschko.docker-remote-api'         version '3.0.5'
+    id 'com.bmuschko.docker-remote-api'         version '3.0.8'
     id "org.flywaydb.flyway"                    version "4.2.0"
 
 }
@@ -229,14 +230,18 @@ task dockerPushImage(type: DockerPushImage) {
     imageName = "${project.dockerTagBase}/${jar.baseName}:${project.version}"
 }
 
+task dockerRemoveImage(type: DockerRemoveImage) {
+    imageId = "${project.dockerTagBase}/${jar.baseName}:${project.version}"
+}
+
 /***************************
  * Checkstyle
  ***************************/
 
+
 checkstyle {
     ignoreFailures = true
 }
-
 /***************************
  * PMD
  ***************************/
