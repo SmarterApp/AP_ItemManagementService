@@ -53,10 +53,9 @@ itembank:
   apiVersion: "/api/v4"
   bankKey: "187"
 
-# Uses a comma separated string to set the cache properties
-# http://static.javadoc.io/com.github.ben-manes.caffeine/caffeine/2.2.2/com/github/benmanes/caffeine/cache/CaffeineSpec.html
+# cache expiration for things like workflow status
 cache:
-  spec: "expireAfterWrite=30s"
+  expirationSeconds: 30
 
 logging:
   level:
@@ -77,4 +76,17 @@ flyway:
 
 itembank:
   group: "iat-development"
+
+---
+spring:
+  profiles: uat
+
+  datasource:
+    url: "jdbc:mysql://iat-uat-db.cjqp2fdamfoh.us-east-2.rds.amazonaws.com:3306/iat?useSSL=false"
+
+flyway:
+  enabled: true
+
+itembank:
+  group: "iat-uat"
 

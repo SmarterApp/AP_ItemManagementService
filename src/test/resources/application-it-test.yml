@@ -14,7 +14,7 @@ spring:
       ddl-auto: create-drop
 
 cache:
-  spec: "expireAfterWrite=30s"
+  expirationSeconds: 30
 
 itembank:
   test:
