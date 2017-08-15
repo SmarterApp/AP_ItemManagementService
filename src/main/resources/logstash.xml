@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~  Copyright 2017 Regents of the University of California.
+  ~
+  ~  Licensed under the Educational Community License, Version 2.0 (the "license");
+  ~  you may not use this file except in compliance with the License. You may
+  ~  obtain a copy of the license at
+  ~
+  ~  https://opensource.org/licenses/ECL-2.0
+  ~
+  ~  Unless required by applicable law or agreed to in writing, software
+  ~  distributed under the License is distributed on an "AS IS" BASIS,
+  ~  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~  See the License for the specific language governing permissions and
+  ~  limitations under the License.
+  -->
+
+<!--
+Root logger is set to INFO and logs are sent to CONSOLE and logstash via tcp.
+
+Spring boot default log levels are used.
+-->
+<included>
+    <springProperty name="appName" source="spring.application.name"/>
+    <springProperty name="springProfile" source="spring.profiles.active"/>
+    <springProperty name="LOGSTASH_DESTINATION" source="logstash-destination"/>
+
+    <property scope="context" name="spring.profiles.active" value="${springProfile}" />
+
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+    <include resource="org/springframework/boot/logging/logback/console-appender.xml"/>
+
+    <if condition='isDefined("LOGSTASH_DESTINATION")'>
+        <then>
+            <appender name="LOGSTASH" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
+                <destination>${LOGSTASH_DESTINATION}</destination>
+                <encoder class="net.logstash.logback.encoder.LogstashEncoder"/>
+            </appender>
+        </then>
+    </if>
+
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+        <if condition='isDefined("LOGSTASH_DESTINATION")'>
+            <then>
+                <appender-ref ref="LOGSTASH"/>
+            </then>
+        </if>
+    </root>
+</included>
