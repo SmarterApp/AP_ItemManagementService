@@ -13,7 +13,6 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-
 import com.bmuschko.gradle.docker.tasks.image.DockerBuildImage
 import com.bmuschko.gradle.docker.tasks.image.DockerPushImage
 import com.bmuschko.gradle.docker.tasks.image.DockerRemoveImage
@@ -62,7 +61,8 @@ repositories {
 }
 
 dependencies {
-    compile 'org.opentestsystem.ap:ap-common:0.1.15'
+    compile 'org.opentestsystem.ap:ap-common:0.1.16'
+
     compile 'org.springframework.boot:spring-boot-starter-actuator'
     compile 'org.springframework.boot:spring-boot-starter-security'
     compile 'org.springframework.boot:spring-boot-starter-web'
@@ -121,7 +121,6 @@ processResources {
         expand project.properties
     }
 }
-
 
 /***************************
  * publishing
@@ -236,10 +235,10 @@ task dockerRemoveImage(type: DockerRemoveImage) {
  * Checkstyle
  ***************************/
 
-
 checkstyle {
     ignoreFailures = true
 }
+
 /***************************
  * PMD
  ***************************/
