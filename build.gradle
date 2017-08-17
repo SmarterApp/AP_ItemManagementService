@@ -61,10 +61,10 @@ repositories {
 }
 
 dependencies {
-    compile 'org.opentestsystem.ap:ap-common:0.1.16'
+    compile 'org.opentestsystem.ap:ap-common:0.1.17-SNAPSHOT'
 
     compile 'org.springframework.boot:spring-boot-starter-actuator'
-    compile 'org.springframework.boot:spring-boot-starter-logging'
+
     compile 'org.springframework.boot:spring-boot-starter-security'
     compile 'org.springframework.boot:spring-boot-starter-web'
     compile 'org.springframework.boot:spring-boot-starter-aop'
@@ -77,12 +77,6 @@ dependencies {
     compile 'org.springframework.security.extensions:spring-security-saml2-core:1.0.2.RELEASE'
     compile 'org.springframework.retry:spring-retry'
     compile 'org.springframework.session:spring-session'
-
-    compile 'ch.qos.logback:logback-core:1.2.3'
-    compile 'ch.qos.logback:logback-classic:1.2.3'
-    compile 'org.codehaus.janino:janino:3.0.7'
-
-    compile 'net.logstash.logback:logstash-logback-encoder:4.11'
 
     compile 'org.apache.commons:commons-collections4:4.1'
     compile 'org.apache.commons:commons-lang3:3.5'

@@ -67,8 +67,6 @@ logging:
       opentestsystem:
         ap:
           ims: "debug"
-    spring:
-      framework: "info"
 
 ---
 spring:
