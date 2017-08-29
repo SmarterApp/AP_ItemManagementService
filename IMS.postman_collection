@@ -21,7 +21,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"type\":\"ebsr\",\n\t\"message\": \"being create transaction\"\n} "
+					"raw": "{\n\t\"type\":\"ti\",\n\t\"message\": \"being create transaction\"\n} "
 				},
 				"description": ""
 			},
@@ -30,7 +30,7 @@
 		{
 			"name": "Begin Edit Transaction",
 			"request": {
-				"url": "http://localhost:8081/api/v1/items/TI1193461416/transactions",
+				"url": "http://localhost:8081/api/v1/items/TI42/braille/transactions",
 				"method": "POST",
 				"header": [
 					{
@@ -42,6 +42,46 @@
 				"body": {
 					"mode": "raw",
 					"raw": "{\n\t\"message\": \"begin edit transaction\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Save Transaction EBSR",
+			"request": {
+				"url": "http://localhost:8081/api/v1/items/EBSR27/transactions/1998896842",
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"message\": \"saving EBSR transaction\",\n\t\"item\" : {\n\t\t\"type\": \"EBSR\",\n\t\t\"prompt\": \"Read both questions and answer appropriately.\",\n\t\t\"workflowStatusCode\" : \"Draft\",\n\t\t\"braille\": {\n        \t\"attachments\": [],\n        \t\"doesThisItemRequireBraille\": true,\n        \t\"hasAllBrailleContentBeenProvided\": true\n    \t},\n\t\t\"multipleChoice\": {\n\t\t\t\"prompt\": \"What response is correct 1,2, or 3?\",\n\t\t\t\"options\": [\n\t\t\t\t{\n\t\t\t\t\t\"text\": \"Response 1\", \n\t\t\t\t\t\"isCorrectAnswer\": \"true\"\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"text\": \"Response 2\", \n\t\t\t\t\t\"isCorrectAnswer\": \"false\"\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"text\": \"Response 3\", \n\t\t\t\t\t\"isCorrectAnswer\": \"false\"\n\t\t\t\t}\n\t\t\t]\n\t\t},\n\t\t\"multipleSelect\": {\n\t\t\t\"prompt\": \"Mark all responses that apply.\",\n\t\t\t\"options\": [\n\t\t\t\t{\n\t\t\t\t\t\"text\": \"Response 4\", \n\t\t\t\t\t\"isCorrectAnswer\": \"true\"\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"text\": \"Response 5\", \n\t\t\t\t\t\"isCorrectAnswer\": \"true\"\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"text\": \"Response 6\", \n\t\t\t\t\t\"isCorrectAnswer\": \"false\"\n\t\t\t\t}\n\t\t\t]\n\t\t}\n\t}\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Save Transaction MC",
+			"request": {
+				"url": "http://localhost:8081/api/v1/items/1067966882/transactions/1333364963",
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"message\": \"saving MC transaction\",\n\t\"item\" : {\n\t\t\"type\": \"mc\",\n\t\t\"prompt\": \"Saving MC via REST endpoint\",\n\t\t\"options\": [\n\t\t\t{\n\t\t\t\t\"text\": \"Response A\", \n\t\t\t\t\"correctAnswer\": \"false\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"text\": \"Response B\", \n\t\t\t\t\"correctAnswer\": \"false\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"text\": \"Response C\", \n\t\t\t\t\"correctAnswer\": \"false\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"text\": \"Response D\", \n\t\t\t\t\"correctAnswer\": \"true\"\n\t\t\t}\n\t\t],\n\t\t\"stimulusId\": \"1171900071\"\n\t}\n}"
 				},
 				"description": ""
 			},
@@ -70,7 +110,7 @@
 		{
 			"name": "Save Transaction TI",
 			"request": {
-				"url": "http://localhost:8081/api/v1/items/SA15/transactions/1714675824",
+				"url": "http://localhost:8081/api/v1/items/TI42/transactions/1969507782",
 				"method": "PATCH",
 				"header": [
 					{
@@ -81,56 +121,16 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"message\": \"saving transaction\",\n\t\"item\" : {\n\t    \"id\": \"TI1193461416\",\n\t    \"createTransaction\": null,\n\t    \"editTransaction\": {\n\t        \"username\": \"anonymousUser\",\n\t        \"transactionId\": \"1042630052\"\n\t    },\n\t    \"workflowStatusCode\": \"DataReview\",\n\t    \"braille\": {\n\t        \"attachments\": null,\n\t        \"isBrailleRequired\": false,\n\t        \"isBrailleProvided\": false\n\t    },\n\t    \"prompt\": \"This is a prompt for edit!!!\",\n\t    \"stimulusId\": \"STIM001\",\n\t    \"tutorialId\": \"TUT001\",\n\t    \"table\": {\n\t        \"title\": \"August Lemonade Sales\",\n\t        \"columns\": [\n\t            {\n\t                \"label\": \"Week\"\n\t            },\n\t            {\n\t                \"label\": \"Cups Sold\"\n\t            }\n\t        ],\n\t        \"rows\": [\n\t            {\n\t                \"cells\": [\n\t                    {\n\t                        \"type\": \"label\",\n\t                        \"value\": \"1\"\n\t                    },\n\t                    {\n\t                        \"type\": \"answer\",\n\t                        \"value\": \"11\"\n\t                    }\n\t                ]\n\t            },\n\t            {\n\t                \"cells\": [\n\t                    {\n\t                        \"type\": \"label\",\n\t                        \"value\": \"2\"\n\t                    },\n\t                    {\n\t                        \"type\": \"answer\",\n\t                        \"value\": \"22\"\n\t                    }\n\t                ]\n\t            }\n\t        ]\n\t    },\n\t    \"type\": \"ti\"\n\t}\n}"
+					"raw": "{\n\t\"message\": \"saving transaction\",\n\t\"item\" : {\n\t    \"id\": \"TI36\",\n\t    \"workflowStatusCode\": \"DataReview\",\n\t    \"braille\": {\n\t        \"attachments\": [],\n\t        \"isBrailleRequired\": false,\n\t        \"isBrailleProvided\": true\n\t    },\n\t    \"prompt\": \"Lilia and Wade!\",\n\t    \"stimulusId\": null,\n\t    \"tutorialId\": null,\n\t    \"table\": {\n\t        \"title\": \"March Lemonade Sales\",\n\t        \"columns\": [\n\t            {\n\t                \"label\": \"Week\"\n\t            },\n\t            {\n\t                \"label\": \"Cups Sold\"\n\t            }\n\t        ],\n\t        \"rows\": [\n\t            {\n\t                \"cells\": [\n\t                    {\n\t                        \"type\": \"label\",\n\t                        \"value\": \"1\"\n\t                    },\n\t                    {\n\t                        \"type\": \"answer\",\n\t                        \"value\": \"11\"\n\t                    }\n\t                ]\n\t            },\n\t            {\n\t                \"cells\": [\n\t                    {\n\t                        \"type\": \"label\",\n\t                        \"value\": \"2\"\n\t                    },\n\t                    {\n\t                        \"type\": \"answer\",\n\t                        \"value\": \"22\"\n\t                    }\n\t                ]\n\t            }\n\t        ]\n\t    },\n\t    \"type\": \"ti\"\n\t}\n}"
 				},
 				"description": ""
 			},
 			"response": []
 		},
 		{
-			"name": "Save Transaction MC",
+			"name": "Commit Transaction EBSR",
 			"request": {
-				"url": "http://localhost:8081/api/v1/items/1067966882/transactions/1333364963",
-				"method": "PATCH",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"message\": \"saving MC transaction\",\n\t\"item\" : {\n\t\t\"type\": \"mc\",\n\t\t\"prompt\": \"Saving MC via REST endpoint\",\n\t\t\"options\": [\n\t\t\t{\n\t\t\t\t\"text\": \"Response A\", \n\t\t\t\t\"correctAnswer\": \"false\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"text\": \"Response B\", \n\t\t\t\t\"correctAnswer\": \"false\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"text\": \"Response C\", \n\t\t\t\t\"correctAnswer\": \"false\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"text\": \"Response D\", \n\t\t\t\t\"correctAnswer\": \"true\"\n\t\t\t}\n\t\t],\n\t\t\"stimulusId\": \"1171900071\"\n\t}\n}"
-				},
-				"description": ""
-			},
-			"response": []
-		},
-		{
-			"name": "Save Transaction EBSR",
-			"request": {
-				"url": "http://localhost:8081/api/v1/items/EBSR27/transactions/1998896842",
-				"method": "PATCH",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"message\": \"saving EBSR transaction\",\n\t\"item\" : {\n\t\t\"type\": \"EBSR\",\n\t\t\"prompt\": \"Read both questions and answer appropriately.\",\n\t\t\"workflowStatusCode\" : \"Draft\",\n\t\t\"braille\": {\n        \t\"attachments\": [],\n        \t\"doesThisItemRequireBraille\": true,\n        \t\"hasAllBrailleContentBeenProvided\": true\n    \t},\n\t\t\"multipleChoice\": {\n\t\t\t\"prompt\": \"What response is correct 1,2, or 3?\",\n\t\t\t\"options\": [\n\t\t\t\t{\n\t\t\t\t\t\"text\": \"Response 1\", \n\t\t\t\t\t\"isCorrectAnswer\": \"true\"\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"text\": \"Response 2\", \n\t\t\t\t\t\"isCorrectAnswer\": \"false\"\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"text\": \"Response 3\", \n\t\t\t\t\t\"isCorrectAnswer\": \"false\"\n\t\t\t\t}\n\t\t\t]\n\t\t},\n\t\t\"multipleSelect\": {\n\t\t\t\"prompt\": \"Mark all responses that apply.\",\n\t\t\t\"options\": [\n\t\t\t\t{\n\t\t\t\t\t\"text\": \"Response 4\", \n\t\t\t\t\t\"isCorrectAnswer\": \"true\"\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"text\": \"Response 5\", \n\t\t\t\t\t\"isCorrectAnswer\": \"true\"\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"text\": \"Response 6\", \n\t\t\t\t\t\"isCorrectAnswer\": \"false\"\n\t\t\t\t}\n\t\t\t]\n\t\t}\n\t}\n}"
-				},
-				"description": ""
-			},
-			"response": []
-		},
-		{
-			"name": "Commit Transaction",
-			"request": {
-				"url": "http://localhost:8081/api/v1/items/EBSR27/transactions/1257334399",
+				"url": "http://localhost:8081/api/v1/items/TI36/transactions/1202541857",
 				"method": "PUT",
 				"header": [
 					{
@@ -141,7 +141,67 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"message\": \"committing edit transaction\",\n\t\"item\": {\n\t\t\"type\": \"EBSR\",\n\t\t\"prompt\": \"What planet comes after Earth?\",\n\t\t\"exemplarResponses\": [\"Mars\"],\n\t\t\"stimulusId\": null,\n\t\t\"workflowStatusCode\": \"AuditReview\",\n\t\t\"braille\": {\n\t\t\t\"isBrailleRequired\": true,\n        \t\"isBrailleContentProvided\": false\n\t\t},\n\t\t\"multipleChoice\": {\n\t\t\t\"prompt\": \"What response is correct 1,2, or 3?\",\n\t\t\t\"options\": [\n\t\t\t\t{\n\t\t\t\t\t\"text\": \"Response 1\", \n\t\t\t\t\t\"isCorrectAnswer\": \"true\"\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"text\": \"Response 2\", \n\t\t\t\t\t\"isCorrectAnswer\": \"false\"\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"text\": \"Response 3\", \n\t\t\t\t\t\"isCorrectAnswer\": \"false\"\n\t\t\t\t}\n\t\t\t]\n\t\t},\n\t\t\"multipleSelect\": {\n\t\t\t\"prompt\": \"Mark all responses that apply.\",\n\t\t\t\"options\": [\n\t\t\t\t{\n\t\t\t\t\t\"text\": \"Response 4\", \n\t\t\t\t\t\"isCorrectAnswer\": \"true\"\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"text\": \"Response 5\", \n\t\t\t\t\t\"isCorrectAnswer\": \"true\"\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"text\": \"Response 6\", \n\t\t\t\t\t\"isCorrectAnswer\": \"false\"\n\t\t\t\t}\n\t\t\t]\n\t\t}\n\t}\n}"
+					"raw": "{\n\t\"message\": \"committing transaction\",\n\t\"item\" : {\n\t\t\"type\": \"EBSR\",\n\t\t\"prompt\": \"Read both questions and answer appropriately.\",\n\t\t\"workflowStatusCode\" : \"Draft\",\n\t\t\"braille\": {\n        \t\"attachments\": [],\n        \t\"doesThisItemRequireBraille\": true,\n        \t\"hasAllBrailleContentBeenProvided\": true\n    \t},\n\t\t\"multipleChoice\": {\n\t\t\t\"prompt\": \"What response is correct 1,2, or 3?\",\n\t\t\t\"options\": [\n\t\t\t\t{\n\t\t\t\t\t\"text\": \"Response 1\", \n\t\t\t\t\t\"isCorrectAnswer\": \"true\"\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"text\": \"Response 2\", \n\t\t\t\t\t\"isCorrectAnswer\": \"false\"\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"text\": \"Response 3\", \n\t\t\t\t\t\"isCorrectAnswer\": \"false\"\n\t\t\t\t}\n\t\t\t]\n\t\t},\n\t\t\"multipleSelect\": {\n\t\t\t\"prompt\": \"Mark all responses that apply.\",\n\t\t\t\"options\": [\n\t\t\t\t{\n\t\t\t\t\t\"text\": \"Response 4\", \n\t\t\t\t\t\"isCorrectAnswer\": \"true\"\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"text\": \"Response 5\", \n\t\t\t\t\t\"isCorrectAnswer\": \"true\"\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"text\": \"Response 6\", \n\t\t\t\t\t\"isCorrectAnswer\": \"false\"\n\t\t\t\t}\n\t\t\t]\n\t\t}\n\t}\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Commit Transaction MC",
+			"request": {
+				"url": "http://localhost:8081/api/v1/items/TI36/transactions/1202541857",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"message\": \"commit transaction\",\n\t\"item\" : {\n\t\t\"type\": \"mc\",\n\t\t\"prompt\": \"Saving MC via REST endpoint\",\n\t\t\"options\": [\n\t\t\t{\n\t\t\t\t\"text\": \"Response A\", \n\t\t\t\t\"correctAnswer\": \"false\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"text\": \"Response B\", \n\t\t\t\t\"correctAnswer\": \"false\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"text\": \"Response C\", \n\t\t\t\t\"correctAnswer\": \"false\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"text\": \"Response D\", \n\t\t\t\t\"correctAnswer\": \"true\"\n\t\t\t}\n\t\t],\n\t\t\"stimulusId\": \"1171900071\"\n\t}\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Commit Transaction SA",
+			"request": {
+				"url": "http://localhost:8081/api/v1/items/TI36/transactions/1202541857",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"message\": \"committing transaction\",\n\t\"item\" : {\n\t    \"id\": \"TI36\",\n\t    \"createTransaction\": {\n        \t\"username\": \"admin\",\n        \t\"transactionId\": \"1202541857\"\n    \t},\n\t    \"editTransaction\": null,\n\t    \"workflowStatusCode\": \"DataReview\",\n\t    \"braille\": {\n\t        \"attachments\": [],\n\t        \"isBrailleRequired\": false,\n\t        \"isBrailleProvided\": false\n\t    },\n\t    \"prompt\": \"Lilia sold a ton of lemonade in August!\",\n\t    \"stimulusId\": null,\n\t    \"tutorialId\": null,\n\t    \"table\": {\n\t        \"title\": \"August Lemonade Sales\",\n\t        \"columns\": [\n\t            {\n\t                \"label\": \"Week\"\n\t            },\n\t            {\n\t                \"label\": \"Cups Sold\"\n\t            }\n\t        ],\n\t        \"rows\": [\n\t            {\n\t                \"cells\": [\n\t                    {\n\t                        \"type\": \"label\",\n\t                        \"value\": \"1\"\n\t                    },\n\t                    {\n\t                        \"type\": \"answer\",\n\t                        \"value\": \"11\"\n\t                    }\n\t                ]\n\t            },\n\t            {\n\t                \"cells\": [\n\t                    {\n\t                        \"type\": \"label\",\n\t                        \"value\": \"2\"\n\t                    },\n\t                    {\n\t                        \"type\": \"answer\",\n\t                        \"value\": \"22\"\n\t                    }\n\t                ]\n\t            }\n\t        ]\n\t    },\n\t    \"type\": \"ti\"\n\t}\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Commit Transaction TI",
+			"request": {
+				"url": "http://localhost:8081/api/v1/items/TI42/transactions/1375083857",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"message\": \"committing transaction\",\n\t\"item\" : {\n\t    \"id\": \"TI36\",\n\t    \"workflowStatusCode\": \"Draft\",\n\t    \"braille\": {\n\t        \"attachments\": [],\n\t        \"isBrailleRequired\": true,\n\t        \"isBrailleProvided\": false\n\t    },\n\t    \"prompt\": \"Lilia is 5 today!\",\n\t    \"stimulusId\": null,\n\t    \"tutorialId\": null,\n\t    \"table\": {\n\t        \"title\": \"August Lemonade Sales\",\n\t        \"columns\": [\n\t            {\n\t                \"label\": \"Week\"\n\t            },\n\t            {\n\t                \"label\": \"Cups Sold\"\n\t            }\n\t        ],\n\t        \"rows\": [\n\t            {\n\t                \"cells\": [\n\t                    {\n\t                        \"type\": \"label\",\n\t                        \"value\": \"1a\"\n\t                    },\n\t                    {\n\t                        \"type\": \"answer\",\n\t                        \"value\": \"11a\"\n\t                    }\n\t                ]\n\t            },\n\t            {\n\t                \"cells\": [\n\t                    {\n\t                        \"type\": \"label\",\n\t                        \"value\": \"2b\"\n\t                    },\n\t                    {\n\t                        \"type\": \"answer\",\n\t                        \"value\": \"22b\"\n\t                    }\n\t                ]\n\t            }\n\t        ]\n\t    },\n\t    \"type\": \"ti\"\n\t}\n}"
 				},
 				"description": ""
 			},
@@ -150,7 +210,7 @@
 		{
 			"name": "Rollback Transaction",
 			"request": {
-				"url": "http://localhost:8081/api/v1/items/SA14/transactions/1357415380",
+				"url": "http://localhost:8081/api/v1/items/TI43/transactions/1898617696",
 				"method": "DELETE",
 				"header": [
 					{
@@ -168,9 +228,20 @@
 			"response": []
 		},
 		{
+			"name": "Delete Braille File",
+			"request": {
+				"url": "http://localhost:8081/api/v1/items/EBSR27/transactions/1257334399/braille/item_EBSR27_enu_uncontracted.brf",
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
 			"name": "Get Item",
 			"request": {
-				"url": "http://localhost:8081/api/v1/items/TI1193461416",
+				"url": "http://localhost:8081/api/v1/items/TI42",
 				"method": "GET",
 				"header": [],
 				"body": {},
@@ -227,17 +298,6 @@
 			"request": {
 				"url": "http://localhost:8081/api/v1/items/EBSR27/braille/item_EBSR27_enu_uncontracted.brf",
 				"method": "GET",
-				"header": [],
-				"body": {},
-				"description": ""
-			},
-			"response": []
-		},
-		{
-			"name": "Delete Braille File",
-			"request": {
-				"url": "http://localhost:8081/api/v1/items/EBSR27/transactions/1257334399/braille/item_EBSR27_enu_uncontracted.brf",
-				"method": "DELETE",
 				"header": [],
 				"body": {},
 				"description": ""
