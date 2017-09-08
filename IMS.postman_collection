@@ -21,7 +21,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"type\":\"ebsr\",\n\t\"message\": \"being create transaction\"\n} "
+					"raw": "{\n\t\"type\":\"ti\",\n\t\"message\": \"being create transaction\"\n} "
 				},
 				"description": ""
 			},
@@ -190,7 +190,7 @@
 		{
 			"name": "Save Transaction TI",
 			"request": {
-				"url": "http://localhost:8081/api/v1/items/59",
+				"url": "http://localhost:8081/api/v1/items/66",
 				"method": "PATCH",
 				"header": [
 					{
@@ -201,7 +201,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"message\": \"saving transaction\",\n\t\"item\": {\n        \"id\": \"59\",\n        \"type\": \"ti\",\n        \"core\": {\n            \"workflowStatusCode\": \"Draft\",\n            \"tutorialId\": null,\n            \"stimulusId\": null,\n            \"prompt\": \"\",\n            \"table\": {\n                \"title\": \"August Sales\",\n                \"columns\": [\n                    \"Week\",\n                    \"Total Sold\"\n                ],\n                \"rows\": [\n                    {\n                        \"cells\": [\n                            {\n                                \"type\": \"label\",\n                                \"value\": \"One\"\n                            },\n                            {\n                                \"type\": \"label\",\n                                \"value\": \"11\"\n                            }\n                        ]\n                    },\n                    {\n                        \"cells\": [\n                            {\n                                \"type\": \"label\",\n                                \"value\": \"Two\"\n                            },\n                            {\n                                \"type\": \"label\",\n                                \"value\": \"22\"\n                            }\n                        ]\n                    }\n                ]\n            }\n        },\n        \"braille\": {\n            \"attachments\": [],\n            \"isBrailleRequired\": true,\n            \"isBrailleProvided\": false\n        }\n    }\n}"
+					"raw": "{\n\t\"message\": \"saving transaction\",\n\t\"item\": {\n        \"id\": \"66\",\n        \"type\": \"ti\",\n        \"core\": {\n            \"workflowStatusCode\": \"Draft\",\n            \"tutorialId\": null,\n            \"stimulusId\": null,\n            \"prompt\": \"\",\n            \"table\": {\n                \"title\": \"August Sales\",\n                \"columns\": [\n                    {\n                    \t\"label\": \"Week\"\n                    },\n                    { \n                    \t\"label\": \"Total Sold\"\n                    }\n                ],\n                \"rows\": [\n                    {\n                        \"cells\": [\n                            {\n                                \"type\": \"label\",\n                                \"value\": \"One\"\n                            },\n                            {\n                                \"type\": \"label\",\n                                \"value\": \"11\"\n                            }\n                        ]\n                    },\n                    {\n                        \"cells\": [\n                            {\n                                \"type\": \"label\",\n                                \"value\": \"Two\"\n                            },\n                            {\n                                \"type\": \"label\",\n                                \"value\": \"22\"\n                            }\n                        ]\n                    }\n                ]\n            }\n        },\n        \"braille\": {\n            \"attachments\": [],\n            \"isBrailleRequired\": true,\n            \"isBrailleProvided\": false\n        }\n    }\n}"
 				},
 				"description": ""
 			},
@@ -350,7 +350,7 @@
 		{
 			"name": "Commit Transaction TI",
 			"request": {
-				"url": "http://localhost:8081/api/v1/items/59/transactions",
+				"url": "http://localhost:8081/api/v1/items/66/transactions",
 				"method": "PUT",
 				"header": [
 					{
@@ -361,7 +361,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"message\": \"committing transaction\",\n\t\"item\": {\n        \"id\": \"59\",\n        \"type\": \"ti\",\n        \"core\": {\n            \"workflowStatusCode\": \"InitialReview\",\n            \"tutorialId\": null,\n            \"stimulusId\": null,\n            \"prompt\": \"\",\n            \"table\": {\n                \"title\": \"July Sales\",\n                \"columns\": [\n                    \"Week\",\n                    \"Total Sales\"\n                ],\n                \"rows\": [\n                    {\n                        \"cells\": [\n                            {\n                                \"type\": \"label\",\n                                \"value\": \"One\"\n                            },\n                            {\n                                \"type\": \"label\",\n                                \"value\": \"11\"\n                            }\n                        ]\n                    },\n                    {\n                        \"cells\": [\n                            {\n                                \"type\": \"label\",\n                                \"value\": \"Two\"\n                            },\n                            {\n                                \"type\": \"label\",\n                                \"value\": \"22\"\n                            }\n                        ]\n                    }\n                ]\n            }\n        },\n        \"braille\": {\n            \"attachments\": [],\n            \"isBrailleRequired\": true,\n            \"isBrailleProvided\": true\n        }\n    }\n}"
+					"raw": "{\n\t\"message\": \"committing transaction\",\n\t\"item\": {\n        \"id\": \"66\",\n        \"type\": \"ti\",\n        \"core\": {\n            \"workflowStatusCode\": \"InitialReview\",\n            \"tutorialId\": null,\n            \"stimulusId\": null,\n            \"prompt\": \"\",\n            \"table\": {\n                \"title\": \"July Sales\",\n                \"columns\": [\n                    {\n                    \t\"label\": \"Weekly Sales\"\n                    },\n                    { \n                    \t\"label\": \"Total Sold in Month\"\n                    }\n                ],\n                \"rows\": [\n                    {\n                        \"cells\": [\n                            {\n                                \"type\": \"label\",\n                                \"value\": \"One\"\n                            },\n                            {\n                                \"type\": \"label\",\n                                \"value\": \"11\"\n                            }\n                        ]\n                    },\n                    {\n                        \"cells\": [\n                            {\n                                \"type\": \"label\",\n                                \"value\": \"Two\"\n                            },\n                            {\n                                \"type\": \"label\",\n                                \"value\": \"22\"\n                            }\n                        ]\n                    }\n                ]\n            }\n        },\n        \"braille\": {\n            \"attachments\": [],\n            \"isBrailleRequired\": true,\n            \"isBrailleProvided\": true\n        }\n    }\n}"
 				},
 				"description": ""
 			},
@@ -401,7 +401,7 @@
 		{
 			"name": "Get Item",
 			"request": {
-				"url": "http://localhost:8081/api/v1/items/269",
+				"url": "http://localhost:8081/api/v1/items/66",
 				"method": "GET",
 				"header": [],
 				"body": {},
