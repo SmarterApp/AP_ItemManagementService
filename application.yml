@@ -67,6 +67,7 @@ logging:
       opentestsystem:
         ap:
           ims: DEBUG
+          common: DEBUG
 
 ---
 spring:
