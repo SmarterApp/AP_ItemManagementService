@@ -61,7 +61,7 @@ repositories {
 }
 
 dependencies {
-    compile 'org.opentestsystem.ap:ap-common:0.1.29'
+    compile 'org.opentestsystem.ap:ap-common:0.1.31'
 
     compile 'org.springframework.boot:spring-boot-starter-actuator'
 
