@@ -56,6 +56,8 @@ itembank:
   localBaseDir: "${HOME}/ItemBank"
   apiVersion: "/api/v4"
   bankKey: "187"
+  lockSectionMaxRetries: "5"
+  lockSectionRetryDelayMillis: "1000"
 
 # cache expiration for things like workflow status
 cache:
