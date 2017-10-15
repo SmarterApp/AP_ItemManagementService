@@ -27,6 +27,11 @@ data:
 flyway:
   enabled: false
 
+tasks:
+  itemCleanupThresholdMillis : "30000"
+  itemCleanupRunEveryMillis: "30000"
+
+
 ---
 spring:
   profiles: "security-on"
