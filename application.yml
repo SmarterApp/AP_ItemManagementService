@@ -59,6 +59,10 @@ itembank:
   lockSectionMaxRetries: "10"
   lockSectionRetryDelayMillis: "2000"
 
+tasks:
+  itemCleanupThresholdMillis : "30000"
+  itemCleanupRunEveryMillis: "30000"
+
 # cache expiration for things like workflow status
 cache:
   expirationSeconds: 30
