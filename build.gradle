@@ -165,10 +165,11 @@ artifactory {
 task k8sCopyFiles(type: Copy) {
 
     from('src/main/kubernetes/') {
-        filter(ReplaceTokens, tokens: [version: project.version,
-                                       dockerTagBase: project.dockerTagBase,
-                                       kubecfgState: project.kubecfgState,
-                                       kubecfgName: project.kubecfgName])
+        filter(ReplaceTokens, tokens: [version              : project.version,
+                                       dockerTagBase        : project.dockerTagBase,
+                                       kubecfgState         : project.kubecfgState,
+                                       kubecfgName          : project.kubecfgName,
+                                       kubecfgDeployment    : project.kubecfgDeployment])
     }
 
     into 'build/kubernetes'
@@ -177,10 +178,11 @@ task k8sCopyFiles(type: Copy) {
 task k8sCopyFilesUat(type: Copy) {
 
     from('src/main/kubernetes/') {
-        filter(ReplaceTokens, tokens: [version: project.version,
-                                       dockerTagBase: project.dockerTagBase,
-                                       kubecfgState: project.kubecfgState,
-                                       kubecfgName: project.kubecfgNameUat])
+        filter(ReplaceTokens, tokens: [version              : project.version,
+                                       dockerTagBase        : project.dockerTagBase,
+                                       kubecfgState         : project.kubecfgState,
+                                       kubecfgName          : project.kubecfgNameUat,
+                                       kubecfgDeployment    : project.kubecfgDeployment])
     }
 
     into 'build/kubernetes'
