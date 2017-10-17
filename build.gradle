@@ -41,7 +41,7 @@ plugins {
     id 'maven-publish'
     id 'org.springframework.boot'               version '1.5.2.RELEASE'
     id 'com.jfrog.artifactory'                  version '4.4.14'
-    id 'com.bmuschko.docker-remote-api'         version '3.0.8'
+    id 'com.bmuschko.docker-remote-api'         version '3.0.11'
     id "org.flywaydb.flyway"                    version "4.2.0"
 
 }
