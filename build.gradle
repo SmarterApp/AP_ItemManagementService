@@ -41,7 +41,7 @@ plugins {
     id 'maven-publish'
     id 'org.springframework.boot'               version '1.5.2.RELEASE'
     id 'com.jfrog.artifactory'                  version '4.4.14'
-    id 'com.bmuschko.docker-remote-api'         version '3.0.8'
+    id 'com.bmuschko.docker-remote-api'         version '3.0.11'
     id "org.flywaydb.flyway"                    version "4.2.0"
 
 }
@@ -61,7 +61,7 @@ repositories {
 }
 
 dependencies {
-    compile 'org.opentestsystem.ap:ap-common:0.1.32'
+    compile 'org.opentestsystem.ap:ap-common:0.1.33'
 
     compile 'org.springframework.boot:spring-boot-starter-actuator'
 
@@ -165,10 +165,11 @@ artifactory {
 task k8sCopyFiles(type: Copy) {
 
     from('src/main/kubernetes/') {
-        filter(ReplaceTokens, tokens: [version: project.version,
-                                       dockerTagBase: project.dockerTagBase,
-                                       kubecfgState: project.kubecfgState,
-                                       kubecfgName: project.kubecfgName])
+        filter(ReplaceTokens, tokens: [version              : project.version,
+                                       dockerTagBase        : project.dockerTagBase,
+                                       kubecfgState         : project.kubecfgState,
+                                       kubecfgName          : project.kubecfgName,
+                                       kubecfgDeployment    : project.kubecfgDeployment])
     }
 
     into 'build/kubernetes'
@@ -177,10 +178,11 @@ task k8sCopyFiles(type: Copy) {
 task k8sCopyFilesUat(type: Copy) {
 
     from('src/main/kubernetes/') {
-        filter(ReplaceTokens, tokens: [version: project.version,
-                                       dockerTagBase: project.dockerTagBase,
-                                       kubecfgState: project.kubecfgState,
-                                       kubecfgName: project.kubecfgNameUat])
+        filter(ReplaceTokens, tokens: [version              : project.version,
+                                       dockerTagBase        : project.dockerTagBase,
+                                       kubecfgState         : project.kubecfgState,
+                                       kubecfgName          : project.kubecfgNameUat,
+                                       kubecfgDeployment    : project.kubecfgDeployment])
     }
 
     into 'build/kubernetes'
