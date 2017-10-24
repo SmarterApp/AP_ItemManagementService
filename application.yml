@@ -38,10 +38,10 @@ spring:
         show_sql: true
         use_sql_comments: true
         format_sql: true
-  servlet:
+  http:
     multipart:
       location: "${java.io.tmpdir}"
-      file-size-threshold: 128KB
+      maxFileSize: "10MB"
 
 flyway:
   schemas: "iat"
