@@ -80,7 +80,7 @@ spring:
   profiles: dev
 
   datasource:
-    url: "jdbc:mysql://iat-dev-db.cjqp2fdamfoh.us-east-2.rds.amazonaws.com:3306/iat?useSSL=false"
+    url: "jdbc:mysql://iatdevdb.cjqp2fdamfoh.us-east-2.rds.amazonaws.com:3306/iat?useSSL=false"
 
 flyway:
   enabled: true
