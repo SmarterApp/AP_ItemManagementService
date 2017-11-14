@@ -1,0 +1,904 @@
+{
+	"info": {
+		"name": "IMS",
+		"_postman_id": "d770db31-3068-e6bb-54c4-9720325cc390",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Begin Create Transaction",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"type\":\"stim\",\n  \"message\": \"being create transaction\"\n} "
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/v1/items/transactions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"items",
+						"transactions"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Begin Edit Transaction",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"message\": \"begin edit transaction\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/v1/items/144/transactions/braille",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"items",
+						"144",
+						"transactions",
+						"braille"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Save Transaction EBSR",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"message\": \"saving EBSR transaction\",\n    \"item\": {\n        \"id\": \"173\",\n        \"type\": \"ebsr\",\n        \"core\": {\n            \"workflowStatusCode\": \"Draft\",\n            \"stimulusId\": null,\n            \"tutorialId\": null,\n            \"metadata\": {\n                \"accessibilityLanguageComplexity\": \"\",\n                \"calculator\": \"\",\n                \"claim2Category\": \"\",\n                \"claim2SubCategory\": \"\",\n                \"contentDomain\": \"\",\n                \"contentTaskModel\": \"\",\n                \"copyrightHolder\": \"\",\n                \"copyrightHolderOther\": \"\",\n                \"depthOfKnowledge\": \"\",\n                \"enemyItems\": \"\",\n                \"grade\": \"\",\n                \"grade8Or11OnlyAlgebraDescriptor\": \"\",\n                \"itemPoint\": \"\",\n                \"knowledgeDemands\": \"\",\n                \"languageFeatures\": \"\",\n                \"maxGrade\": \"\",\n                \"meaningPurpose\": \"\",\n                \"minGrade\": \"\",\n                \"passageName\": \"\",\n                \"performanceTask\": \"\",\n                \"primaryAssessmentTarget\": \"\",\n                \"primaryClaim\": \"\",\n                \"primaryCommonCoreStandard\": \"\",\n                \"primaryContentDomain\": \"\",\n                \"quaternaryAssessmentTarget\": \"\",\n                \"quaternaryClaim\": \"\",\n                \"quaternaryCommonCoreStandard\": \"\",\n                \"quaternaryContentDomain\": \"\",\n                \"readabilityFleschKincaid\": \"\",\n                \"readabilityLexile\": \"\",\n                \"scoringEngine\": \"\",\n                \"scoringPoints\": \"\",\n                \"secondaryAssessmentTarget\": \"\",\n                \"secondaryClaim\": \"\",\n                \"secondaryCommonCoreStandard\": \"\",\n                \"secondaryContentDomain\": \"\",\n                \"stimulusFormat\": \"\",\n                \"stimulusLength\": \"\",\n                \"structure\": \"\",\n                \"subject\": \"\",\n                \"tertiaryAssessmentTarget\": \"\",\n                \"tertiaryClaim\": \"\",\n                \"tertiaryCommonCoreStandard\": \"\",\n                \"tertiaryContentDomain\": \"\",\n                \"testCategory\": \"\",\n                \"wordCount\": \"\",\n                \"writingPurpose\": \"\"\n            },\n            \"en\": {\n                \"prompt\": \"Main prompt!\",\n                \"partAPrompt\": \"Part A prompt.\",\n                \"partAOptions\": [],\n                \"partBPrompt\": \"Part B prompt.\",\n                \"partBOptions\": [],\n                \"isRequired\": true,\n                \"isProvided\": true\n            }\n        },\n        \"asl\": {\n            \"attachments\": [],\n            \"isAslRequired\": \"undetermined\",\n            \"isAslProvided\": false\n        },\n        \"braille\": {\n            \"attachments\": [],\n            \"isBrailleRequired\": \"undetermined\",\n            \"isBrailleProvided\": false\n        },\n        \"cc\": {\n            \"attachments\": [],\n            \"isCcRequired\": \"undetermined\",\n            \"isCcProvided\": false\n        },\n        \"images\": {\n            \"imageResources\": []\n        },\n        \"audio\": {\n            \"audioResources\": []\n        },\n        \"translations\": {\n            \"esp\": {\n                \"prompt\": \"Spanish Main\",\n                \"partAPrompt\": \"Part A Spanish\",\n                \"partAOptions\": [],\n                \"partBPrompt\": \"Part B Spanish\",\n                \"partBOptions\": [],\n                \"isRequired\": true,\n                \"isProvided\": false\n            }\n        }\n    }\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/v1/items/173",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"items",
+						"173"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Save Transaction EQ",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"message\": \"saving EQ transaction\",\n  \"item\": {\n        \"id\": \"174\",\n        \"type\": \"eq\",\n        \"core\": {\n            \"workflowStatusCode\": \"Draft\",\n            \"stimulusId\": null,\n            \"tutorialId\": null,\n            \"metadata\": {\n                \"accessibilityLanguageComplexity\": \"\",\n                \"calculator\": \"\",\n                \"claim2Category\": \"\",\n                \"claim2SubCategory\": \"\",\n                \"contentDomain\": \"\",\n                \"contentTaskModel\": \"\",\n                \"copyrightHolder\": \"\",\n                \"copyrightHolderOther\": \"\",\n                \"depthOfKnowledge\": \"\",\n                \"enemyItems\": \"\",\n                \"grade\": \"\",\n                \"grade8Or11OnlyAlgebraDescriptor\": \"\",\n                \"itemPoint\": \"\",\n                \"knowledgeDemands\": \"\",\n                \"languageFeatures\": \"\",\n                \"maxGrade\": \"\",\n                \"meaningPurpose\": \"\",\n                \"minGrade\": \"\",\n                \"passageName\": \"\",\n                \"performanceTask\": \"\",\n                \"primaryAssessmentTarget\": \"\",\n                \"primaryClaim\": \"\",\n                \"primaryCommonCoreStandard\": \"\",\n                \"primaryContentDomain\": \"\",\n                \"quaternaryAssessmentTarget\": \"\",\n                \"quaternaryClaim\": \"\",\n                \"quaternaryCommonCoreStandard\": \"\",\n                \"quaternaryContentDomain\": \"\",\n                \"readabilityFleschKincaid\": \"\",\n                \"readabilityLexile\": \"\",\n                \"scoringEngine\": \"\",\n                \"scoringPoints\": \"\",\n                \"secondaryAssessmentTarget\": \"\",\n                \"secondaryClaim\": \"\",\n                \"secondaryCommonCoreStandard\": \"\",\n                \"secondaryContentDomain\": \"\",\n                \"stimulusFormat\": \"\",\n                \"stimulusLength\": \"\",\n                \"structure\": \"\",\n                \"subject\": \"\",\n                \"tertiaryAssessmentTarget\": \"\",\n                \"tertiaryClaim\": \"\",\n                \"tertiaryCommonCoreStandard\": \"\",\n                \"tertiaryContentDomain\": \"\",\n                \"testCategory\": \"\",\n                \"wordCount\": \"\",\n                \"writingPurpose\": \"\"\n            },\n            \"equationEditorConfiguration\": {\n                \"code\": \"NumpadOnly\",\n                \"label\": \"Numpad only\",\n                \"numpadConfiguration\": {\n                    \"isMinusVisible\": false,\n                    \"isFractionVisible\": false\n                },\n                \"variableRowConfiguration\": {\n                    \"variables\": [],\n                    \"isRowVisible\": false\n                },\n                \"basicMathRowConfiguration\": {\n                    \"isMinusVisible\": true,\n                    \"isMultiplyTimesVisible\": false,\n                    \"isRowVisible\": false,\n                    \"isMultiplyAsteriskVisible\": true,\n                    \"isPlusVisible\": true,\n                    \"isDivideVisible\": true\n                },\n                \"comparisonRowConfiguration\": {\n                    \"isRowVisible\": false,\n                    \"isGreaterThanOrEqualVisible\": true,\n                    \"isLessThanOrEqualVisible\": true,\n                    \"isLessThanVisible\": true,\n                    \"isEqualVisible\": true,\n                    \"isGreaterThanVisible\": true\n                },\n                \"advancedMathRowConfiguration\": {\n                    \"isFractionVisible\": true,\n                    \"isRowVisible\": false,\n                    \"isSuperscriptVisible\": true,\n                    \"isAbsoluteValueVisible\": true,\n                    \"isPiVisible\": true,\n                    \"isSquareRootVisible\": true,\n                    \"isNthRootVisible\": true,\n                    \"isImaginaryVisible\": true,\n                    \"isSubscriptVisible\": true,\n                    \"isParenthesesVisible\": true\n                },\n                \"trigonometryRowConfiguration\": {\n                    \"isRowVisible\": false,\n                    \"isSineVisible\": true,\n                    \"isCosineVisible\": true,\n                    \"isTangentVisible\": true,\n                    \"isArcSineVisible\": true,\n                    \"isArcCosineVisible\": true,\n                    \"isArcTangentVisible\": true\n                }\n            },\n            \"en\": {\n                \"prompt\": \"The prompt for EQ\",\n                \"parts\": [\n                    {\n                        \"leftLabel\": \"Left label\",\n                        \"rightLabel\": \"Right label\",\n                        \"exemplarResponses\": [\"ex1\", \"ex2\"]\n                    }\n                ],\n                \"isRequired\": true,\n                \"isProvided\": true\n            }\n        },\n        \"asl\": {\n            \"attachments\": [],\n            \"isAslRequired\": \"undetermined\",\n            \"isAslProvided\": false\n        },\n        \"braille\": {\n            \"attachments\": [],\n            \"isBrailleRequired\": \"undetermined\",\n            \"isBrailleProvided\": false\n        },\n        \"cc\": {\n            \"attachments\": [],\n            \"isCcRequired\": \"undetermined\",\n            \"isCcProvided\": false\n        },\n        \"images\": {\n            \"imageResources\": []\n        },\n        \"audio\": {\n            \"audioResources\": []\n        },\n        \"translations\": {\n            \"esp\": {\n                \"prompt\": \"Spanish prompt for EQ\",\n                \"parts\": [\n                    {\n                        \"leftLabel\": \"Spanish Left Label\",\n                        \"rightLabel\": \"Spanish Right label\",\n                        \"exemplarResponses\": [\"spanish-ex1\", \"spanish-ex2\"]\n                    }\n                ],\n                \"isRequired\": false,\n                \"isProvided\": false\n            }\n        }\n    }\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/v1/items/174",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"items",
+						"174"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Save Transaction MC",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"message\": \"saving MC transaction\",\n  \"item\": {\n        \"id\": \"175\",\n        \"type\": \"mc\",\n        \"core\": {\n            \"workflowStatusCode\": \"Draft\",\n            \"stimulusId\": null,\n            \"tutorialId\": null,\n            \"metadata\": {\n                \"accessibilityLanguageComplexity\": \"\",\n                \"calculator\": \"\",\n                \"claim2Category\": \"\",\n                \"claim2SubCategory\": \"\",\n                \"contentDomain\": \"\",\n                \"contentTaskModel\": \"\",\n                \"copyrightHolder\": \"\",\n                \"copyrightHolderOther\": \"\",\n                \"depthOfKnowledge\": \"\",\n                \"enemyItems\": \"\",\n                \"grade\": \"\",\n                \"grade8Or11OnlyAlgebraDescriptor\": \"\",\n                \"itemPoint\": \"\",\n                \"knowledgeDemands\": \"\",\n                \"languageFeatures\": \"\",\n                \"maxGrade\": \"\",\n                \"meaningPurpose\": \"\",\n                \"minGrade\": \"\",\n                \"passageName\": \"\",\n                \"performanceTask\": \"\",\n                \"primaryAssessmentTarget\": \"\",\n                \"primaryClaim\": \"\",\n                \"primaryCommonCoreStandard\": \"\",\n                \"primaryContentDomain\": \"\",\n                \"quaternaryAssessmentTarget\": \"\",\n                \"quaternaryClaim\": \"\",\n                \"quaternaryCommonCoreStandard\": \"\",\n                \"quaternaryContentDomain\": \"\",\n                \"readabilityFleschKincaid\": \"\",\n                \"readabilityLexile\": \"\",\n                \"scoringEngine\": \"\",\n                \"scoringPoints\": \"\",\n                \"secondaryAssessmentTarget\": \"\",\n                \"secondaryClaim\": \"\",\n                \"secondaryCommonCoreStandard\": \"\",\n                \"secondaryContentDomain\": \"\",\n                \"stimulusFormat\": \"\",\n                \"stimulusLength\": \"\",\n                \"structure\": \"\",\n                \"subject\": \"\",\n                \"tertiaryAssessmentTarget\": \"\",\n                \"tertiaryClaim\": \"\",\n                \"tertiaryCommonCoreStandard\": \"\",\n                \"tertiaryContentDomain\": \"\",\n                \"testCategory\": \"\",\n                \"wordCount\": \"\",\n                \"writingPurpose\": \"\"\n            },\n            \"en\": {\n                \"prompt\": \"English Prompt\",\n                \"options\": [{\n                \t\"text\":\"option1\",\n                \t\"isCorrectAnswer\": false\n                }, {\n                \t\"text\":\"option2\",\n                \t\"isCorrectAnswer\": true\n                }],\n                \"isRequired\": true,\n                \"isProvided\": true\n            }\n        },\n        \"asl\": {\n            \"attachments\": [],\n            \"isAslRequired\": \"undetermined\",\n            \"isAslProvided\": false\n        },\n        \"braille\": {\n            \"attachments\": [],\n            \"isBrailleRequired\": \"undetermined\",\n            \"isBrailleProvided\": false\n        },\n        \"cc\": {\n            \"attachments\": [],\n            \"isCcRequired\": \"undetermined\",\n            \"isCcProvided\": false\n        },\n        \"images\": {\n            \"imageResources\": []\n        },\n        \"audio\": {\n            \"audioResources\": []\n        },\n        \"translations\": {\n            \"esp\": {\n                \"prompt\": \"Spanish Prompt\",\n                \"options\": [{\n                \t\"text\":\"spanish-option1\",\n                \t\"isCorrectAnswer\": false\n                }, {\n                \t\"text\":\"spanish-option2\",\n                \t\"isCorrectAnswer\": true\n                }],\n                \"isRequired\": true,\n                \"isProvided\": false\n            }\n        }\n    }\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/v1/items/175",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"items",
+						"175"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Save Transaction MS",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"message\": \"saving MC transaction\",\n  \"item\": {\n        \"id\": \"176\",\n        \"type\": \"ms\",\n        \"core\": {\n            \"workflowStatusCode\": \"Draft\",\n            \"stimulusId\": null,\n            \"tutorialId\": null,\n            \"metadata\": {\n                \"accessibilityLanguageComplexity\": \"\",\n                \"calculator\": \"\",\n                \"claim2Category\": \"\",\n                \"claim2SubCategory\": \"\",\n                \"contentDomain\": \"\",\n                \"contentTaskModel\": \"\",\n                \"copyrightHolder\": \"\",\n                \"copyrightHolderOther\": \"\",\n                \"depthOfKnowledge\": \"\",\n                \"enemyItems\": \"\",\n                \"grade\": \"\",\n                \"grade8Or11OnlyAlgebraDescriptor\": \"\",\n                \"itemPoint\": \"\",\n                \"knowledgeDemands\": \"\",\n                \"languageFeatures\": \"\",\n                \"maxGrade\": \"\",\n                \"meaningPurpose\": \"\",\n                \"minGrade\": \"\",\n                \"passageName\": \"\",\n                \"performanceTask\": \"\",\n                \"primaryAssessmentTarget\": \"\",\n                \"primaryClaim\": \"\",\n                \"primaryCommonCoreStandard\": \"\",\n                \"primaryContentDomain\": \"\",\n                \"quaternaryAssessmentTarget\": \"\",\n                \"quaternaryClaim\": \"\",\n                \"quaternaryCommonCoreStandard\": \"\",\n                \"quaternaryContentDomain\": \"\",\n                \"readabilityFleschKincaid\": \"\",\n                \"readabilityLexile\": \"\",\n                \"scoringEngine\": \"\",\n                \"scoringPoints\": \"\",\n                \"secondaryAssessmentTarget\": \"\",\n                \"secondaryClaim\": \"\",\n                \"secondaryCommonCoreStandard\": \"\",\n                \"secondaryContentDomain\": \"\",\n                \"stimulusFormat\": \"\",\n                \"stimulusLength\": \"\",\n                \"structure\": \"\",\n                \"subject\": \"\",\n                \"tertiaryAssessmentTarget\": \"\",\n                \"tertiaryClaim\": \"\",\n                \"tertiaryCommonCoreStandard\": \"\",\n                \"tertiaryContentDomain\": \"\",\n                \"testCategory\": \"\",\n                \"wordCount\": \"\",\n                \"writingPurpose\": \"\"\n            },\n            \"en\": {\n                \"prompt\": \"English prompt\",\n                \"options\": [{\n                \t\"text\":\"option1\",\n                \t\"isCorrectAnswer\": true\n                }, {\n                \t\"text\":\"option2\",\n                \t\"isCorrectAnswer\": true\n                }],\n                \"isRequired\": true,\n                \"isProvided\": true\n            }\n        },\n        \"asl\": {\n            \"attachments\": [],\n            \"isAslRequired\": \"undetermined\",\n            \"isAslProvided\": false\n        },\n        \"braille\": {\n            \"attachments\": [],\n            \"isBrailleRequired\": \"undetermined\",\n            \"isBrailleProvided\": false\n        },\n        \"cc\": {\n            \"attachments\": [],\n            \"isCcRequired\": \"undetermined\",\n            \"isCcProvided\": false\n        },\n        \"images\": {\n            \"imageResources\": []\n        },\n        \"audio\": {\n            \"audioResources\": []\n        },\n        \"translations\": {\n            \"esp\": {\n                \"prompt\": \"Spanish prompt\",\n                \"options\": [{\n                \t\"text\":\"spanish-option1\",\n                \t\"isCorrectAnswer\": true\n                }, {\n                \t\"text\":\"spanish-option2\",\n                \t\"isCorrectAnswer\": true\n                }],\n                \"isRequired\": false,\n                \"isProvided\": false\n            }\n        }\n    }\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/v1/items/176",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"items",
+						"176"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Save Transaction SA",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"message\": \"save transaction\",\n    \"item\": {\n        \"id\": \"177\",\n        \"type\": \"sa\",\n        \"core\": {\n            \"workflowStatusCode\": \"Draft\",\n            \"stimulusId\": null,\n            \"tutorialId\": null,\n            \"metadata\": {\n                \"accessibilityLanguageComplexity\": \"\",\n                \"calculator\": \"\",\n                \"claim2Category\": \"\",\n                \"claim2SubCategory\": \"\",\n                \"contentDomain\": \"\",\n                \"contentTaskModel\": \"\",\n                \"copyrightHolder\": \"\",\n                \"copyrightHolderOther\": \"\",\n                \"depthOfKnowledge\": \"\",\n                \"enemyItems\": \"\",\n                \"grade\": \"\",\n                \"grade8Or11OnlyAlgebraDescriptor\": \"\",\n                \"itemPoint\": \"\",\n                \"knowledgeDemands\": \"\",\n                \"languageFeatures\": \"\",\n                \"maxGrade\": \"\",\n                \"meaningPurpose\": \"\",\n                \"minGrade\": \"\",\n                \"passageName\": \"\",\n                \"performanceTask\": \"\",\n                \"primaryAssessmentTarget\": \"\",\n                \"primaryClaim\": \"\",\n                \"primaryCommonCoreStandard\": \"\",\n                \"primaryContentDomain\": \"\",\n                \"quaternaryAssessmentTarget\": \"\",\n                \"quaternaryClaim\": \"\",\n                \"quaternaryCommonCoreStandard\": \"\",\n                \"quaternaryContentDomain\": \"\",\n                \"readabilityFleschKincaid\": \"\",\n                \"readabilityLexile\": \"\",\n                \"scoringEngine\": \"\",\n                \"scoringPoints\": \"\",\n                \"secondaryAssessmentTarget\": \"\",\n                \"secondaryClaim\": \"\",\n                \"secondaryCommonCoreStandard\": \"\",\n                \"secondaryContentDomain\": \"\",\n                \"stimulusFormat\": \"\",\n                \"stimulusLength\": \"\",\n                \"structure\": \"\",\n                \"subject\": \"\",\n                \"tertiaryAssessmentTarget\": \"\",\n                \"tertiaryClaim\": \"\",\n                \"tertiaryCommonCoreStandard\": \"\",\n                \"tertiaryContentDomain\": \"\",\n                \"testCategory\": \"\",\n                \"wordCount\": \"\",\n                \"writingPurpose\": \"\"\n            },\n            \"en\": {\n                \"prompt\": \"English prompt\",\n                \"exemplarResponses\": [\"ex1\",\"ex2\"],\n                \"isRequired\": true,\n                \"isProvided\": true\n            }\n        },\n        \"asl\": {\n            \"attachments\": [],\n            \"isAslRequired\": \"undetermined\",\n            \"isAslProvided\": false\n        },\n        \"braille\": {\n            \"attachments\": [],\n            \"isBrailleRequired\": \"undetermined\",\n            \"isBrailleProvided\": false\n        },\n        \"cc\": {\n            \"attachments\": [],\n            \"isCcRequired\": \"undetermined\",\n            \"isCcProvided\": false\n        },\n        \"images\": {\n            \"imageResources\": []\n        },\n        \"audio\": {\n            \"audioResources\": []\n        },\n        \"translations\": {\n            \"esp\": {\n                \"prompt\": \"Spanish prompt\",\n                \"exemplarResponses\": [\"spanish-ex1\",\"spanish-ex2\"],\n                \"isRequired\": false,\n                \"isProvided\": false\n            }\n        }\n    }\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/v1/items/177",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"items",
+						"177"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Save Transaction STIM",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"message\": \"save transaction\",\n    \"item\": {\n        \"id\": \"183\",\n        \"type\": \"stim\",\n        \"core\": {\n            \"workflowStatusCode\": \"Draft\",\n            \"en\": {\n                \"content\": \"English content\",\n                \"isRequired\": true,\n                \"isProvided\": true\n            },\n            \"metadata\": {\n                \"accessibilityLanguageComplexity\": \"\",\n                \"calculator\": \"\",\n                \"claim2Category\": \"\",\n                \"claim2SubCategory\": \"\",\n                \"contentDomain\": \"\",\n                \"contentTaskModel\": \"\",\n                \"copyrightHolder\": \"\",\n                \"copyrightHolderOther\": \"\",\n                \"depthOfKnowledge\": \"\",\n                \"enemyItems\": \"\",\n                \"grade\": \"\",\n                \"grade8Or11OnlyAlgebraDescriptor\": \"\",\n                \"itemPoint\": \"\",\n                \"knowledgeDemands\": \"\",\n                \"languageFeatures\": \"\",\n                \"maxGrade\": \"\",\n                \"meaningPurpose\": \"\",\n                \"minGrade\": \"\",\n                \"passageName\": \"\",\n                \"performanceTask\": \"\",\n                \"primaryAssessmentTarget\": \"\",\n                \"primaryClaim\": \"\",\n                \"primaryCommonCoreStandard\": \"\",\n                \"primaryContentDomain\": \"\",\n                \"quaternaryAssessmentTarget\": \"\",\n                \"quaternaryClaim\": \"\",\n                \"quaternaryCommonCoreStandard\": \"\",\n                \"quaternaryContentDomain\": \"\",\n                \"readabilityFleschKincaid\": \"\",\n                \"readabilityLexile\": \"\",\n                \"scoringEngine\": \"\",\n                \"scoringPoints\": \"\",\n                \"secondaryAssessmentTarget\": \"\",\n                \"secondaryClaim\": \"\",\n                \"secondaryCommonCoreStandard\": \"\",\n                \"secondaryContentDomain\": \"\",\n                \"stimulusFormat\": \"\",\n                \"stimulusLength\": \"\",\n                \"structure\": \"\",\n                \"subject\": \"\",\n                \"tertiaryAssessmentTarget\": \"\",\n                \"tertiaryClaim\": \"\",\n                \"tertiaryCommonCoreStandard\": \"\",\n                \"tertiaryContentDomain\": \"\",\n                \"testCategory\": \"\",\n                \"wordCount\": \"\",\n                \"writingPurpose\": \"\"\n            }\n        },\n        \"asl\": {\n            \"attachments\": [],\n            \"isAslRequired\": \"undetermined\",\n            \"isAslProvided\": false\n        },\n        \"braille\": {\n            \"attachments\": [],\n            \"isBrailleRequired\": \"undetermined\",\n            \"isBrailleProvided\": false\n        },\n        \"cc\": {\n            \"attachments\": [],\n            \"isCcRequired\": \"undetermined\",\n            \"isCcProvided\": false\n        },\n        \"images\": {\n            \"imageResources\": []\n        },\n        \"audio\": {\n            \"audioResources\": []\n        },\n        \"translations\": {\n            \"esp\": {\n                \"content\": \"Spanish content\",\n                \"isRequired\": true,\n                \"isProvided\": false\n            }\n        }\n    }\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/v1/items/183",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"items",
+						"183"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Save Transaction TI",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"message\": \"saving transaction\",\n  \"item\": {\n        \"id\": \"179\",\n        \"type\": \"ti\",\n        \"core\": {\n            \"workflowStatusCode\": \"Draft\",\n            \"stimulusId\": null,\n            \"tutorialId\": null,\n            \"metadata\": {\n                \"accessibilityLanguageComplexity\": \"\",\n                \"calculator\": \"\",\n                \"claim2Category\": \"\",\n                \"claim2SubCategory\": \"\",\n                \"contentDomain\": \"\",\n                \"contentTaskModel\": \"\",\n                \"copyrightHolder\": \"\",\n                \"copyrightHolderOther\": \"\",\n                \"depthOfKnowledge\": \"\",\n                \"enemyItems\": \"\",\n                \"grade\": \"\",\n                \"grade8Or11OnlyAlgebraDescriptor\": \"\",\n                \"itemPoint\": \"\",\n                \"knowledgeDemands\": \"\",\n                \"languageFeatures\": \"\",\n                \"maxGrade\": \"\",\n                \"meaningPurpose\": \"\",\n                \"minGrade\": \"\",\n                \"passageName\": \"\",\n                \"performanceTask\": \"\",\n                \"primaryAssessmentTarget\": \"\",\n                \"primaryClaim\": \"\",\n                \"primaryCommonCoreStandard\": \"\",\n                \"primaryContentDomain\": \"\",\n                \"quaternaryAssessmentTarget\": \"\",\n                \"quaternaryClaim\": \"\",\n                \"quaternaryCommonCoreStandard\": \"\",\n                \"quaternaryContentDomain\": \"\",\n                \"readabilityFleschKincaid\": \"\",\n                \"readabilityLexile\": \"\",\n                \"scoringEngine\": \"\",\n                \"scoringPoints\": \"\",\n                \"secondaryAssessmentTarget\": \"\",\n                \"secondaryClaim\": \"\",\n                \"secondaryCommonCoreStandard\": \"\",\n                \"secondaryContentDomain\": \"\",\n                \"stimulusFormat\": \"\",\n                \"stimulusLength\": \"\",\n                \"structure\": \"\",\n                \"subject\": \"\",\n                \"tertiaryAssessmentTarget\": \"\",\n                \"tertiaryClaim\": \"\",\n                \"tertiaryCommonCoreStandard\": \"\",\n                \"tertiaryContentDomain\": \"\",\n                \"testCategory\": \"\",\n                \"wordCount\": \"\",\n                \"writingPurpose\": \"\"\n            },\n            \"en\": {\n                \"prompt\": \"English Prompt\",\n                \"table\": {\n                    \"title\": \"E-Table\",\n                    \"columns\": [\n                        {\n                            \"label\": \"E-Col1\"\n                        },\n                        {\n                            \"label\": \"E-Col2\"\n                        }\n                    ],\n                    \"rows\": [\n                        {\n                            \"cells\": [\n                                {\n                                    \"type\": \"label\",\n                                    \"value\": \"E-c11\"\n                                },\n                                {\n                                    \"type\": \"answer\",\n                                    \"value\": \"E-c12\"\n                                }\n                            ]\n                        },\n                        {\n                            \"cells\": [\n                                {\n                                    \"type\": \"label\",\n                                    \"value\": \"E-c21\"\n                                },\n                                {\n                                    \"type\": \"answer\",\n                                    \"value\": \"E-22\"\n                                }\n                            ]\n                        },\n                        {\n                            \"cells\": [\n                                {\n                                    \"type\": \"label\",\n                                    \"value\": \"E-31\"\n                                },\n                                {\n                                    \"type\": \"answer\",\n                                    \"value\": \"E-32\"\n                                }\n                            ]\n                        },\n                        {\n                            \"cells\": [\n                                {\n                                    \"type\": \"label\",\n                                    \"value\": \"E-41\"\n                                },\n                                {\n                                    \"type\": \"answer\",\n                                    \"value\": \"E-42\"\n                                }\n                            ]\n                        }\n                    ]\n                },\n                \"isRequired\": true,\n                \"isProvided\": true\n            }\n        },\n        \"asl\": {\n            \"attachments\": [],\n            \"isAslRequired\": \"undetermined\",\n            \"isAslProvided\": false\n        },\n        \"braille\": {\n            \"attachments\": [],\n            \"isBrailleRequired\": \"undetermined\",\n            \"isBrailleProvided\": false\n        },\n        \"cc\": {\n            \"attachments\": [],\n            \"isCcRequired\": \"undetermined\",\n            \"isCcProvided\": false\n        },\n        \"images\": {\n            \"imageResources\": []\n        },\n        \"audio\": {\n            \"audioResources\": []\n        },\n        \"translations\": {\n            \"esp\": {\n                \"prompt\": \"Spanish Prompt\",\n                \"table\": {\n                    \"title\": \"S-Table\",\n                    \"columns\": [\n                        {\n                            \"label\": \"S-Col1\"\n                        },\n                        {\n                            \"label\": \"S-Col2\"\n                        }\n                    ],\n                    \"rows\": [\n                        {\n                            \"cells\": [\n                                {\n                                    \"type\": \"label\",\n                                    \"value\": \"S-c11\"\n                                },\n                                {\n                                    \"type\": \"answer\",\n                                    \"value\": \"S-c12\"\n                                }\n                            ]\n                        },\n                        {\n                            \"cells\": [\n                                {\n                                    \"type\": \"label\",\n                                    \"value\": \"S-c21\"\n                                },\n                                {\n                                    \"type\": \"answer\",\n                                    \"value\": \"S-22\"\n                                }\n                            ]\n                        },\n                        {\n                            \"cells\": [\n                                {\n                                    \"type\": \"label\",\n                                    \"value\": \"S-31\"\n                                },\n                                {\n                                    \"type\": \"answer\",\n                                    \"value\": \"S-32\"\n                                }\n                            ]\n                        },\n                        {\n                            \"cells\": [\n                                {\n                                    \"type\": \"label\",\n                                    \"value\": \"S-41\"\n                                },\n                                {\n                                    \"type\": \"answer\",\n                                    \"value\": \"S-42\"\n                                }\n                            ]\n                        }\n                    ]\n                },\n                \"isRequired\": false,\n                \"isProvided\": false\n            }\n        }\n    }\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/v1/items/179",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"items",
+						"179"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Save Transaction TUT",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"message\": \"save transaction\",\n    \"item\": {\n        \"id\": \"181\",\n        \"type\": \"tut\",\n        \"core\": {\n            \"workflowStatusCode\": \"Draft\",\n            \"en\": {\n                \"content\": \"English content\",\n                \"isRequired\": true,\n                \"isProvided\": true\n            }\n        },\n        \"asl\": {\n            \"attachments\": [],\n            \"isAslRequired\": \"undetermined\",\n            \"isAslProvided\": false\n        },\n        \"braille\": {\n            \"attachments\": [],\n            \"isBrailleRequired\": \"undetermined\",\n            \"isBrailleProvided\": false\n        },\n        \"cc\": {\n            \"attachments\": [],\n            \"isCcRequired\": \"undetermined\",\n            \"isCcProvided\": false\n        },\n        \"images\": {\n            \"imageResources\": []\n        },\n        \"audio\": {\n            \"audioResources\": []\n        },\n        \"translations\": {\n            \"esp\": {\n                \"content\": \"Spanish content\",\n                \"isRequired\": false,\n                \"isProvided\": false\n            }\n        }\n    }\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/v1/items/181",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"items",
+						"181"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Save Transaction WER",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"message\": \"save transaction\",\n\"item\": {\n        \"id\": \"178\",\n        \"type\": \"wer\",\n        \"core\": {\n            \"workflowStatusCode\": \"Draft\",\n            \"stimulusId\": null,\n            \"tutorialId\": null,\n            \"metadata\": {\n                \"accessibilityLanguageComplexity\": \"\",\n                \"calculator\": \"\",\n                \"claim2Category\": \"\",\n                \"claim2SubCategory\": \"\",\n                \"contentDomain\": \"\",\n                \"contentTaskModel\": \"\",\n                \"copyrightHolder\": \"\",\n                \"copyrightHolderOther\": \"\",\n                \"depthOfKnowledge\": \"\",\n                \"enemyItems\": \"\",\n                \"grade\": \"\",\n                \"grade8Or11OnlyAlgebraDescriptor\": \"\",\n                \"itemPoint\": \"\",\n                \"knowledgeDemands\": \"\",\n                \"languageFeatures\": \"\",\n                \"maxGrade\": \"\",\n                \"meaningPurpose\": \"\",\n                \"minGrade\": \"\",\n                \"passageName\": \"\",\n                \"performanceTask\": \"\",\n                \"primaryAssessmentTarget\": \"\",\n                \"primaryClaim\": \"\",\n                \"primaryCommonCoreStandard\": \"\",\n                \"primaryContentDomain\": \"\",\n                \"quaternaryAssessmentTarget\": \"\",\n                \"quaternaryClaim\": \"\",\n                \"quaternaryCommonCoreStandard\": \"\",\n                \"quaternaryContentDomain\": \"\",\n                \"readabilityFleschKincaid\": \"\",\n                \"readabilityLexile\": \"\",\n                \"scoringEngine\": \"\",\n                \"scoringPoints\": \"\",\n                \"secondaryAssessmentTarget\": \"\",\n                \"secondaryClaim\": \"\",\n                \"secondaryCommonCoreStandard\": \"\",\n                \"secondaryContentDomain\": \"\",\n                \"stimulusFormat\": \"\",\n                \"stimulusLength\": \"\",\n                \"structure\": \"\",\n                \"subject\": \"\",\n                \"tertiaryAssessmentTarget\": \"\",\n                \"tertiaryClaim\": \"\",\n                \"tertiaryCommonCoreStandard\": \"\",\n                \"tertiaryContentDomain\": \"\",\n                \"testCategory\": \"\",\n                \"wordCount\": \"\",\n                \"writingPurpose\": \"\"\n            },\n            \"en\": {\n                \"prompt\": \"English prompt\",\n                \"exemplarResponses\": [\"ex1\",\"ex2\"],\n                \"isRequired\": true,\n                \"isProvided\": true\n            }\n        },\n        \"asl\": {\n            \"attachments\": [],\n            \"isAslRequired\": \"undetermined\",\n            \"isAslProvided\": false\n        },\n        \"braille\": {\n            \"attachments\": [],\n            \"isBrailleRequired\": \"undetermined\",\n            \"isBrailleProvided\": false\n        },\n        \"cc\": {\n            \"attachments\": [],\n            \"isCcRequired\": \"undetermined\",\n            \"isCcProvided\": false\n        },\n        \"images\": {\n            \"imageResources\": []\n        },\n        \"audio\": {\n            \"audioResources\": []\n        },\n        \"translations\": {\n            \"esp\": {\n                \"prompt\": \"Spanish prompt\",\n                \"exemplarResponses\": [\"spanish-ex1\",\"spanish-ex2\"],\n                \"isRequired\": false,\n                \"isProvided\": false\n            }\n        }\n    }\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/v1/items/178",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"items",
+						"178"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Commit Transaction EBSR",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"message\": \"committing transaction\",\n  \"item\": {\n        \"id\": \"62\",\n        \"type\": \"ebsr\",\n        \"core\": {\n            \"workflowStatusCode\": \"Draft\",\n            \"tutorialId\": null,\n            \"stimulusId\": null,\n            \"prompt\": \"The main EBSR prompt\",\n            \"partAPrompt\": \"This is multiple choice\",\n            \"partAOptions\": [\n              {\n          \"text\": \"Response 1\", \n          \"isCorrectAnswer\": \"false\"\n        },\n        {\n          \"text\": \"Response 2\", \n          \"isCorrectAnswer\": \"true\"\n        },\n        {\n          \"text\": \"Response 3\", \n          \"isCorrectAnswer\": \"false\"\n        }\n              ],\n            \"partBPrompt\": \"This is multiple select\",\n            \"partBOptions\": [\n              {\n          \"text\": \"Response 4\", \n          \"isCorrectAnswer\": \"true\"\n        },\n        {\n          \"text\": \"Response 5\", \n          \"isCorrectAnswer\": \"false\"\n        },\n        {\n          \"text\": \"Response 6\", \n          \"isCorrectAnswer\": \"true\"\n        }\n              ]\n        },\n        \"braille\": {\n            \"attachments\": [],\n            \"isBrailleRequired\": false,\n            \"isBrailleProvided\": false\n        }\n  }\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/v1/items/62/transactions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"items",
+						"62",
+						"transactions"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Commit Transaction EQ",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"message\": \"committing EQ transaction\",\n  \"item\": {\n      \"id\" : \"122\",\n      \"type\" : \"eq\",\n      \"core\" : {\n        \"workflowStatusCode\" : \"InitialReview\",\n        \"tutorialId\" : null,\n        \"stimulusId\" : null,\n        \"prompt\" : \"\",\n        \"parts\" : [ {\n          \"label\" : \"Part A\",\n          \"labelPosition\" : \"leftOfInput\",\n          \"exemplarResponses\" : [\"Part A requires\" ]\n        } ],\n        \"equationEditorConfiguration\" : {\n          \"code\" : \"NumpadOnly\",\n          \"label\" : \"Numpad only\",\n          \"numpadConfiguration\" : {\n            \"minusVisible\" : true,\n            \"fractionVisible\" : false\n          },\n          \"variableRowConfiguration\" : {\n            \"variables\" : [ ],\n            \"rowVisible\" : false\n          },\n          \"basicMathRowConfiguration\" : {\n            \"rowVisible\" : false,\n            \"minusVisible\" : true,\n            \"multiplyVisible\" : true,\n            \"divideVisible\" : true,\n            \"plusVisible\" : true\n          },\n          \"comparisonRowConfiguration\" : {\n            \"rowVisible\" : false,\n            \"greaterThanOrEqualVisible\" : true,\n            \"lessThanOrEqualVisible\" : true,\n            \"lessThanVisible\" : true,\n            \"equalVisible\" : true,\n            \"greaterThanVisible\" : true\n          },\n          \"advancedMathRowConfiguration\" : {\n            \"rowVisible\" : false,\n            \"fractionVisible\" : true,\n            \"superscriptVisible\" : true,\n            \"absoluteValueVisible\" : true,\n            \"piVisible\" : true,\n            \"squareRootVisible\" : true,\n            \"nthRootVisible\" : true,\n            \"imaginaryVisible\" : true,\n            \"subscriptVisible\" : true,\n            \"parenthesesVisible\" : true\n          },\n          \"trigonometryRowConfiguration\" : {\n            \"rowVisible\" : false,\n            \"sineVisible\" : true,\n            \"cosineVisible\" : true,\n            \"tangentVisible\" : true,\n            \"arcSineVisible\" : true,\n            \"arcCosineVisible\" : true,\n            \"arcTangentVisible\" : true\n          }\n        }\n      },\n      \"braille\" : {\n        \"attachments\" : [ ],\n        \"brailleRequired\" : \"undetermined\",\n        \"isBrailleProvided\" : false\n      },\n      \"asl\" : {\n        \"attachments\" : [ ],\n        \"aslRequired\" : \"undetermined\",\n        \"isAslProvided\" : false\n      },\n      \"cc\" : {\n        \"attachments\" : [ ],\n        \"ccRequired\" : \"undetermined\",\n        \"isCcProvided\" : false\n      }\n    }\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/v1/items/122/transactions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"items",
+						"122",
+						"transactions"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Commit Transaction MC",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"message\": \"commit transaction\",\n  \"item\": {\n        \"id\": \"143\",\n        \"type\": \"mc\",\n        \"core\": {\n            \"workflowStatusCode\": \"Draft\",\n            \"tutorialId\": null,\n            \"stimulusId\": null,\n            \"prompt\": \"Pick one correct answer\",\n            \"options\": [\n              {\n          \"text\": \"Response 1\", \n          \"isCorrectAnswer\": \"false\"\n        },\n        {\n          \"text\": \"Response 2\", \n          \"isCorrectAnswer\": \"true\"\n        },\n        {\n          \"text\": \"Response 3\", \n          \"isCorrectAnswer\": \"false\"\n        }\n      ]\n        },\n        \"braille\": {\n            \"attachments\": [],\n            \"isBrailleRequired\": false,\n            \"isBrailleProvided\": false\n        }\n    }\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/v1/items/143/transactions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"items",
+						"143",
+						"transactions"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Commit Transaction MS",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"message\": \"commit transaction\",\n  \"item\": {\n        \"id\": \"57\",\n        \"type\": \"ms\",\n        \"core\": {\n            \"workflowStatusCode\": \"Draft\",\n            \"tutorialId\": null,\n            \"stimulusId\": null,\n            \"prompt\": \"Pick all answers that apply\",\n            \"options\": [\n              {\n          \"text\": \"Response 1\", \n          \"isCorrectAnswer\": \"true\"\n        },\n        {\n          \"text\": \"Response 2\", \n          \"isCorrectAnswer\": \"true\"\n        },\n        {\n          \"text\": \"Response 3\", \n          \"isCorrectAnswer\": \"true\"\n        }\n      ]\n        },\n        \"braille\": {\n            \"attachments\": [],\n            \"isBrailleRequired\": true,\n            \"isBrailleProvided\": true\n        }\n    }\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/v1/items/57/transactions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"items",
+						"57",
+						"transactions"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Commit Transaction SA",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"message\": \"committing transaction\",\n    \"item\": {\n        \"id\": \"47\",\n        \"type\": \"sa\",\n        \"core\": {    \n            \"workflowStatusCode\": \"Draft\",\n            \"tutorialId\": null,\n            \"stimulusId\": null,\n            \"prompt\": \"What is 3 + 3?\",\n            \"exemplarResponses\": [\"6\"]\n        },\n        \"braille\": {\n            \"attachments\": [],\n            \"isBrailleRequired\": false,\n            \"isBrailleProvided\": false\n        }\n    }\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/v1/items/47/transactions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"items",
+						"47",
+						"transactions"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Commit Transaction STIM",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"message\": \"committing transaction\",\n    \"item\": {\n        \"id\": \"60\",\n        \"type\": \"stim\",\n        \"core\": {\n            \"workflowStatusCode\": \"InitialReview\",\n            \"content\": \"This is my stim and it has been updated.\"\n        },\n        \"braille\": {\n            \"attachments\": [],\n            \"isBrailleRequired\": true,\n            \"isBrailleProvided\": true\n        }\n    }\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/v1/items/60/transactions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"items",
+						"60",
+						"transactions"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Commit Transaction TI",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"message\": \"committing transaction\",\n  \"item\": {\n        \"id\": \"66\",\n        \"type\": \"ti\",\n        \"core\": {\n            \"workflowStatusCode\": \"InitialReview\",\n            \"tutorialId\": null,\n            \"stimulusId\": null,\n            \"prompt\": \"\",\n            \"table\": {\n                \"title\": \"July Sales\",\n                \"columns\": [\n                    {\n                      \"label\": \"Weekly Sales\"\n                    },\n                    { \n                      \"label\": \"Total Sold in Month\"\n                    }\n                ],\n                \"rows\": [\n                    {\n                        \"cells\": [\n                            {\n                                \"type\": \"label\",\n                                \"value\": \"One\"\n                            },\n                            {\n                                \"type\": \"label\",\n                                \"value\": \"11\"\n                            }\n                        ]\n                    },\n                    {\n                        \"cells\": [\n                            {\n                                \"type\": \"label\",\n                                \"value\": \"Two\"\n                            },\n                            {\n                                \"type\": \"label\",\n                                \"value\": \"22\"\n                            }\n                        ]\n                    }\n                ]\n            }\n        },\n        \"braille\": {\n            \"attachments\": [],\n            \"isBrailleRequired\": true,\n            \"isBrailleProvided\": true\n        }\n    }\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/v1/items/66/transactions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"items",
+						"66",
+						"transactions"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Commit Transaction TUT",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"message\": \"committing transaction\",\n    \"item\": {\n        \"id\": \"180\",\n        \"type\": \"tut\",\n        \"core\": {\n            \"workflowStatusCode\": \"Draft\",\n            \"en\": {\n                \"content\": \"\",\n                \"isRequired\": true,\n                \"isProvided\": true\n            }\n        },\n        \"asl\": {\n            \"attachments\": [],\n            \"isAslRequired\": \"undetermined\",\n            \"isAslProvided\": false\n        },\n        \"braille\": {\n            \"attachments\": [],\n            \"isBrailleRequired\": \"undetermined\",\n            \"isBrailleProvided\": false\n        },\n        \"cc\": {\n            \"attachments\": [],\n            \"isCcRequired\": \"undetermined\",\n            \"isCcProvided\": false\n        },\n        \"images\": {\n            \"imageResources\": []\n        },\n        \"audio\": {\n            \"audioResources\": []\n        },\n        \"translations\": {\n            \"esp\": {\n                \"content\": \"\",\n                \"isRequired\": false,\n                \"isProvided\": false\n            }\n        }\n    }\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/v1/items/61/transactions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"items",
+						"61",
+						"transactions"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Commit Transaction WER",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"message\": \"committing transaction\",\n    \"item\": {\n        \"id\": \"58\",\n        \"type\": \"wer\",\n        \"core\": {    \n            \"workflowStatusCode\": \"Draft\",\n            \"tutorialId\": null,\n            \"stimulusId\": null,\n            \"prompt\": \"What is 3 + 3?\",\n            \"exemplarResponses\": [\"6\"]\n        },\n        \"braille\": {\n            \"attachments\": [],\n            \"isBrailleRequired\": false,\n            \"isBrailleProvided\": false\n        }\n    }\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/v1/items/58/transactions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"items",
+						"58",
+						"transactions"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Rollback Transaction",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/v1/items/54/transactions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"items",
+						"54",
+						"transactions"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Delete File",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8081/api/v1/items/138/files/item_144_ASL_STEM.webm",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"items",
+						"138",
+						"files",
+						"item_144_ASL_STEM.webm"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get Item",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8081/api/v1/items/173",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"items",
+						"173"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get Item History",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8081/api/v1/items/61/versions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"items",
+						"61",
+						"versions"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get Item History CSV",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8081/api/v1/items/68/versions?format=csv",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"items",
+						"68",
+						"versions"
+					],
+					"query": [
+						{
+							"key": "format",
+							"value": "csv",
+							"equals": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get Item Diff",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8081/api/v1/items/61/diff/4973f93699e12840aad73e70c49f9293e666e51d",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"items",
+						"61",
+						"diff",
+						"4973f93699e12840aad73e70c49f9293e666e51d"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get Workflow Statuses",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8081/api/v1/items/workflow-statuses",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"items",
+						"workflow-statuses"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get File",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8081/api/v1/items/61/files/item_61_enu_uncontracted.brf",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"items",
+						"61",
+						"files",
+						"item_61_enu_uncontracted.brf"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get All EQ Editor Base Configurations",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://iat-awsdev.sbtds.org/api/ims/v1/items/eq/equation-editor-configurations",
+					"protocol": "http",
+					"host": [
+						"iat-awsdev",
+						"sbtds",
+						"org"
+					],
+					"path": [
+						"api",
+						"ims",
+						"v1",
+						"items",
+						"eq",
+						"equation-editor-configurations"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
