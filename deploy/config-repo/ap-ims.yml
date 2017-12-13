@@ -1,0 +1,33 @@
+spring:
+  datasource:
+    url: "jdbc:mysql://@REPLACE@:3306/iat?useSSL=false"
+    username: "@REPLACE@"
+    password: "{cipher}@REPLACE@"
+    validationQuery: SELECT 1
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        show_sql: false
+        use_sql_comments: false
+        format_sql: false
+
+# cache expiration for things like workflow status
+# 3600 seconds = 1 hour
+cache:
+  expirationSeconds: 3600
+
+# Search for 'flyway' to see the list of properties
+# https://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
+flyway:
+  schemas: "iat"
+  enabled: true
+
+logging:
+  level:
+    org:
+      opentestsystem:
+        ap:
+          ims: "debug"
+
