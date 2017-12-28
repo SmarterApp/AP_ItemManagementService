@@ -61,7 +61,7 @@ repositories {
 }
 
 dependencies {
-    compile 'org.opentestsystem.ap:ap-common:0.3.9'
+    compile 'org.opentestsystem.ap:ap-common:0.3.11'
 
     compile 'org.eclipse.jgit:org.eclipse.jgit:4.9.1.201712030800-r'
     
