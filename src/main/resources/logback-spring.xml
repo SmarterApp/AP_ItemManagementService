@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<configuration debug="false">
-    <include resource="iat-centralized-logger.xml"/>
-</configuration>
