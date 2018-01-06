@@ -70,10 +70,8 @@ logging:
     org:
       opentestsystem:
         ap:
-          ims: DEBUG
-          common: DEBUG
-      eclipse:
-        jgit: DEBUG
+          ims: "debug"
+          common: "debug"
 
 ---
 spring:
