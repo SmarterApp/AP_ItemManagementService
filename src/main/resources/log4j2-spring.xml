@@ -15,6 +15,7 @@
         <Socket name="Graylog" protocol="udp" host="${GRAYLOG_HOST}" port="${GRAYLOG_PORT}" immediateFlush="false">
             <GelfLayout host="${HOSTNAME}" compressionType="ZLIB" compressionThreshold="1024">
                 <KeyValuePair key="application" value="ims"/>
+                <KeyValuePair key="system" value="iat"/>
             </GelfLayout>
         </Socket>
     </Appenders>
