@@ -15,6 +15,8 @@ COPY ap-ims.jar /
 
 RUN apk --no-cache add curl
 
+RUN apk --no-cache add git
+
 ENTRYPOINT ["/usr/bin/java"]
 
 CMD ["-jar", "/ap-ims.jar"]
