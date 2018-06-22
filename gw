@@ -8,4 +8,4 @@
 #
 # Make script executable: chmod +x gw
 #
-./gradlew --daemon $@
+./gradlew $@
