@@ -56,7 +56,8 @@ itembank:
   localBaseDir: "${HOME}/ItemBank"
   apiVersion: "/api/v4"
   bankKey: "187"
-  systemVersion: "iat-6"
+  systemVersion: "iat-13"
+  itemBankViewerUrl: "http://itemreview.smarterbalanced.org/iris/Pages/item.xhtml?bankId=${itembank.bankKey}&type=%s&id=%s"
 
 tasks:
   itemCleanupThresholdMillis : "7200000"
