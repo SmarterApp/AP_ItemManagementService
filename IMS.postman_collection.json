@@ -732,18 +732,17 @@
 				"header": [],
 				"body": {},
 				"url": {
-					"raw": "http://iat-awsdev.sbtds.org/api/v1/items/205671",
+					"raw": "http://localhost:8081/api/v1/items/205862",
 					"protocol": "http",
 					"host": [
-						"iat-awsdev",
-						"sbtds",
-						"org"
+						"localhost"
 					],
+					"port": "8081",
 					"path": [
 						"api",
 						"v1",
 						"items",
-						"205671"
+						"205862"
 					]
 				}
 			},
@@ -756,7 +755,7 @@
 				"header": [],
 				"body": {},
 				"url": {
-					"raw": "http://localhost:8081/api/v1/items/61/versions",
+					"raw": "http://localhost:8081/api/v1/items/205033/versions",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -766,7 +765,7 @@
 						"api",
 						"v1",
 						"items",
-						"61",
+						"205033",
 						"versions"
 					]
 				}
@@ -940,7 +939,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"searchName\": \"c-1\",\n  \"searchJson\": \"{\\\"filters\\\" : [ \\\"stimulusId\\\", \\\"status\\\"],\\\"columns\\\" : [\\\"grade\\\",\\\"status\\\"]}\"\n}"
+					"raw": "{\n  \"userName\": \"hal@fairwaytech.com\",\n  \"searchName\": \"ccc\",\n  \"searchJson\": \"{\\\"filters\\\" : [ \\\"stimulusId\\\", \\\"status\\\"],\\\"columns\\\" : [\\\"grade\\\",\\\"12\\\"]}\"\n}"
 				},
 				"url": {
 					"raw": "http://localhost:8081/api/v1/items/savedSearch",
@@ -974,7 +973,7 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:8081/api/v1/items/savedSearch",
+					"raw": "http://localhost:8081/api/v1/items/savedSearch/hal@fairwaytech.com",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -984,7 +983,8 @@
 						"api",
 						"v1",
 						"items",
-						"savedSearch"
+						"savedSearch",
+						"hal@fairwaytech.com"
 					]
 				}
 			},
@@ -1005,7 +1005,7 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:8081/api/v1/items/savedSearch/one-4",
+					"raw": "http://localhost:8081/api/v1/items/savedSearch/hal@fairwaytech.com/one",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -1016,61 +1016,21 @@
 						"v1",
 						"items",
 						"savedSearch",
-						"one-4"
+						"hal@fairwaytech.com",
+						"one"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "Shared Saved Search Create",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n  \"sharedWithUserName\": \"three@test.com\"\n}"
-				},
-				"url": {
-					"raw": "http://localhost:8081/api/v1/items/savedSearch/one-0/share",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8081",
-					"path": [
-						"api",
-						"v1",
-						"items",
-						"savedSearch",
-						"one-0",
-						"share"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Shared Saved Search Get",
+			"name": "Get Item Bank Viewer URL",
 			"request": {
 				"method": "GET",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
+				"header": [],
+				"body": {},
 				"url": {
-					"raw": "http://localhost:8081/api/v1/items/savedSearch/one-4/share",
+					"raw": "http://localhost:8081/api/v1/props/itembankviewer/2858?type=Item",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -1079,43 +1039,15 @@
 					"path": [
 						"api",
 						"v1",
-						"items",
-						"savedSearch",
-						"one-4",
-						"share"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Shared Saved Search Delete",
-			"request": {
-				"method": "DELETE",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n  \"ownerUserName\": \"one@test.com\",\n  \"sharedWithUserName\": \"two@test.com\"\n}"
-				},
-				"url": {
-					"raw": "http://localhost:8081/api/v1/items/savedSearch/one-0/share",
-					"protocol": "http",
-					"host": [
-						"localhost"
+						"props",
+						"itembankviewer",
+						"2858"
 					],
-					"port": "8081",
-					"path": [
-						"api",
-						"v1",
-						"items",
-						"savedSearch",
-						"one-0",
-						"share"
+					"query": [
+						{
+							"key": "type",
+							"value": "Item"
+						}
 					]
 				}
 			},

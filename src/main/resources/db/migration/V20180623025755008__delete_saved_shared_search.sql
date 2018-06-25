@@ -1,0 +1,1 @@
+DROP TABLE IF EXISTS `iat`.`shared_saved_search`;
