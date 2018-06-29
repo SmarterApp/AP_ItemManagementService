@@ -939,7 +939,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"userName\": \"hal@fairwaytech.com\",\n  \"searchName\": \"ccc\",\n  \"searchJson\": \"{\\\"filters\\\" : [ \\\"stimulusId\\\", \\\"status\\\"],\\\"columns\\\" : [\\\"grade\\\",\\\"12\\\"]}\"\n}"
+					"raw": "{\n  \"userName\": \"a@test.com,b@test.com,,,c@test.com,,,d@test.com  , ,   , \",\n  \"searchName\": \"Search-Name\",\n  \"searchJson\": \"{\\\"filters\\\" : [ \\\"stimulusId\\\", \\\"status\\\"],\\\"columns\\\" : [\\\"grade\\\",\\\"12\\\"]}\"\n}"
 				},
 				"url": {
 					"raw": "http://localhost:8081/api/v1/items/savedSearch",
@@ -973,7 +973,7 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:8081/api/v1/items/savedSearch/hal@fairwaytech.com",
+					"raw": "http://localhost:8081/api/v1/items/savedSearch/ken.hermens@smarterbalanced.org",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -984,7 +984,7 @@
 						"v1",
 						"items",
 						"savedSearch",
-						"hal@fairwaytech.com"
+						"ken.hermens@smarterbalanced.org"
 					]
 				}
 			},
@@ -1005,7 +1005,7 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:8081/api/v1/items/savedSearch/hal@fairwaytech.com/one",
+					"raw": "http://localhost:8081/api/v1/items/savedSearch/hal@fairwaytech.com/hal@fairwaytech.com",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -1017,7 +1017,7 @@
 						"items",
 						"savedSearch",
 						"hal@fairwaytech.com",
-						"one"
+						"hal@fairwaytech.com"
 					]
 				}
 			},
