@@ -1,1 +1,0 @@
-DELETE FROM `iat`.`saved_search`;

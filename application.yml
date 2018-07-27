@@ -3,11 +3,11 @@
 #
 # Spring boot uses this file when the application is launched
 # with the root of the project set as the working directory.
-# These properties take precendence over the classpath
+# These properties take precedence over the classpath
 # application.yml.
 #
 # Using gradle from the commandline means the working
-# directory is by defaul the project root.
+# directory is by default the project root.
 #
 # Using Intellij you need to setup your run config so the
 # working directory is the project root.
@@ -26,13 +26,13 @@ spring:
   session:
     enabled: "${SESSION_CLUSTER_ENABLED:true}"
   datasource:
-    url: "jdbc:mysql://localhost:3306/iat?useSSL=false"
+    url: "jdbc:postgresql://localhost:5432/iat"
     username: "${DB_USER}"
     password: "${DB_PASSWORD}"
-    validationQuery: SELECT 1
+    validationQuery: "SELECT 1"
   jpa:
     hibernate:
-      ddl-auto: validate
+      ddl-auto: "validate"
     properties:
       hibernate:
         show_sql: true
@@ -44,8 +44,10 @@ spring:
       maxFileSize: "10MB"
 
 flyway:
-  schemas: "iat"
   enabled: true
+  url: "jdbc:postgresql://localhost:5432/iat"
+  user: "iat_admin"
+  password: "${GITLAB_PASSWORD}"
 
 itembank:
   host: "https://gitlab-dev.smarterbalanced.org"
@@ -56,7 +58,7 @@ itembank:
   localBaseDir: "${HOME}/ItemBank"
   apiVersion: "/api/v4"
   bankKey: "187"
-  systemVersion: "iat-13"
+  systemVersion: "iat-16"
   itemBankViewerUrl: "http://itemreview.smarterbalanced.org/iris/Pages/item.xhtml?bankId=${itembank.bankKey}&type=%s&id=%s"
 
 tasks:
@@ -78,12 +80,12 @@ logging:
 ---
 spring:
   profiles: dev
-
   datasource:
-    url: "jdbc:mysql://iatdevdb.cjqp2fdamfoh.us-east-2.rds.amazonaws.com:3306/iat?useSSL=false"
+    url: "jdbc:postgresql://imrt-qa-db.cjqp2fdamfoh.us-east-2.rds.amazonaws.com:5432/iat"
 
 flyway:
   enabled: true
+  url: "jdbc:postgresql://imrt-qa-db.cjqp2fdamfoh.us-east-2.rds.amazonaws.com:5432/iat"
 
 itembank:
   group: "iat-development"
@@ -91,12 +93,12 @@ itembank:
 ---
 spring:
   profiles: uat
-
   datasource:
     url: "jdbc:mysql://iat-uat-db.cjqp2fdamfoh.us-east-2.rds.amazonaws.com:3306/iat?useSSL=false"
 
 flyway:
-  enabled: true
+  enabled: false
+  url: "jdbc:mysql://iat-uat-db.cjqp2fdamfoh.us-east-2.rds.amazonaws.com:3306/iat?useSSL=false"
 
 itembank:
   group: "iat-uat"
