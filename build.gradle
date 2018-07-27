@@ -102,7 +102,7 @@ dependencies {
     compile 'io.springfox:springfox-swagger2:2.6.1'
     compile 'io.springfox:springfox-swagger-ui:2.6.1'
 
-    compile 'mysql:mysql-connector-java'
+    compile 'org.postgresql:postgresql:42.2.4'
 
     compile 'org.flywaydb:flyway-core:4.2.0'
 

@@ -1,26 +1,62 @@
 #!/bin/bash
 #
-# Creates a new database on the localhost instance of MySQL.  The
-# new database is named 'iat'.  A user is created for the new database
-# with the username 'iat'.  Running the script requires an argument
-# which is the password for the new user.
+# Creates a database named iat on the local Postgres instance
+#
+# Two users are created : iat_admin and iat
+#
+# Password is a required argument when running the script
 #
 
 EXPECTED_ARGS=1
 E_BADARGS=65
-MYSQL=`which mysql`
-
-Q1="CREATE DATABASE IF NOT EXISTS iat;"
-Q2="GRANT USAGE ON *.* TO iat@localhost IDENTIFIED BY '$1';"
-Q3="GRANT ALL PRIVILEGES ON iat.* TO iat@localhost;"
-Q4="FLUSH PRIVILEGES;"
-SQL="${Q1}${Q2}${Q3}${Q4}"
 
 if [ $# -ne $EXPECTED_ARGS ]
 then
-  echo "Creating database 'iat' for user 'iat' failed.  You must provide password for user."
+  echo "Creating database 'iat' failed.  You must provide password for user."
   echo "Usage: $0 {password}"
   exit $E_BADARGS
 fi
 
-$MYSQL -uroot -p -e "$SQL"
+
+psql -U postgres << END_OF_SCRIPT
+
+CREATE ROLE "iat_admin" with LOGIN CREATEDB CREATEROLE PASSWORD '$1';
+
+END_OF_SCRIPT
+
+psql -U iat_admin postgres << END_OF_SCRIPT
+
+CREATE DATABASE "iat";
+
+END_OF_SCRIPT
+
+psql -U postgres << END_OF_SCRIPT
+
+CREATE ROLE iat LOGIN PASSWORD '$1';
+
+GRANT CONNECT ON DATABASE iat TO iat;
+
+GRANT ALL ON ALL TABLES IN SCHEMA public TO iat_admin;
+GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA public TO iat;
+
+GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA public TO iat_admin;
+GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA public TO iat;
+
+ALTER DEFAULT PRIVILEGES
+    FOR ROLE iat_admin
+    IN SCHEMA public
+    GRANT ALL ON TABLES TO iat_admin;
+
+ALTER DEFAULT PRIVILEGES
+    IN SCHEMA public
+    GRANT SELECT, INSERT, UPDATE, DELETE ON TABLES TO iat;
+
+ALTER DEFAULT PRIVILEGES
+    IN SCHEMA public
+    GRANT USAGE, SELECT ON SEQUENCES TO iat_admin;
+
+ALTER DEFAULT PRIVILEGES
+    IN SCHEMA public
+    GRANT USAGE, SELECT ON SEQUENCES TO iat;
+
+END_OF_SCRIPT
