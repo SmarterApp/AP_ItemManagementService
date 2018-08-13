@@ -19,3 +19,11 @@ management:
 
 api:
   context-path: "/api"
+
+spring:
+  jackson:
+    deserialization:
+      fail_on_unknown_properties: false
+    mapper:
+      sort_properties_alphabetically: true
+
