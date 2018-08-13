@@ -66,7 +66,7 @@ configurations {
 }
 
 dependencies {
-    compile 'org.opentestsystem.ap:ap-common:0.4.10'
+    compile 'org.opentestsystem.ap:ap-common:0.4.11'
 
     compile 'org.springframework.boot:spring-boot-starter-actuator'
     compile 'org.springframework.boot:spring-boot-starter-security'
@@ -102,6 +102,9 @@ dependencies {
     compile 'io.springfox:springfox-swagger2:2.6.1'
     compile 'io.springfox:springfox-swagger-ui:2.6.1'
 
+    compile 'org.hibernate:hibernate-java8:5.0.12.Final'
+    compile 'com.vladmihalcea:hibernate-types-5:2.2.0'
+
     compile 'org.postgresql:postgresql:42.2.4'
 
     compile 'org.flywaydb:flyway-core:4.2.0'
@@ -111,8 +114,6 @@ dependencies {
     runtime 'org.springframework.boot:spring-boot-devtools'
 
     testCompile 'org.springframework.boot:spring-boot-starter-test'
-
-    testCompile 'org.projectlombok:lombok'
 
     testCompile 'org.hsqldb:hsqldb'
 }
