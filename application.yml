@@ -47,7 +47,7 @@ flyway:
   enabled: true
   url: "jdbc:postgresql://localhost:5432/iat"
   user: "iat_admin"
-  password: "${GITLAB_PASSWORD}"
+  password: "${DB_PASSWORD}"
 
 itembank:
   host: "https://gitlab-dev.smarterbalanced.org"
@@ -58,7 +58,7 @@ itembank:
   localBaseDir: "${HOME}/ItemBank"
   apiVersion: "/api/v4"
   bankKey: "187"
-  systemVersion: "iat-16"
+  systemVersion: "iat-18"
   itemBankViewerUrl: "http://itemreview.smarterbalanced.org/iris/Pages/item.xhtml?bankId=${itembank.bankKey}&type=%s&id=%s"
   aws:
     endpointUrl: "https://s3.us-east-2.amazonaws.com"
@@ -90,7 +90,7 @@ spring:
     url: "jdbc:postgresql://imrt-qa-db.cjqp2fdamfoh.us-east-2.rds.amazonaws.com:5432/iat"
 
 flyway:
-  enabled: true
+  enabled: false
   url: "jdbc:postgresql://imrt-qa-db.cjqp2fdamfoh.us-east-2.rds.amazonaws.com:5432/iat"
 
 itembank:
