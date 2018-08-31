@@ -1,13 +1,16 @@
 CREATE TABLE IF NOT EXISTS item (
-  id              TEXT        NOT NULL,
-  branch_name     TEXT        NOT NULL,
-  item_json       JSON,
-  deleted         BOOLEAN     NOT NULL DEFAULT FALSE,
-  created_date    TIMESTAMPTZ NOT NULL DEFAULT current_timestamp,
-  created_by      VARCHAR     NOT NULL,
-  updated_date    TIMESTAMPTZ NOT NULL DEFAULT current_timestamp,
-  updated_by      VARCHAR     NOT NULL,
-  CONSTRAINT pk_SavedSearch PRIMARY KEY (id, branch_name)
+  id                UUID        NOT NULL,
+  item_id           TEXT        NOT NULL,
+  branch_name       TEXT        NOT NULL,
+  item_json         JSON,
+  is_being_edited   BOOLEAN     NOT NULL DEFAULT TRUE,
+  is_deleted        BOOLEAN     NOT NULL DEFAULT FALSE,
+  created_date      TIMESTAMPTZ NOT NULL DEFAULT current_timestamp,
+  created_by        VARCHAR     NOT NULL,
+  updated_date      TIMESTAMPTZ NOT NULL DEFAULT current_timestamp,
+  updated_by        VARCHAR     NOT NULL,
+  CONSTRAINT pk_item PRIMARY KEY (id),
+  UNIQUE (item_id, branch_name, created_date)
 );
 
 
