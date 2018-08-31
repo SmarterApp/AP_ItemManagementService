@@ -66,6 +66,12 @@ itembank:
     bucketName: "${itembank.group}"
     accessKey: "${IAT_AWS_ACCESS_KEY}"
     secretKey: "${IAT_AWS_ACCESS_SECRET}"
+  events:
+    exchange: "iat_item_event_exchange"
+    queue: "iat_item_event_queue"
+    eventKey: "iat.item.event.*"
+    error-queue: "iat_item_event_queue.dlq"
+    error-event-key: "error.iat.item.event.*"
 
 tasks:
   itemCleanupThresholdMillis : "7200000"
@@ -85,12 +91,19 @@ logging:
 
 ---
 spring:
+  profiles: dev-rabbit
+  rabbitmq:
+    username: "fw-imrt"
+    password: "${IAT_RABBIT_PASSWORD}"
+
+---
+spring:
   profiles: dev
   datasource:
     url: "jdbc:postgresql://imrt-qa-db.cjqp2fdamfoh.us-east-2.rds.amazonaws.com:5432/iat"
 
 flyway:
-  enabled: false
+  enabled: true
   url: "jdbc:postgresql://imrt-qa-db.cjqp2fdamfoh.us-east-2.rds.amazonaws.com:5432/iat"
 
 itembank:
