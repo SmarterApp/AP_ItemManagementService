@@ -110,6 +110,8 @@ dependencies {
 
     compile 'org.flywaydb:flyway-core:4.2.0'
 
+    compile 'com.itextpdf:itextpdf:5.5.13'
+
     compileOnly 'org.projectlombok:lombok'
 
     runtime 'org.springframework.boot:spring-boot-devtools'
