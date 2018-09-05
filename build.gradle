@@ -111,6 +111,9 @@ dependencies {
     compile 'org.flywaydb:flyway-core:4.2.0'
 
     compile 'com.itextpdf:itextpdf:5.5.13'
+    compile 'com.itextpdf.tool:xmlworker:5.5.13'
+
+    compile 'io.woo:htmltopdf:1.0.5'
 
     compileOnly 'org.projectlombok:lombok'
 
