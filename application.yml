@@ -60,6 +60,8 @@ itembank:
   bankKey: "187"
   systemVersion: "iat-18"
   itemBankViewerUrl: "http://itemreview.smarterbalanced.org/iris/Pages/item.xhtml?bankId=${itembank.bankKey}&type=%s&id=%s"
+  manager:
+    enabled: true
   aws:
     endpointUrl: "https://s3.us-east-2.amazonaws.com"
     region: "us-east-2"
