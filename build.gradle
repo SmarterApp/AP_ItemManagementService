@@ -39,10 +39,10 @@ plugins {
     id 'findbugs'
     id 'jacoco'
     id 'maven-publish'
-    id 'org.springframework.boot'               version '1.5.2.RELEASE'
-    id 'com.jfrog.artifactory'                  version '4.4.14'
-    id 'com.bmuschko.docker-remote-api'         version '3.0.11'
-    id "org.flywaydb.flyway"                    version "4.2.0"
+    id 'org.springframework.boot' version '1.5.2.RELEASE'
+    id 'com.jfrog.artifactory' version '4.4.14'
+    id 'com.bmuschko.docker-remote-api' version '3.0.11'
+    id "org.flywaydb.flyway" version "4.2.0"
 
 }
 
@@ -66,7 +66,7 @@ configurations {
 }
 
 dependencies {
-    compile 'org.opentestsystem.ap:ap-common:0.4.22'
+    compile 'org.opentestsystem.ap:ap-common:0.4.25-SNAPSHOT'
 
     compile 'org.springframework.boot:spring-boot-starter-actuator'
     compile 'org.springframework.boot:spring-boot-starter-security'
@@ -110,10 +110,11 @@ dependencies {
 
     compile 'org.flywaydb:flyway-core:4.2.0'
 
-    compile 'com.itextpdf:itextpdf:5.5.13'
-    compile 'com.itextpdf.tool:xmlworker:5.5.13'
+//    compile 'com.itextpdf:itextpdf:5.5.13'
+//    compile 'com.itextpdf.tool:xmlworker:5.5.13'
+    compile group: 'com.itextpdf', name: 'itext7-core', version: '7.1.3', ext: 'pom'
+    compile group: 'com.itextpdf', name: 'html2pdf', version: '2.1.0'
 
-    compile 'io.woo:htmltopdf:1.0.5'
 
     compileOnly 'org.projectlombok:lombok'
 
@@ -167,13 +168,13 @@ artifactory {
 
     publish {
         repository {
-            repoKey  = project.version.contains('-SNAPSHOT') ? project.artifactorySnapshotPublish : project.artifactoryReleasePublish
+            repoKey = project.version.contains('-SNAPSHOT') ? project.artifactorySnapshotPublish : project.artifactoryReleasePublish
             username = project.artifactoryUser
             password = project.artifactoryPassword
-            maven	 = true
+            maven = true
         }
         defaults {
-            publications ('mavenJava')
+            publications('mavenJava')
         }
     }
 }
@@ -185,11 +186,11 @@ artifactory {
 task k8sCopyFiles(type: Copy) {
 
     from('src/main/kubernetes/') {
-        filter(ReplaceTokens, tokens: [version              : project.version,
-                                       dockerTagBase        : project.dockerTagBase,
-                                       kubecfgState         : project.kubecfgState,
-                                       kubecfgName          : project.kubecfgName,
-                                       kubecfgDeployment    : project.kubecfgDeployment])
+        filter(ReplaceTokens, tokens: [version          : project.version,
+                                       dockerTagBase    : project.dockerTagBase,
+                                       kubecfgState     : project.kubecfgState,
+                                       kubecfgName      : project.kubecfgName,
+                                       kubecfgDeployment: project.kubecfgDeployment])
     }
 
     into 'build/kubernetes'
@@ -198,11 +199,11 @@ task k8sCopyFiles(type: Copy) {
 task k8sCopyFilesUat(type: Copy) {
 
     from('src/main/kubernetes/') {
-        filter(ReplaceTokens, tokens: [version              : project.version,
-                                       dockerTagBase        : project.dockerTagBase,
-                                       kubecfgState         : project.kubecfgState,
-                                       kubecfgName          : project.kubecfgNameUat,
-                                       kubecfgDeployment    : project.kubecfgDeployment])
+        filter(ReplaceTokens, tokens: [version          : project.version,
+                                       dockerTagBase    : project.dockerTagBase,
+                                       kubecfgState     : project.kubecfgState,
+                                       kubecfgName      : project.kubecfgNameUat,
+                                       kubecfgDeployment: project.kubecfgDeployment])
     }
 
     into 'build/kubernetes'
@@ -224,10 +225,10 @@ task dockerCopyFiles(type: Copy) {
     dependsOn 'bootRepackage'
 
     from('src/main/docker/') {
-        filter(ReplaceTokens, tokens: [USER_HOME:           System.env.HOME,
+        filter(ReplaceTokens, tokens: [USER_HOME          : System.env.HOME,
                                        configServerVersion: project.configServerVersion,
-                                       version:             project.version,
-                                       dockerTagBase:       project.dockerTagBase])
+                                       version            : project.version,
+                                       dockerTagBase      : project.dockerTagBase])
     }
 
     from("build/libs/${jar.archiveName}") {
@@ -307,10 +308,9 @@ tasks.withType(FindBugs) {
     reports {
         xml.enabled = false
         html.enabled = true
-	    html.stylesheet resources.text.fromFile('config/findbugs/findbugs-color.xsl')
+        html.stylesheet resources.text.fromFile('config/findbugs/findbugs-color.xsl')
     }
 }
-
 
 /***************************
  * DB Migration
