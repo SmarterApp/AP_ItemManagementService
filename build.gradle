@@ -303,6 +303,9 @@ findbugs {
 }
 
 tasks.withType(FindBugs) {
+    classpath = classpath.filter {
+        !it.name.endsWith('pom')
+    }
     reports {
         xml.enabled = false
         html.enabled = true
