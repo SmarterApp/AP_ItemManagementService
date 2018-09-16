@@ -58,10 +58,12 @@ itembank:
   localBaseDir: "${HOME}/ItemBank"
   apiVersion: "/api/v4"
   bankKey: "187"
-  systemVersion: "iat-19.2"
+  systemVersion: "iat-20"
   itemBankViewerUrl: "http://itemreview.smarterbalanced.org/iris/Pages/item.xhtml?bankId=${itembank.bankKey}&type=%s&id=%s"
-  manager:
-    enabled: true
+  enabled:
+    manager: true
+    database: true
+    producer: true
   aws:
     endpointUrl: "https://s3.us-east-2.amazonaws.com"
     region: "us-east-2"

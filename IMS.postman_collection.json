@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "d770db31-3068-e6bb-54c4-9720325cc390",
+		"_postman_id": "22dbf53b-bbf0-483c-b626-1c9f7acc1f5e",
 		"name": "IMS",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -17,7 +17,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"type\":\"eq\",\n  \"message\": \"being create transaction\"\n} "
+					"raw": "{\n  \"type\":\"sa\",\n  \"message\": \"Begin creation.\"\n} "
 				},
 				"url": {
 					"raw": "http://localhost:8081/api/v1/items/transactions",
@@ -51,7 +51,7 @@
 					"raw": "{\n  \"message\": \"begin edit transaction\"\n}"
 				},
 				"url": {
-					"raw": "http://localhost:8081/api/v1/items/144/transactions/braille",
+					"raw": "http://localhost:8081/api/v1/items/208077/transactions/core",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -61,9 +61,9 @@
 						"api",
 						"v1",
 						"items",
-						"144",
+						"208077",
 						"transactions",
-						"braille"
+						"core"
 					]
 				}
 			},
@@ -112,10 +112,10 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"message\": \"saving EQ transaction\",\n    \"item\": {\n        \"id\": \"200071\",\n        \"type\": \"eq\",\n        \"version\": \"\",\n        \"core\": {\n            \"stimulusId\": null,\n            \"tutorialId\": null,\n            \"enemyItems\": [],\n            \"metadata\": {\n                \"accessibilityLanguageComplexity\": \"\",\n                \"calculator\": \"\",\n                \"claim2Category\": \"\",\n                \"claim2SubCategory\": \"\",\n                \"contentDomain\": \"\",\n                \"contentTaskModel\": \"\",\n                \"copyrightHolder\": \"\",\n                \"copyrightHolderOther\": \"\",\n                \"depthOfKnowledge\": \"\",\n                \"grade\": \"\",\n                \"algebraDescriptor1\": \"\",\n                \"algebraDescriptor2\": \"\",\n                \"itemPoint\": \"\",\n                \"knowledgeDemands\": \"\",\n                \"languageFeatures\": \"\",\n                \"maxGrade\": \"\",\n                \"meaningPurpose\": \"\",\n                \"minGrade\": \"\",\n                \"passageName\": \"\",\n                \"performanceTask\": \"\",\n                \"primaryAssessmentTarget\": \"\",\n                \"primaryClaim\": \"\",\n                \"primaryCommonCoreStandard\": \"\",\n                \"primaryContentDomain\": \"\",\n                \"quaternaryAssessmentTarget\": \"\",\n                \"quaternaryClaim\": \"\",\n                \"quaternaryCommonCoreStandard\": \"\",\n                \"quaternaryContentDomain\": \"\",\n                \"readabilityFleschKincaid\": \"\",\n                \"readabilityLexile\": \"\",\n                \"scoringEngine\": \"\",\n                \"scoringPoints\": \"\",\n                \"secondaryAssessmentTarget\": \"\",\n                \"secondaryClaim\": \"\",\n                \"secondaryCommonCoreStandard\": \"\",\n                \"secondaryContentDomain\": \"\",\n                \"stimulusFormat\": \"\",\n                \"stimulusLength\": \"\",\n                \"structure\": \"\",\n                \"subject\": \"\",\n                \"tertiaryAssessmentTarget\": \"\",\n                \"tertiaryClaim\": \"\",\n                \"tertiaryCommonCoreStandard\": \"\",\n                \"tertiaryContentDomain\": \"\",\n                \"testCategory\": \"\",\n                \"wordCount\": \"\",\n                \"writingPurpose\": \"\"\n            },\n            \"equationEditorConfiguration\": {\n                \"code\": \"NumpadOnly\",\n                \"label\": \"Numpad only\",\n                \"numpadConfiguration\": {\n                    \"isMinusVisible\": false,\n                    \"isFractionVisible\": false,\n                    \"isDecimalVisible\": true\n                },\n                \"variableRowConfiguration\": {\n                    \"variables\": [],\n                    \"isRowVisible\": false\n                },\n                \"basicMathRowConfiguration\": {\n                    \"isMinusVisible\": true,\n                    \"isMultiplyTimesVisible\": false,\n                    \"isRowVisible\": false,\n                    \"isMultiplyAsteriskVisible\": true,\n                    \"isPlusVisible\": true,\n                    \"isDivideVisible\": true\n                },\n                \"comparisonRowConfiguration\": {\n                    \"isRowVisible\": false,\n                    \"isGreaterThanOrEqualVisible\": true,\n                    \"isLessThanOrEqualVisible\": true,\n                    \"isLessThanVisible\": true,\n                    \"isEqualVisible\": true,\n                    \"isGreaterThanVisible\": true\n                },\n                \"advancedMathRowConfiguration\": {\n                    \"isFractionVisible\": true,\n                    \"isRowVisible\": false,\n                    \"isSuperscriptVisible\": true,\n                    \"isAbsoluteValueVisible\": true,\n                    \"isPiVisible\": true,\n                    \"isSquareRootVisible\": true,\n                    \"isNthRootVisible\": true,\n                    \"isImaginaryVisible\": true,\n                    \"isSubscriptVisible\": true,\n                    \"isParenthesesVisible\": true\n                },\n                \"trigonometryRowConfiguration\": {\n                    \"isRowVisible\": false,\n                    \"isArcSineVisible\": true,\n                    \"isArcCosineVisible\": true,\n                    \"isArcTangentVisible\": true,\n                    \"isSineVisible\": true,\n                    \"isCosineVisible\": true,\n                    \"isTangentVisible\": true\n                }\n            },\n            \"en\": {\n                \"prompt\": \"\",\n                \"parts\": [\n                    {\n                        \"leftLabel\": \"\",\n                        \"rightLabel\": \"\"\n                    },\n                    {\n                        \"leftLabel\": \"\",\n                        \"rightLabel\": \"\"\n                    }\n                ],\n                \"updatedDate\": \"2018-04-05T15:39:03.755Z\",\n                \"isRequired\": \"true\",\n                \"isProvided\": true\n            },\n            \"attachments\": []\n        },\n        \"asl\": {\n            \"attachments\": [],\n            \"isAslRequired\": \"undetermined\",\n            \"isAslProvided\": false\n        },\n        \"braille\": {\n            \"attachments\": [],\n            \"isBrailleRequired\": \"undetermined\",\n            \"isBrailleProvided\": false\n        },\n        \"cc\": {\n            \"attachments\": [],\n            \"isCcRequired\": \"undetermined\",\n            \"isCcProvided\": false,\n            \"itemCcAudioAssociations\": []\n        },\n        \"images\": {\n            \"imageResources\": []\n        },\n        \"audio\": {\n            \"audioResources\": []\n        },\n        \"textToSpeech\": {\n            \"isVisualTTSRequired\": \"undetermined\",\n            \"isVisualTTSProvided\": false,\n            \"isSightTTSProvided\": false\n        },\n        \"workflow\": {\n            \"workflowStatusCode\": \"Draft\"\n        },\n        \"scoring\": {\n      \"rubric\" : \"This is an EQ scoring rubric.\",\n        \"defaultScore\" : 0,\n        \"variables\" : [ ],\n        \"rules\" : [ {\n          \"expression\" : {\n            \"operator\" : \"and\",\n            \"expressions\" : [ {\n              \"operator\" : \"customEqIsEquivalent\",\n              \"customType\" : \"EQ\",\n              \"customFunction\" : \"ISEQUIVALENT\",\n              \"object\" : \"Response1\",\n              \"exemplar\" : \"10\",\n              \"simplify\" : true\n            }, {\n              \"operator\" : \"customEqIsEquivalent\",\n              \"customType\" : \"EQ\",\n              \"customFunction\" : \"ISEQUIVALENT\",\n              \"object\" : \"Response2  \",\n              \"exemplar\" : \"4\",\n              \"simplify\" : true\n            } ]\n          },\n          \"score\" : 2.0\n        }, {\n          \"expression\" : {\n            \"operator\" : \"customEqIsEquivalent\",\n            \"customType\" : \"EQ\",\n            \"customFunction\" : \"ISEQUIVALENT\",\n            \"object\" : \"Response1\",\n            \"exemplar\" : \"10\",\n            \"simplify\" : true\n          },\n          \"score\" : 1.0\n        }, {\n          \"expression\" : {\n            \"operator\" : \"customEqIsEquivalent\",\n            \"customType\" : \"EQ\",\n            \"customFunction\" : \"ISEQUIVALENT\",\n            \"object\" : \"Response2  \",\n            \"exemplar\" : \"4\",\n            \"simplify\" : true\n          },\n          \"score\" : 1.0\n        } ]\n        },\n        \"translations\": {\n            \"esp\": {\n                \"prompt\": \"\",\n                \"parts\": [\n                    {\n                        \"leftLabel\": \"\",\n                        \"rightLabel\": \"\"\n                    }\n                ],\n                \"updatedDate\": \"2018-04-05T15:39:03.755Z\",\n                \"isRequired\": \"undetermined\",\n                \"isProvided\": false\n            }\n        }\n    }\n}"
+					"raw": "{\n  \"message\": \"saving EQ transaction\",\n      \"item\": {\n        \"id\": \"208066\",\n        \"type\": \"eq\",\n        \"version\": \"iat-18\",\n        \"asl\": {\n            \"attachments\": [],\n            \"isAslProvided\": false,\n            \"isAslRequired\": \"undetermined\"\n        },\n        \"audio\": {\n            \"audioResources\": []\n        },\n        \"braille\": {\n            \"attachments\": [],\n            \"isBrailleProvided\": false,\n            \"isBrailleRequired\": \"undetermined\"\n        },\n        \"cc\": {\n            \"attachments\": [],\n            \"isCcProvided\": false,\n            \"isCcRequired\": \"undetermined\",\n            \"itemCcAudioAssociations\": []\n        },\n        \"core\": {\n            \"attachments\": [],\n            \"contentUpdateNeeds\": [],\n            \"en\": {\n                \"isManagedByIat\": true,\n                \"isProvided\": true,\n                \"isRequired\": \"true\",\n                \"parts\": [\n                    {\n                        \"leftLabel\": \"\",\n                        \"rightLabel\": \"\"\n                    }\n                ],\n                \"prompt\": \"What is 2+2 and 3+3 and 4+4 and?\",\n                \"updatedDate\": \"2018-08-23T23:02:46.303Z\"\n            },\n            \"enemyItems\": [],\n            \"equationEditorConfiguration\": {\n                \"code\": \"Empty\",\n                \"advancedMathRowConfiguration\": {\n                    \"isAbsoluteValueVisible\": true,\n                    \"isFractionVisible\": true,\n                    \"isImaginaryVisible\": true,\n                    \"isNthRootVisible\": true,\n                    \"isParenthesesVisible\": true,\n                    \"isPiVisible\": true,\n                    \"isRowVisible\": true,\n                    \"isSquareRootVisible\": true,\n                    \"isSubscriptVisible\": true,\n                    \"isSuperscriptVisible\": true\n                },\n                \"basicMathRowConfiguration\": {\n                    \"isDivideVisible\": true,\n                    \"isMinusVisible\": true,\n                    \"isMultiplyAsteriskVisible\": true,\n                    \"isMultiplyTimesVisible\": true,\n                    \"isPlusVisible\": true,\n                    \"isRowVisible\": true\n                },\n                \"comparisonRowConfiguration\": {\n                    \"isEqualVisible\": true,\n                    \"isGreaterThanOrEqualVisible\": true,\n                    \"isGreaterThanVisible\": true,\n                    \"isLessThanOrEqualVisible\": true,\n                    \"isLessThanVisible\": true,\n                    \"isRowVisible\": true\n                },\n                \"label\": \"\",\n                \"numpadConfiguration\": {\n                    \"isDecimalVisible\": true,\n                    \"isFractionVisible\": true,\n                    \"isMinusVisible\": true\n                },\n                \"trigonometryRowConfiguration\": {\n                    \"isArcCosineVisible\": true,\n                    \"isArcSineVisible\": true,\n                    \"isArcTangentVisible\": true,\n                    \"isCosineVisible\": true,\n                    \"isRowVisible\": true,\n                    \"isSineVisible\": true,\n                    \"isTangentVisible\": true\n                },\n                \"variableRowConfiguration\": {\n                    \"isRowVisible\": true,\n                    \"variables\": []\n                }\n            },\n            \"metadata\": {\n                \"accessibilityLanguageComplexity\": \"\",\n                \"algebraDescriptor1\": \"\",\n                \"algebraDescriptor2\": \"\",\n                \"allowCalculator\": \"\",\n                \"claim2Category\": \"\",\n                \"claim2SubCategory\": \"\",\n                \"contentTaskModel\": \"\",\n                \"copyrightHolder\": \"\",\n                \"copyrightHolderOther\": \"\",\n                \"depthOfKnowledge\": \"\",\n                \"easyListeningFormula\": \"\",\n                \"estimatedQuintile\": \"\",\n                \"evidenceStatement\": \"\",\n                \"intendedGrade\": \"\",\n                \"itemAuthor\": \"\",\n                \"languageFeatures\": \"\",\n                \"maxGrade\": \"\",\n                \"maximumPoints\": \"\",\n                \"meaningPurpose\": \"\",\n                \"minGrade\": \"\",\n                \"organizationName\": \"\",\n                \"organizationTypeId\": \"\",\n                \"performanceTask\": \"\",\n                \"performanceTaskPosition\": \"\",\n                \"presentationFormat\": [],\n                \"primaryClaim\": \"\",\n                \"primaryCommonCoreStandard\": \"\",\n                \"primaryContentDomain\": \"\",\n                \"primaryEmphasis\": null,\n                \"primaryMathematicalPractice\": \"\",\n                \"primaryTarget\": \"\",\n                \"primaryTargetSet\": \"\",\n                \"quaternaryClaim\": \"\",\n                \"quaternaryCommonCoreStandard\": \"\",\n                \"quaternaryContentDomain\": \"\",\n                \"quaternaryMathematicalPractice\": \"\",\n                \"quaternaryTarget\": \"\",\n                \"readabilityFleschKincaid\": \"\",\n                \"readabilityLexile\": \"\",\n                \"scorePoints\": \"\",\n                \"scoringEngine\": \"\",\n                \"secondaryClaim\": \"\",\n                \"secondaryCommonCoreStandard\": \"\",\n                \"secondaryContentDomain\": \"\",\n                \"secondaryMathematicalPractice\": \"\",\n                \"secondaryTarget\": \"\",\n                \"specificationsVersion\": \"\",\n                \"stimulusFormat\": \"\",\n                \"stimulusGenre\": \"\",\n                \"stimulusLength\": \"\",\n                \"stimulusLiteraryCategory\": \"\",\n                \"stimulusLiteraryKnowledgeDemands\": \"\",\n                \"stimulusName\": \"\",\n                \"structure\": \"\",\n                \"subject\": \"\",\n                \"tertiaryClaim\": \"\",\n                \"tertiaryCommonCoreStandard\": \"\",\n                \"tertiaryContentDomain\": \"\",\n                \"tertiaryMathematicalPractice\": \"\",\n                \"tertiaryTarget\": \"\",\n                \"testCategory\": \"\",\n                \"version\": \"0.0\",\n                \"wordCount\": \"\",\n                \"writingPurpose\": \"\"\n            },\n            \"scoring\": {\n                \"defaultScore\": 0,\n                \"isManagedByIat\": true,\n                \"rubric\": \"\",\n                \"rules\": [],\n                \"variables\": [\n                    {\n                        \"cardinality\": \"ordered\",\n                        \"expression\": null,\n                        \"identifier\": \"Responses\",\n                        \"isUserVariable\": false,\n                        \"type\": \"string\"\n                    },\n                    {\n                        \"cardinality\": \"single\",\n                        \"expression\": null,\n                        \"identifier\": \"Response1\",\n                        \"isUserVariable\": false,\n                        \"type\": \"string\"\n                    }\n                ]\n            },\n            \"stimulusId\": null,\n            \"testAdministration\": {\n                \"administrations\": [],\n                \"fieldTestAdministrationId\": \"\"\n            },\n            \"tutorialId\": null\n        },\n        \"glossary\": {\n            \"terms\": []\n        },\n        \"images\": {\n            \"imageResources\": []\n        },\n        \"textToSpeech\": {\n            \"isSightTTSProvided\": false,\n            \"isVisualTTSProvided\": false,\n            \"isVisualTTSRequired\": \"undetermined\"\n        },\n        \"translations\": {\n            \"esp\": {\n                \"isManagedByIat\": true,\n                \"isProvided\": false,\n                \"isRequired\": \"undetermined\",\n                \"parts\": [\n                    {\n                        \"leftLabel\": \"\",\n                        \"rightLabel\": \"\"\n                    }\n                ],\n                \"prompt\": \"\",\n                \"updatedDate\": \"2018-08-23T23:02:46.315Z\"\n            }\n        },\n        \"workflow\": {\n            \"workflowStatusCode\": \"Draft\"\n        }\n    }\n}"
 				},
 				"url": {
-					"raw": "http://localhost:8081/api/v1/items/200071",
+					"raw": "http://localhost:8081/api/v1/items/208066",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -125,7 +125,7 @@
 						"api",
 						"v1",
 						"items",
-						"200071"
+						"208066"
 					]
 				}
 			},
@@ -205,10 +205,10 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"message\": \"save transaction\",\n    \"item\": {\n        \"id\": \"177\",\n        \"type\": \"sa\",\n        \"core\": {\n            \"stimulusId\": null,\n            \"tutorialId\": null,\n            \"metadata\": {\n                \"accessibilityLanguageComplexity\": \"\",\n                \"calculator\": \"\",\n                \"claim2Category\": \"\",\n                \"claim2SubCategory\": \"\",\n                \"contentDomain\": \"\",\n                \"contentTaskModel\": \"\",\n                \"copyrightHolder\": \"\",\n                \"copyrightHolderOther\": \"\",\n                \"depthOfKnowledge\": \"\",\n                \"enemyItems\": \"\",\n                \"grade\": \"\",\n                \"grade8Or11OnlyAlgebraDescriptor\": \"\",\n                \"itemPoint\": \"\",\n                \"knowledgeDemands\": \"\",\n                \"languageFeatures\": \"\",\n                \"maxGrade\": \"\",\n                \"meaningPurpose\": \"\",\n                \"minGrade\": \"\",\n                \"passageName\": \"\",\n                \"performanceTask\": \"\",\n                \"primaryAssessmentTarget\": \"\",\n                \"primaryClaim\": \"\",\n                \"primaryCommonCoreStandard\": \"\",\n                \"primaryContentDomain\": \"\",\n                \"quaternaryAssessmentTarget\": \"\",\n                \"quaternaryClaim\": \"\",\n                \"quaternaryCommonCoreStandard\": \"\",\n                \"quaternaryContentDomain\": \"\",\n                \"readabilityFleschKincaid\": \"\",\n                \"readabilityLexile\": \"\",\n                \"scoringEngine\": \"\",\n                \"scoringPoints\": \"\",\n                \"secondaryAssessmentTarget\": \"\",\n                \"secondaryClaim\": \"\",\n                \"secondaryCommonCoreStandard\": \"\",\n                \"secondaryContentDomain\": \"\",\n                \"stimulusFormat\": \"\",\n                \"stimulusLength\": \"\",\n                \"structure\": \"\",\n                \"subject\": \"\",\n                \"tertiaryAssessmentTarget\": \"\",\n                \"tertiaryClaim\": \"\",\n                \"tertiaryCommonCoreStandard\": \"\",\n                \"tertiaryContentDomain\": \"\",\n                \"testCategory\": \"\",\n                \"wordCount\": \"\",\n                \"writingPurpose\": \"\"\n            },\n            \"en\": {\n                \"prompt\": \"English prompt\",\n                \"exemplarResponses\": [\"ex1\",\"ex2\"],\n                \"isRequired\": true,\n                \"isProvided\": true\n            }\n        },\n        \"asl\": {\n            \"attachments\": [],\n            \"isAslRequired\": \"undetermined\",\n            \"isAslProvided\": false\n        },\n        \"braille\": {\n            \"attachments\": [],\n            \"isBrailleRequired\": \"undetermined\",\n            \"isBrailleProvided\": false\n        },\n        \"cc\": {\n            \"attachments\": [],\n            \"isCcRequired\": \"undetermined\",\n            \"isCcProvided\": false\n        },\n        \"images\": {\n            \"imageResources\": []\n        },\n        \"audio\": {\n            \"audioResources\": []\n        },\n        \"translations\": {\n            \"esp\": {\n                \"prompt\": \"Spanish prompt\",\n                \"exemplarResponses\": [\"spanish-ex1\",\"spanish-ex2\"],\n                \"isRequired\": false,\n                \"isProvided\": false\n            }\n        },\n        \"workflow\": {\n          \"workflowStatusCode\": \"Draft\"\n        }\n    }\n}"
+					"raw": "{\n  \"message\": \"save transaction\",\n    \"item\": {\n        \"id\": \"208077\",\n        \"type\": \"sa\",\n        \"version\": \"iat-18\",\n        \"asl\": {\n            \"attachments\": [],\n            \"isAslProvided\": false,\n            \"isAslRequired\": \"undetermined\"\n        },\n        \"audio\": {\n            \"audioResources\": []\n        },\n        \"braille\": {\n            \"attachments\": [],\n            \"isBrailleProvided\": false,\n            \"isBrailleRequired\": \"undetermined\"\n        },\n        \"cc\": {\n            \"attachments\": [],\n            \"isCcProvided\": false,\n            \"isCcRequired\": \"undetermined\",\n            \"itemCcAudioAssociations\": []\n        },\n        \"core\": {\n            \"attachments\": [],\n            \"contentUpdateNeeds\": [],\n            \"en\": {\n                \"exemplarResponses\": [],\n                \"isManagedByIat\": true,\n                \"isProvided\": true,\n                \"isRequired\": \"true\",\n                \"prompt\": \"What is 1+1, 2+2\",\n                \"rubrics\": [],\n                \"updatedDate\": \"2018-08-26T17:53:39.296Z\"\n            },\n            \"enemyItems\": [],\n            \"metadata\": {\n                \"accessibilityLanguageComplexity\": \"\",\n                \"algebraDescriptor1\": \"\",\n                \"algebraDescriptor2\": \"\",\n                \"allowCalculator\": \"\",\n                \"claim2Category\": \"\",\n                \"claim2SubCategory\": \"\",\n                \"contentTaskModel\": \"\",\n                \"copyrightHolder\": \"\",\n                \"copyrightHolderOther\": \"\",\n                \"depthOfKnowledge\": \"\",\n                \"easyListeningFormula\": \"\",\n                \"estimatedQuintile\": \"\",\n                \"evidenceStatement\": \"\",\n                \"intendedGrade\": \"\",\n                \"itemAuthor\": \"\",\n                \"languageFeatures\": \"\",\n                \"maxGrade\": \"\",\n                \"maximumPoints\": \"\",\n                \"meaningPurpose\": \"\",\n                \"minGrade\": \"\",\n                \"organizationName\": \"\",\n                \"organizationTypeId\": \"\",\n                \"performanceTask\": \"\",\n                \"performanceTaskPosition\": \"\",\n                \"presentationFormat\": [],\n                \"primaryClaim\": \"\",\n                \"primaryCommonCoreStandard\": \"\",\n                \"primaryContentDomain\": \"\",\n                \"primaryEmphasis\": null,\n                \"primaryMathematicalPractice\": \"\",\n                \"primaryTarget\": \"\",\n                \"primaryTargetSet\": \"\",\n                \"quaternaryClaim\": \"\",\n                \"quaternaryCommonCoreStandard\": \"\",\n                \"quaternaryContentDomain\": \"\",\n                \"quaternaryMathematicalPractice\": \"\",\n                \"quaternaryTarget\": \"\",\n                \"readabilityFleschKincaid\": \"\",\n                \"readabilityLexile\": \"\",\n                \"scorePoints\": \"\",\n                \"scoringEngine\": \"\",\n                \"secondaryClaim\": \"\",\n                \"secondaryCommonCoreStandard\": \"\",\n                \"secondaryContentDomain\": \"\",\n                \"secondaryMathematicalPractice\": \"\",\n                \"secondaryTarget\": \"\",\n                \"specificationsVersion\": \"\",\n                \"stimulusFormat\": \"\",\n                \"stimulusGenre\": \"\",\n                \"stimulusLength\": \"\",\n                \"stimulusLiteraryCategory\": \"\",\n                \"stimulusLiteraryKnowledgeDemands\": \"\",\n                \"stimulusName\": \"\",\n                \"structure\": \"\",\n                \"subject\": \"\",\n                \"tertiaryClaim\": \"\",\n                \"tertiaryCommonCoreStandard\": \"\",\n                \"tertiaryContentDomain\": \"\",\n                \"tertiaryMathematicalPractice\": \"\",\n                \"tertiaryTarget\": \"\",\n                \"testCategory\": \"\",\n                \"version\": \"0.0\",\n                \"wordCount\": \"\",\n                \"writingPurpose\": \"\"\n            },\n            \"scoring\": {\n                \"defaultScore\": 0,\n                \"isManagedByIat\": true,\n                \"rubric\": \"\",\n                \"rules\": [],\n                \"variables\": []\n            },\n            \"stimulusId\": null,\n            \"testAdministration\": {\n                \"administrations\": [],\n                \"fieldTestAdministrationId\": \"\"\n            },\n            \"tutorialId\": null\n        },\n        \"glossary\": {\n            \"terms\": []\n        },\n        \"images\": {\n            \"imageResources\": []\n        },\n        \"textToSpeech\": {\n            \"isSightTTSProvided\": false,\n            \"isVisualTTSProvided\": false,\n            \"isVisualTTSRequired\": \"undetermined\"\n        },\n        \"translations\": {\n            \"esp\": {\n                \"exemplarResponses\": [],\n                \"isManagedByIat\": true,\n                \"isProvided\": false,\n                \"isRequired\": \"undetermined\",\n                \"prompt\": \"\",\n                \"rubrics\": [],\n                \"updatedDate\": \"2018-08-26T17:53:39.296Z\"\n            }\n        },\n        \"workflow\": {\n            \"workflowStatusCode\": \"Draft\"\n        }\n    }\n}"
 				},
 				"url": {
-					"raw": "http://localhost:8081/api/v1/items/177",
+					"raw": "http://localhost:8081/api/v1/items/208077",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -218,7 +218,7 @@
 						"api",
 						"v1",
 						"items",
-						"177"
+						"208077"
 					]
 				}
 			},
@@ -349,6 +349,39 @@
 			"response": []
 		},
 		{
+			"name": "Patch Item",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"message\": \"change workflow status\",\n  \"oldValue\": \"Draft\",\n  \"newValue\": \"AccessibilityUpload\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/v1/items/208124/fields/workflow.workflowStatusCode",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"items",
+						"208124",
+						"fields",
+						"workflow.workflowStatusCode"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Commit Transaction EBSR",
 			"request": {
 				"method": "PUT",
@@ -392,10 +425,10 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"message\": \"committing EQ transaction\",\n    \"item\": {\n        \"id\": \"200071\",\n        \"type\": \"eq\",\n        \"version\": \"\",\n        \"core\": {\n            \"stimulusId\": null,\n            \"tutorialId\": null,\n            \"enemyItems\": [],\n            \"metadata\": {\n                \"accessibilityLanguageComplexity\": \"\",\n                \"calculator\": \"\",\n                \"claim2Category\": \"\",\n                \"claim2SubCategory\": \"\",\n                \"contentDomain\": \"\",\n                \"contentTaskModel\": \"\",\n                \"copyrightHolder\": \"\",\n                \"copyrightHolderOther\": \"\",\n                \"depthOfKnowledge\": \"\",\n                \"grade\": \"\",\n                \"algebraDescriptor1\": \"\",\n                \"algebraDescriptor2\": \"\",\n                \"itemPoint\": \"\",\n                \"knowledgeDemands\": \"\",\n                \"languageFeatures\": \"\",\n                \"maxGrade\": \"\",\n                \"meaningPurpose\": \"\",\n                \"minGrade\": \"\",\n                \"passageName\": \"\",\n                \"performanceTask\": \"\",\n                \"primaryAssessmentTarget\": \"\",\n                \"primaryClaim\": \"\",\n                \"primaryCommonCoreStandard\": \"\",\n                \"primaryContentDomain\": \"\",\n                \"quaternaryAssessmentTarget\": \"\",\n                \"quaternaryClaim\": \"\",\n                \"quaternaryCommonCoreStandard\": \"\",\n                \"quaternaryContentDomain\": \"\",\n                \"readabilityFleschKincaid\": \"\",\n                \"readabilityLexile\": \"\",\n                \"scoringEngine\": \"\",\n                \"scoringPoints\": \"\",\n                \"secondaryAssessmentTarget\": \"\",\n                \"secondaryClaim\": \"\",\n                \"secondaryCommonCoreStandard\": \"\",\n                \"secondaryContentDomain\": \"\",\n                \"stimulusFormat\": \"\",\n                \"stimulusLength\": \"\",\n                \"structure\": \"\",\n                \"subject\": \"\",\n                \"tertiaryAssessmentTarget\": \"\",\n                \"tertiaryClaim\": \"\",\n                \"tertiaryCommonCoreStandard\": \"\",\n                \"tertiaryContentDomain\": \"\",\n                \"testCategory\": \"\",\n                \"wordCount\": \"\",\n                \"writingPurpose\": \"\"\n            },\n            \"equationEditorConfiguration\": {\n                \"code\": \"NumpadOnly\",\n                \"label\": \"Numpad only\",\n                \"numpadConfiguration\": {\n                    \"isMinusVisible\": false,\n                    \"isFractionVisible\": false,\n                    \"isDecimalVisible\": true\n                },\n                \"variableRowConfiguration\": {\n                    \"variables\": [],\n                    \"isRowVisible\": false\n                },\n                \"basicMathRowConfiguration\": {\n                    \"isMinusVisible\": true,\n                    \"isMultiplyTimesVisible\": false,\n                    \"isRowVisible\": false,\n                    \"isMultiplyAsteriskVisible\": true,\n                    \"isPlusVisible\": true,\n                    \"isDivideVisible\": true\n                },\n                \"comparisonRowConfiguration\": {\n                    \"isRowVisible\": false,\n                    \"isGreaterThanOrEqualVisible\": true,\n                    \"isLessThanOrEqualVisible\": true,\n                    \"isLessThanVisible\": true,\n                    \"isEqualVisible\": true,\n                    \"isGreaterThanVisible\": true\n                },\n                \"advancedMathRowConfiguration\": {\n                    \"isFractionVisible\": true,\n                    \"isRowVisible\": false,\n                    \"isSuperscriptVisible\": true,\n                    \"isAbsoluteValueVisible\": true,\n                    \"isPiVisible\": true,\n                    \"isSquareRootVisible\": true,\n                    \"isNthRootVisible\": true,\n                    \"isImaginaryVisible\": true,\n                    \"isSubscriptVisible\": true,\n                    \"isParenthesesVisible\": true\n                },\n                \"trigonometryRowConfiguration\": {\n                    \"isRowVisible\": false,\n                    \"isArcSineVisible\": true,\n                    \"isArcCosineVisible\": true,\n                    \"isArcTangentVisible\": true,\n                    \"isSineVisible\": true,\n                    \"isCosineVisible\": true,\n                    \"isTangentVisible\": true\n                }\n            },\n            \"en\": {\n                \"prompt\": \"\",\n                \"parts\": [\n                    {\n                        \"leftLabel\": \"\",\n                        \"rightLabel\": \"\"\n                    },\n                    {\n                        \"leftLabel\": \"\",\n                        \"rightLabel\": \"\"\n                    }\n                ],\n                \"updatedDate\": \"2018-04-05T15:39:03.755Z\",\n                \"isRequired\": \"true\",\n                \"isProvided\": true\n            },\n            \"attachments\": []\n        },\n        \"asl\": {\n            \"attachments\": [],\n            \"isAslRequired\": \"undetermined\",\n            \"isAslProvided\": false\n        },\n        \"braille\": {\n            \"attachments\": [],\n            \"isBrailleRequired\": \"undetermined\",\n            \"isBrailleProvided\": false\n        },\n        \"cc\": {\n            \"attachments\": [],\n            \"isCcRequired\": \"undetermined\",\n            \"isCcProvided\": false,\n            \"itemCcAudioAssociations\": []\n        },\n        \"images\": {\n            \"imageResources\": []\n        },\n        \"audio\": {\n            \"audioResources\": []\n        },\n        \"textToSpeech\": {\n            \"isVisualTTSRequired\": \"undetermined\",\n            \"isVisualTTSProvided\": false,\n            \"isSightTTSProvided\": false\n        },\n        \"workflow\": {\n            \"workflowStatusCode\": \"Draft\"\n        },\n        \"scoring\": {\n      \"rubric\" : \"This is an EQ scoring rubric.\",\n        \"defaultScore\" : 0,\n        \"variables\" : [ ],\n        \"rules\" : [ {\n          \"expression\" : {\n            \"operator\" : \"and\",\n            \"expressions\" : [ {\n              \"operator\" : \"customEqIsEquivalent\",\n              \"customType\" : \"EQ\",\n              \"customFunction\" : \"ISEQUIVALENT\",\n              \"object\" : \"Response1\",\n              \"exemplar\" : \"10\",\n              \"simplify\" : true\n            }, {\n              \"operator\" : \"customEqIsEquivalent\",\n              \"customType\" : \"EQ\",\n              \"customFunction\" : \"ISEQUIVALENT\",\n              \"object\" : \"Response2  \",\n              \"exemplar\" : \"4\",\n              \"simplify\" : true\n            } ]\n          },\n          \"score\" : 2.0\n        }, {\n          \"expression\" : {\n            \"operator\" : \"customEqIsEquivalent\",\n            \"customType\" : \"EQ\",\n            \"customFunction\" : \"ISEQUIVALENT\",\n            \"object\" : \"Response1\",\n            \"exemplar\" : \"10\",\n            \"simplify\" : true\n          },\n          \"score\" : 1.0\n        }, {\n          \"expression\" : {\n            \"operator\" : \"customEqIsEquivalent\",\n            \"customType\" : \"EQ\",\n            \"customFunction\" : \"ISEQUIVALENT\",\n            \"object\" : \"Response2  \",\n            \"exemplar\" : \"4\",\n            \"simplify\" : true\n          },\n          \"score\" : 1.0\n        } ]\n        },\n        \"translations\": {\n            \"esp\": {\n                \"prompt\": \"\",\n                \"parts\": [\n                    {\n                        \"leftLabel\": \"\",\n                        \"rightLabel\": \"\"\n                    }\n                ],\n                \"updatedDate\": \"2018-04-05T15:39:03.755Z\",\n                \"isRequired\": \"undetermined\",\n                \"isProvided\": false\n            }\n        }\n    }\n}"
+					"raw": "{\n  \"message\": \"committing EQ transaction\",\n    \"item\": {\n        \"id\": \"208066\",\n        \"type\": \"eq\",\n        \"version\": \"iat-18\",\n        \"asl\": {\n            \"attachments\": [],\n            \"isAslProvided\": false,\n            \"isAslRequired\": \"undetermined\"\n        },\n        \"audio\": {\n            \"audioResources\": []\n        },\n        \"braille\": {\n            \"attachments\": [],\n            \"isBrailleProvided\": false,\n            \"isBrailleRequired\": \"undetermined\"\n        },\n        \"cc\": {\n            \"attachments\": [],\n            \"isCcProvided\": false,\n            \"isCcRequired\": \"undetermined\",\n            \"itemCcAudioAssociations\": []\n        },\n        \"core\": {\n            \"attachments\": [],\n            \"contentUpdateNeeds\": [],\n            \"en\": {\n                \"isManagedByIat\": true,\n                \"isProvided\": true,\n                \"isRequired\": \"true\",\n                \"parts\": [\n                    {\n                        \"leftLabel\": \"\",\n                        \"rightLabel\": \"\"\n                    }\n                ],\n                \"prompt\": \"What is 2+2 and 3+3 and 4+4 and 5+5?\",\n                \"updatedDate\": \"2018-08-24T16:43:14.227Z\"\n            },\n            \"enemyItems\": [],\n            \"equationEditorConfiguration\": {\n                \"code\": \"Empty\",\n                \"advancedMathRowConfiguration\": {\n                    \"isAbsoluteValueVisible\": true,\n                    \"isFractionVisible\": true,\n                    \"isImaginaryVisible\": true,\n                    \"isNthRootVisible\": true,\n                    \"isParenthesesVisible\": true,\n                    \"isPiVisible\": true,\n                    \"isRowVisible\": true,\n                    \"isSquareRootVisible\": true,\n                    \"isSubscriptVisible\": true,\n                    \"isSuperscriptVisible\": true\n                },\n                \"basicMathRowConfiguration\": {\n                    \"isDivideVisible\": true,\n                    \"isMinusVisible\": true,\n                    \"isMultiplyAsteriskVisible\": true,\n                    \"isMultiplyTimesVisible\": true,\n                    \"isPlusVisible\": true,\n                    \"isRowVisible\": true\n                },\n                \"comparisonRowConfiguration\": {\n                    \"isEqualVisible\": true,\n                    \"isGreaterThanOrEqualVisible\": true,\n                    \"isGreaterThanVisible\": true,\n                    \"isLessThanOrEqualVisible\": true,\n                    \"isLessThanVisible\": true,\n                    \"isRowVisible\": true\n                },\n                \"label\": \"\",\n                \"numpadConfiguration\": {\n                    \"isDecimalVisible\": true,\n                    \"isFractionVisible\": true,\n                    \"isMinusVisible\": true\n                },\n                \"trigonometryRowConfiguration\": {\n                    \"isArcCosineVisible\": true,\n                    \"isArcSineVisible\": true,\n                    \"isArcTangentVisible\": true,\n                    \"isCosineVisible\": true,\n                    \"isRowVisible\": true,\n                    \"isSineVisible\": true,\n                    \"isTangentVisible\": true\n                },\n                \"variableRowConfiguration\": {\n                    \"isRowVisible\": true,\n                    \"variables\": []\n                }\n            },\n            \"metadata\": {\n                \"accessibilityLanguageComplexity\": \"\",\n                \"algebraDescriptor1\": \"\",\n                \"algebraDescriptor2\": \"\",\n                \"allowCalculator\": \"\",\n                \"claim2Category\": \"\",\n                \"claim2SubCategory\": \"\",\n                \"contentTaskModel\": \"\",\n                \"copyrightHolder\": \"\",\n                \"copyrightHolderOther\": \"\",\n                \"depthOfKnowledge\": \"\",\n                \"easyListeningFormula\": \"\",\n                \"estimatedQuintile\": \"\",\n                \"evidenceStatement\": \"\",\n                \"intendedGrade\": \"\",\n                \"itemAuthor\": \"\",\n                \"languageFeatures\": \"\",\n                \"maxGrade\": \"\",\n                \"maximumPoints\": \"\",\n                \"meaningPurpose\": \"\",\n                \"minGrade\": \"\",\n                \"organizationName\": \"\",\n                \"organizationTypeId\": \"\",\n                \"performanceTask\": \"\",\n                \"performanceTaskPosition\": \"\",\n                \"presentationFormat\": [],\n                \"primaryClaim\": \"\",\n                \"primaryCommonCoreStandard\": \"\",\n                \"primaryContentDomain\": \"\",\n                \"primaryEmphasis\": null,\n                \"primaryMathematicalPractice\": \"\",\n                \"primaryTarget\": \"\",\n                \"primaryTargetSet\": \"\",\n                \"quaternaryClaim\": \"\",\n                \"quaternaryCommonCoreStandard\": \"\",\n                \"quaternaryContentDomain\": \"\",\n                \"quaternaryMathematicalPractice\": \"\",\n                \"quaternaryTarget\": \"\",\n                \"readabilityFleschKincaid\": \"\",\n                \"readabilityLexile\": \"\",\n                \"scorePoints\": \"\",\n                \"scoringEngine\": \"\",\n                \"secondaryClaim\": \"\",\n                \"secondaryCommonCoreStandard\": \"\",\n                \"secondaryContentDomain\": \"\",\n                \"secondaryMathematicalPractice\": \"\",\n                \"secondaryTarget\": \"\",\n                \"specificationsVersion\": \"\",\n                \"stimulusFormat\": \"\",\n                \"stimulusGenre\": \"\",\n                \"stimulusLength\": \"\",\n                \"stimulusLiteraryCategory\": \"\",\n                \"stimulusLiteraryKnowledgeDemands\": \"\",\n                \"stimulusName\": \"\",\n                \"structure\": \"\",\n                \"subject\": \"\",\n                \"tertiaryClaim\": \"\",\n                \"tertiaryCommonCoreStandard\": \"\",\n                \"tertiaryContentDomain\": \"\",\n                \"tertiaryMathematicalPractice\": \"\",\n                \"tertiaryTarget\": \"\",\n                \"testCategory\": \"\",\n                \"version\": \"0.0\",\n                \"wordCount\": \"\",\n                \"writingPurpose\": \"\"\n            },\n            \"scoring\": {\n                \"defaultScore\": 0,\n                \"isManagedByIat\": true,\n                \"rubric\": \"\",\n                \"rules\": [],\n                \"variables\": [\n                    {\n                        \"cardinality\": \"ordered\",\n                        \"expression\": null,\n                        \"identifier\": \"Responses\",\n                        \"isUserVariable\": false,\n                        \"type\": \"string\"\n                    },\n                    {\n                        \"cardinality\": \"single\",\n                        \"expression\": null,\n                        \"identifier\": \"Response1\",\n                        \"isUserVariable\": false,\n                        \"type\": \"string\"\n                    }\n                ]\n            },\n            \"stimulusId\": null,\n            \"testAdministration\": {\n                \"administrations\": [],\n                \"fieldTestAdministrationId\": \"\"\n            },\n            \"tutorialId\": null\n        },\n        \"glossary\": {\n            \"terms\": []\n        },\n        \"images\": {\n            \"imageResources\": []\n        },\n        \"textToSpeech\": {\n            \"isSightTTSProvided\": false,\n            \"isVisualTTSProvided\": false,\n            \"isVisualTTSRequired\": \"undetermined\"\n        },\n        \"translations\": {\n            \"esp\": {\n                \"isManagedByIat\": true,\n                \"isProvided\": false,\n                \"isRequired\": \"undetermined\",\n                \"parts\": [\n                    {\n                        \"leftLabel\": \"\",\n                        \"rightLabel\": \"\"\n                    }\n                ],\n                \"prompt\": \"\",\n                \"updatedDate\": \"2018-08-23T23:02:46.315Z\"\n            }\n        },\n        \"workflow\": {\n            \"workflowStatusCode\": \"Draft\"\n        }\n    }\n}"
 				},
 				"url": {
-					"raw": "http://localhost:8081/api/v1/items/200071/transactions",
+					"raw": "http://localhost:8081/api/v1/items/208066/transactions",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -405,7 +438,7 @@
 						"api",
 						"v1",
 						"items",
-						"200071",
+						"208066",
 						"transactions"
 					]
 				}
@@ -520,10 +553,10 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"message\": \"committing transaction\",\n    \"item\": {\n        \"id\": \"47\",\n        \"type\": \"sa\",\n        \"core\": {    \n            \"tutorialId\": null,\n            \"stimulusId\": null,\n            \"prompt\": \"What is 3 + 3?\",\n            \"exemplarResponses\": [\"6\"]\n        },\n        \"braille\": {\n            \"attachments\": [],\n            \"isBrailleRequired\": false,\n            \"isBrailleProvided\": false\n        },\n      \"workflow\": {\n          \"workflowStatusCode\": \"Draft\"\n        }\n    }\n}"
+					"raw": "{\n  \"message\": \"committing transaction\",\n    \"item\": {\n        \"id\": \"208077\",\n        \"type\": \"sa\",\n        \"version\": \"iat-18\",\n        \"asl\": {\n            \"attachments\": [],\n            \"isAslProvided\": false,\n            \"isAslRequired\": \"undetermined\"\n        },\n        \"audio\": {\n            \"audioResources\": []\n        },\n        \"braille\": {\n            \"attachments\": [],\n            \"isBrailleProvided\": false,\n            \"isBrailleRequired\": \"undetermined\"\n        },\n        \"cc\": {\n            \"attachments\": [],\n            \"isCcProvided\": false,\n            \"isCcRequired\": \"undetermined\",\n            \"itemCcAudioAssociations\": []\n        },\n        \"core\": {\n            \"attachments\": [],\n            \"contentUpdateNeeds\": [],\n            \"en\": {\n                \"exemplarResponses\": [],\n                \"isManagedByIat\": true,\n                \"isProvided\": true,\n                \"isRequired\": \"true\",\n                \"prompt\": \"What is the answer to the riddle?\",\n                \"rubrics\": [],\n                \"updatedDate\": \"2018-08-26T17:53:39.296Z\"\n            },\n            \"enemyItems\": [],\n            \"metadata\": {\n                \"accessibilityLanguageComplexity\": \"\",\n                \"algebraDescriptor1\": \"\",\n                \"algebraDescriptor2\": \"\",\n                \"allowCalculator\": \"\",\n                \"claim2Category\": \"\",\n                \"claim2SubCategory\": \"\",\n                \"contentTaskModel\": \"\",\n                \"copyrightHolder\": \"\",\n                \"copyrightHolderOther\": \"\",\n                \"depthOfKnowledge\": \"\",\n                \"easyListeningFormula\": \"\",\n                \"estimatedQuintile\": \"\",\n                \"evidenceStatement\": \"\",\n                \"intendedGrade\": \"\",\n                \"itemAuthor\": \"\",\n                \"languageFeatures\": \"\",\n                \"maxGrade\": \"\",\n                \"maximumPoints\": \"\",\n                \"meaningPurpose\": \"\",\n                \"minGrade\": \"\",\n                \"organizationName\": \"\",\n                \"organizationTypeId\": \"\",\n                \"performanceTask\": \"\",\n                \"performanceTaskPosition\": \"\",\n                \"presentationFormat\": [],\n                \"primaryClaim\": \"\",\n                \"primaryCommonCoreStandard\": \"\",\n                \"primaryContentDomain\": \"\",\n                \"primaryEmphasis\": null,\n                \"primaryMathematicalPractice\": \"\",\n                \"primaryTarget\": \"\",\n                \"primaryTargetSet\": \"\",\n                \"quaternaryClaim\": \"\",\n                \"quaternaryCommonCoreStandard\": \"\",\n                \"quaternaryContentDomain\": \"\",\n                \"quaternaryMathematicalPractice\": \"\",\n                \"quaternaryTarget\": \"\",\n                \"readabilityFleschKincaid\": \"\",\n                \"readabilityLexile\": \"\",\n                \"scorePoints\": \"\",\n                \"scoringEngine\": \"\",\n                \"secondaryClaim\": \"\",\n                \"secondaryCommonCoreStandard\": \"\",\n                \"secondaryContentDomain\": \"\",\n                \"secondaryMathematicalPractice\": \"\",\n                \"secondaryTarget\": \"\",\n                \"specificationsVersion\": \"\",\n                \"stimulusFormat\": \"\",\n                \"stimulusGenre\": \"\",\n                \"stimulusLength\": \"\",\n                \"stimulusLiteraryCategory\": \"\",\n                \"stimulusLiteraryKnowledgeDemands\": \"\",\n                \"stimulusName\": \"\",\n                \"structure\": \"\",\n                \"subject\": \"\",\n                \"tertiaryClaim\": \"\",\n                \"tertiaryCommonCoreStandard\": \"\",\n                \"tertiaryContentDomain\": \"\",\n                \"tertiaryMathematicalPractice\": \"\",\n                \"tertiaryTarget\": \"\",\n                \"testCategory\": \"\",\n                \"version\": \"0.0\",\n                \"wordCount\": \"\",\n                \"writingPurpose\": \"\"\n            },\n            \"scoring\": {\n                \"defaultScore\": 0,\n                \"isManagedByIat\": true,\n                \"rubric\": \"\",\n                \"rules\": [],\n                \"variables\": []\n            },\n            \"stimulusId\": null,\n            \"testAdministration\": {\n                \"administrations\": [],\n                \"fieldTestAdministrationId\": \"\"\n            },\n            \"tutorialId\": null\n        },\n        \"glossary\": {\n            \"terms\": []\n        },\n        \"images\": {\n            \"imageResources\": []\n        },\n        \"textToSpeech\": {\n            \"isSightTTSProvided\": false,\n            \"isVisualTTSProvided\": false,\n            \"isVisualTTSRequired\": \"undetermined\"\n        },\n        \"translations\": {\n            \"esp\": {\n                \"exemplarResponses\": [],\n                \"isManagedByIat\": true,\n                \"isProvided\": false,\n                \"isRequired\": \"undetermined\",\n                \"prompt\": \"\",\n                \"rubrics\": [],\n                \"updatedDate\": \"2018-08-26T17:53:39.296Z\"\n            }\n        },\n        \"workflow\": {\n            \"workflowStatusCode\": \"Draft\"\n        }\n    }\n}"
 				},
 				"url": {
-					"raw": "http://localhost:8081/api/v1/items/47/transactions",
+					"raw": "http://localhost:8081/api/v1/items/208077/transactions",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -533,7 +566,7 @@
 						"api",
 						"v1",
 						"items",
-						"47",
+						"208077",
 						"transactions"
 					]
 				}
@@ -683,7 +716,7 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:8081/api/v1/items/54/transactions",
+					"raw": "http://localhost:8081/api/v1/items/208079/transactions",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -693,7 +726,7 @@
 						"api",
 						"v1",
 						"items",
-						"54",
+						"208079",
 						"transactions"
 					]
 				}
@@ -705,7 +738,10 @@
 			"request": {
 				"method": "DELETE",
 				"header": [],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"url": {
 					"raw": "http://localhost:8081/api/v1/items/138/files/item_144_ASL_STEM.webm",
 					"protocol": "http",
@@ -730,9 +766,12 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"url": {
-					"raw": "http://localhost:8081/api/v1/items/205862",
+					"raw": "http://localhost:8081/api/v1/items/208093",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -742,7 +781,7 @@
 						"api",
 						"v1",
 						"items",
-						"205862"
+						"208093"
 					]
 				}
 			},
@@ -753,7 +792,10 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"url": {
 					"raw": "http://localhost:8081/api/v1/items/205033/versions",
 					"protocol": "http",
@@ -777,7 +819,10 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"url": {
 					"raw": "http://localhost:8081/api/v1/items/68/versions?format=csv",
 					"protocol": "http",
@@ -807,7 +852,10 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"url": {
 					"raw": "http://localhost:8081/api/v1/items/61/diff/4973f93699e12840aad73e70c49f9293e666e51d",
 					"protocol": "http",
@@ -832,18 +880,20 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"url": {
-					"raw": "http://iat-awsdev.sbtds.org/api/ims/v1/items/workflow-statuses",
+					"raw": "http://localhost:8081/api//v1/items/workflow-statuses",
 					"protocol": "http",
 					"host": [
-						"iat-awsdev",
-						"sbtds",
-						"org"
+						"localhost"
 					],
+					"port": "8081",
 					"path": [
 						"api",
-						"ims",
+						"",
 						"v1",
 						"items",
 						"workflow-statuses"
@@ -857,7 +907,10 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"url": {
 					"raw": "http://localhost:8081/api/v1/items/61/files/item_61_enu_uncontracted.brf",
 					"protocol": "http",
@@ -882,18 +935,19 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"url": {
-					"raw": "http://iat-awsdev.sbtds.org/api/ims/v1/items/eq/equation-editor-configurations",
+					"raw": "http://localhost:8081/api/v1/items/eq/equation-editor-configurations",
 					"protocol": "http",
 					"host": [
-						"iat-awsdev",
-						"sbtds",
-						"org"
+						"localhost"
 					],
+					"port": "8081",
 					"path": [
 						"api",
-						"ims",
 						"v1",
 						"items",
 						"eq",
@@ -908,7 +962,10 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"url": {
 					"raw": "http://localhost:8081/api/v1/items/605/validation",
 					"protocol": "http",
@@ -1028,7 +1085,10 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"url": {
 					"raw": "http://localhost:8081/api/v1/props/itembankviewer/2858?type=Item",
 					"protocol": "http",
@@ -1048,6 +1108,67 @@
 							"key": "type",
 							"value": "Item"
 						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List Item Resources in Folder",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/v1/items/208057/resources/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"items",
+						"208057",
+						"resources",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Bulk Process Test Admin File",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"value": "",
+							"type": "file"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/v1/items/files/testadmin",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"items",
+						"files",
+						"testadmin"
 					]
 				}
 			},
