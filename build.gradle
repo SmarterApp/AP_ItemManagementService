@@ -113,6 +113,7 @@ dependencies {
     //Used for PDF generation
     compile group: 'com.itextpdf', name: 'itext7-core', version: '7.1.3', ext: 'pom'
     compile group: 'com.itextpdf', name: 'html2pdf', version: '2.1.0'
+    compile("org.springframework.boot:spring-boot-starter-thymeleaf")
 
     compileOnly 'org.projectlombok:lombok'
 

@@ -1,0 +1,12 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<body>
+<div id="main">
+    <span th:utext="${value}" th:remove="tag"></span>
+
+    <tr th:each="question: ${questions}">
+        <input type="radio"/>
+        <td th:text="${#numbers.formatDecimal(prod.price, 1, 2)}">0.99</td>
+    </tr>
+</div>
+</body>
+</html>
