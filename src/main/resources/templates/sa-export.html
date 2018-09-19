@@ -7,6 +7,20 @@
         <span th:utext="${data.promptContent}" th:remove="tag"></span>
     </div>
 
+    <div id="item-rubrics" th:if="${data.includeRubrics}">
+        <h2>Rubrics</h2>
+
+        <h3>English</h3>
+        <ul>
+            <li th:each="rubric : ${data.enRubrics}" th:utext="${rubric}"></li>
+        </ul>
+        <br/>
+        <h3>Spanish</h3>
+        <ul>
+            <li th:each="rubric : ${data.espRubrics}" th:utext="${rubric}"></li>
+        </ul>
+    </div>
+
     <div id="item-metadata">
         <h2>Additional Information</h2>
         <table>
