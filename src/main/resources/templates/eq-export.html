@@ -1,0 +1,16 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+    <body>
+        <div id="main">
+            <h2 th:text="${data.itemId}"></h2>
+            <div id="prompt">
+                <span th:utext="${data.promptContent}" th:remove="tag"></span>
+            </div>
+
+            <form>
+                <span th:each="part : ${data.parts}" th:remove="tag">
+                    <label th:text="${part.leftLabel}">}</label><input type="text"/>
+                </span>
+            </form>
+        </div>
+    </body>
+</html>
