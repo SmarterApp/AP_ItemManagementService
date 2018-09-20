@@ -115,7 +115,6 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-thymeleaf")
     compile group: 'org.apache.xmlgraphics', name: 'batik-codec', version: '1.9.1'
     compile group: 'org.apache.xmlgraphics', name: 'batik-transcoder', version: '1.9'
-    compile group: 'org.jsoup', name: 'jsoup', version: '1.8.3'
 
     compileOnly 'org.projectlombok:lombok'
 
