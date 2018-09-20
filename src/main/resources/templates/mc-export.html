@@ -14,6 +14,11 @@
         </form>
     </div>
 
+    <div id="item-rubrics" th:if="${data.includeRubrics}">
+        <h2>Rubrics</h2>
+        <p th:text="${data.correctAnswer}"></p>
+    </div>
+
     <div id="item-metadata">
         <h2>Additional Information</h2>
         <table>
