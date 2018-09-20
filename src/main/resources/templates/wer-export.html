@@ -7,6 +7,31 @@
         <span th:utext="${data.promptContent}" th:remove="tag"></span>
     </div>
 
+
+    <div id="item-rubrics" th:if="${data.includeRubrics}">
+        <h2>Rubrics</h2>
+
+        <h3>English Exemplar</h3>
+        <ul>
+            <li th:each="exemplar : ${data.exemplarRubric.enExemplars}" th:utext="${exemplar}"></li>
+        </ul>
+
+        <h3>English Rubric</h3>
+        <ul>
+            <li th:text="${data.exemplarRubric.enRubric}"></li>
+        </ul>
+
+        <h3>Spanish Exemplar</h3>
+        <ul>
+            <li th:each="exemplar : ${data.exemplarRubric.espExemplars}" th:utext="${exemplar}"></li>
+        </ul>
+
+        <h3>Spanish Rubric</h3>
+        <ul>
+            <li th:text="${data.exemplarRubric.espRubric}"></li>
+        </ul>
+    </div>
+
     <div id="item-metadata">
         <h2>Additional Information</h2>
         <table>

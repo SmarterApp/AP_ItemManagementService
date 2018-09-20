@@ -12,12 +12,24 @@
 
         <h3>English</h3>
         <ul>
-            <li th:each="rubric : ${data.enRubrics}" th:utext="${rubric}"></li>
+            <li th:each="rubric, status : ${data.enExemplarRubric}">
+                <p th:text="|Exemplar and Rubric ${status.count}|"></p>
+                <ul>
+                    <li th:utext="${rubric.exemplar}"></li>
+                    <li th:utext="${rubric.rubric}"></li>
+                </ul>
+            </li>
         </ul>
-        <br/>
+
         <h3>Spanish</h3>
         <ul>
-            <li th:each="rubric : ${data.espRubrics}" th:utext="${rubric}"></li>
+            <li th:each="rubric, status : ${data.espExemplarRubric}">
+                <p th:text="|Exemplar and Rubric ${status.count}|"></p>
+                <ul>
+                    <li th:utext="${rubric.exemplar}"></li>
+                    <li th:utext="${rubric.rubric}"></li>
+                </ul>
+            </li>
         </ul>
     </div>
 
