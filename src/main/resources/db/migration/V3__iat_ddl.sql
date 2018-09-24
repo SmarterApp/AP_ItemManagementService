@@ -147,6 +147,7 @@ VALUES
   ('SmarterAccessibilityReview','SmarterCopyEdit','FORWARD'),
   ('SmarterAccessibilityReview','TextToSpeechUpload','FORWARD'),
   ('SmarterAccessibilityReview','Rejected','REJECTED'),
+  ('SmarterCopyEdit','MultimediaUpload','BACKWARD'),
   ('SmarterCopyEdit','SmarterContentReview','BACKWARD'),
   ('SmarterCopyEdit','SmarterCopyEdit','CURRENT'),
   ('SmarterCopyEdit','TextToSpeechUpload','FORWARD'),
