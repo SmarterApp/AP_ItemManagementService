@@ -80,7 +80,7 @@ VALUES
   ('InitialReview','EditorialReview','FORWARD'),
   ('InitialReview','SeniorContentReview','FORWARD'),
   ('InitialReview','SmarterContentAuditReview','FORWARD'),
-  ('InitialReview','Rejected','PREV'),
+  ('InitialReview','Rejected','REJECTED'),
   ('MultimediaUpload','Draft','BACKWARD'),
   ('MultimediaUpload','InitialReview','BACKWARD'),
   ('MultimediaUpload','MultimediaUpload','CURRENT'),
@@ -233,7 +233,7 @@ VALUES
   ('Rejected','DataReview','FORWARD'),
   ('Rejected','Operational','FORWARD'),
   ('Rejected','Released','FORWARD'),
-  ('Rejected','Archived','FORWARD'),
+  ('Rejected','Archived','ARCHIVED'),
   ('Rejected','Rejected','CURRENT'),
   ('Rejected','ParkingLot','FORWARD'),
   ('ParkingLot','Draft','FORWARD'),
@@ -262,8 +262,8 @@ VALUES
   ('ParkingLot','DataReview','FORWARD'),
   ('ParkingLot','Operational','FORWARD'),
   ('ParkingLot','Released','FORWARD'),
-  ('ParkingLot','Archived','FORWARD'),
-  ('ParkingLot','Rejected','FORWARD'),
+  ('ParkingLot','Archived','ARCHIVED'),
+  ('ParkingLot','Rejected','REJECTED'),
   ('ParkingLot','ParkingLot','CURRENT')
   ON CONFLICT (from_code, to_code) DO NOTHING;
 
