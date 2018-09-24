@@ -10,9 +10,6 @@
             <span th:each="option, status : ${data.options}" th:remove="tag">
                 <input type="checkbox" th:id="|answer${status.index}"/>
                 <label th:utext="|${option.enText}&nbsp;${option.esnText}|">}</label>
-                    <!--<p th:utext="${option.enText}" th:remove="tag"></p>-->
-                    <!--<p class="languagedivider">&#xA0;</p>-->
-                    <!--<p th:utext="${option.esnText}" th:remove="tag"></p>-->
             </span>
         </form>
     </div>
