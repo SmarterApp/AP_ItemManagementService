@@ -1,0 +1,95 @@
+/* styles.css for item display */
+body {
+    background: white;
+    padding: 20px;
+    font-size: 1.1em;
+    line-height: .5em;
+    max-width: 500px;
+}
+h2, h4 {
+    width: 100%;
+    border-bottom: #e1e1e1 solid 1px;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+h2 div, h4 div { 
+    background: #e1e1e1;
+    padding: 10px;
+    display: inline-block;
+}
+h3, h4 {
+    font-size: 1em;
+}
+h4 div {
+    padding: 5px;
+}
+p {
+    margin-block-start: 5px;
+    margin-block-end: 10px;
+}
+ul,ol{
+    margin: 0;
+}
+li{
+    line-height: 1.1em;
+}
+form {
+    margin-top: 20px;
+}
+label{
+    font-size: 1em;
+    font-style: normal;
+    line-height: inherit;
+    float: left;
+    width: 90%;
+    margin-bottom: 20px;
+}
+label.large  {
+    font-size: 1.8em;
+    font-style: italic;
+    line-height: 1.5em;
+    float: left;
+    width: inherit;
+}
+input[type="radio"], input[type="checkbox"] {
+    float: left;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    width: 5%;
+}
+input[type="checkbox"] {
+    margin-top: 8px;
+}
+input[type="text"] {
+    font-size: 1.8em;
+    border-radius: 5px;
+    border: 1px #bbb solid;
+}
+textarea {
+    border-radius: 5px;
+    border: 1px #bbb solid;
+    width: 100%;
+    font-size: 1em;
+    padding: 5px;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+td {
+    padding: 5px 10px;
+    border-bottom: 1px solid #ccc;
+}
+.languagedivider {
+    line-height: 0em;
+}
+#content {
+    display: inline-block;
+    width: 100%;
+}
+#item-rubrics, #item-metadata {
+    margin: 40px 0;
+}
+#item-rubrics li, #item-metadata li {
+    line-height: 1.5em;
+}
