@@ -23,6 +23,7 @@ itembank:
     manager: false
     database: false
     producer: false
+  systemVersion: "iat-20"
 
 flyway:
   enabled: false
