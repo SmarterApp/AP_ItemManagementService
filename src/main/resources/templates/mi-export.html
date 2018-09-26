@@ -13,6 +13,8 @@
             <table border="1">
                 <tbody>
                 <tr>
+                    <!-- This empty TD is necessary for the formatting of the item itself-->
+                    <td>&nbsp;</td>
                     <td th:each="header : ${data.table.tableHeaders}">
                         <p th:utext="${header.englishContent}" th:remove="tag"></p><p class="languagedivider">&#xA0;</p><p th:utext="${header.spanishContent}" th:remove="tag"></p>
                     </td>
