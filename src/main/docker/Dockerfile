@@ -17,6 +17,8 @@ RUN apk --no-cache add curl
 
 RUN apk --no-cache add git
 
+RUN sh -c 'apk update && apk add libx11 libxext libxrender libstdc++ freetype fontconfig libssl1.0'
+
 ENTRYPOINT ["/usr/bin/java"]
 
 CMD ["-jar", "/ap-ims.jar"]
