@@ -80,7 +80,16 @@ table {
 }
 td {
     padding: 5px 10px;
-    border-bottom: 1px solid #ccc;
+    border: 1px solid #ccc;
+}
+td.noborder {
+    border: none
+}
+.center {
+    text-align: center;
+}
+.center input {
+    float: none;
 }
 .languagedivider {
     line-height: 0em;
