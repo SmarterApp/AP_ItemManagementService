@@ -43,7 +43,7 @@ label{
     font-style: normal;
     line-height: inherit;
     float: left;
-    width: 90%;
+    width: 70%;
     margin-bottom: 20px;
 }
 label.large  {
@@ -103,4 +103,7 @@ td.noborder {
 }
 #item-rubrics li, #item-metadata li {
     line-height: 1.5em;
+}
+.fullwidth {
+    width: 100%;
 }
