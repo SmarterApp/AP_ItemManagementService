@@ -1,4 +1,10 @@
 /* styles.css for item display */
+html *
+{
+    font-size: 1em !important;
+    color: #000 !important;
+}
+
 body {
     background: white;
     padding: 20px;
@@ -106,4 +112,12 @@ td.noborder {
 }
 .fullwidth {
     width: 100%;
+}
+.spri {
+    background-image: url(radio-sprite.png);
+    height: 30px;
+    width: 30px;
+}
+.s1 {
+    background-position: -20px 100px;
 }
