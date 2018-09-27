@@ -51,6 +51,35 @@ services:
     depends_on:
       redis-server:
         condition: service_healthy
+  ap-ims-service:
+    container_name: ap-ims-service
+    image: @dockerTagBase@/ap-ims:@version@
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/manage/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+    environment:
+      CONFIG_SERVICE_ENABLED: "true"
+      CONFIG_SERVICE_URL: "http://configuration-service:8888"
+      SPRING_PROFILES_ACTIVE: "localcompose"
+    ports:
+    - 8081:8080
+    networks:
+    - spring-cloud-network
+    links:
+    - configuration-service
+    - redis-server
+    - rabbitmq
+    depends_on:
+      configuration-service:
+        condition: service_started
+      redis-server:
+        condition: service_healthy
+    volumes:
+    - @USER_HOME@/smarter_app:/tmp
+    logging:
+      driver: json-file
 networks:
   spring-cloud-network:
     driver: bridge
