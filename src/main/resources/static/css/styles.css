@@ -3,7 +3,6 @@ body {
     background: white;
     padding: 20px;
     font-size: 1.1em;
-    line-height: .5em;
     max-width: 500px;
 }
 h2, h4 {
@@ -32,6 +31,9 @@ ul,ol{
 }
 li{
     line-height: 1.1em;
+}
+ol.alpha {
+    list-style-type: upper-alpha;
 }
 form {
     margin-top: 20px;
@@ -74,7 +76,7 @@ textarea {
 }
 table {
     border-collapse: collapse;
-    width: 100%;
+    width: 100% !important;
 }
 td {
     padding: 5px 10px;
