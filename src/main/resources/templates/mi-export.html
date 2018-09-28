@@ -15,7 +15,7 @@
             <tr>
                 <!-- This empty TD is necessary for the formatting of the item itself-->
                 <td class="noborder">&nbsp;</td>
-                <td th:each="header : ${data.table.tableHeaders}">
+                <td width="20%" th:each="header : ${data.table.tableHeaders}">
                     <p th:utext="${header.englishContent}" th:remove="tag"></p><p class="languagedivider">&#xA0;</p><p th:utext="${header.spanishContent}" th:remove="tag"></p>
                 </td>
             </tr>
@@ -29,7 +29,7 @@
                         </span>
                         <span th:case="*" th:remove="tag">
                             <td class="center">
-                                <input type="checkbox"/>
+                                <img src="checkbox.png"/>
                             </td>
                         </span>
                     </div>
