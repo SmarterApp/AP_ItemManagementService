@@ -11,10 +11,12 @@
         <span th:utext="${data.spanishPrompt}" th:remove="tag"></span>
     </div>
     <div id="content">
-        <div class="fullwidth" th:each="option, status : ${data.options}">
-            <input type="checkbox" th:id="|answer${status.index}"/>
-            <label th:for="|answer${status.index}" th:utext="|${option.enText}&nbsp;${option.esnText}|">}</label>
-        </div>
+        <table>
+            <tr th:each="option, status : ${data.options}">
+                <td class="noborder-input"><img src="checkbox.png"/></td>
+                <td class="noborder" th:utext="|${option.enText}&nbsp;${option.esnText}|">}</td>
+            </tr>
+        </table>
     </div>
 
     <div id="item-rubrics" th:if="${data.includeRubrics}">
@@ -24,7 +26,6 @@
             <span th:each="option : ${data.answers}" th:remove="tag">
                 <li>
                     <p th:utext="${option.enText}" th:remove="tag"></p>
-                    <p class="languagedivider">&#xA0;</p>
                     <p th:utext="${option.esnText}" th:remove="tag"></p>
                 </li>
             </span>
