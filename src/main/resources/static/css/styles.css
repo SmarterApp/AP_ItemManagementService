@@ -1,9 +1,14 @@
 /* styles.css for item display */
+html *
+{
+    font-size: 1em !important;
+    color: #000 !important;
+}
+
 body {
     background: white;
     padding: 20px;
     font-size: 1.1em;
-    line-height: .5em;
     max-width: 500px;
 }
 h2, h4 {
@@ -33,6 +38,20 @@ ul,ol{
 li{
     line-height: 1.1em;
 }
+ul#interaction-1 {
+    margin: 0;
+    padding: 0;
+}
+li.order-choice {
+    list-style: none;
+    background: #f2f2f2;
+    border-radius: 3px;
+    padding: 1px 10px;
+    margin-bottom: 10px;
+}
+ol.alpha {
+    list-style-type: upper-alpha;
+}
 form {
     margin-top: 20px;
 }
@@ -41,7 +60,7 @@ label{
     font-style: normal;
     line-height: inherit;
     float: left;
-    width: 90%;
+    width: 70%;
     margin-bottom: 20px;
 }
 label.large  {
@@ -74,11 +93,20 @@ textarea {
 }
 table {
     border-collapse: collapse;
-    width: 100%;
+    width: 100% !important;
 }
 td {
     padding: 5px 10px;
-    border-bottom: 1px solid #ccc;
+    border: 1px solid #ccc;
+}
+td.noborder {
+    border: none
+}
+.center {
+    text-align: center;
+}
+.center input {
+    float: none;
 }
 .languagedivider {
     line-height: 0em;
@@ -92,4 +120,15 @@ td {
 }
 #item-rubrics li, #item-metadata li {
     line-height: 1.5em;
+}
+.fullwidth {
+    width: 100%;
+}
+.spri {
+    background-image: url(radio-sprite.png);
+    height: 30px;
+    width: 30px;
+}
+.s1 {
+    background-position: -20px 100px;
 }
