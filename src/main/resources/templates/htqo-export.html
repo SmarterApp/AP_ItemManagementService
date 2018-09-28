@@ -10,9 +10,9 @@
         <span th:utext="${data.englishPrompt}" th:remove="tag"></span>
         <span th:utext="${data.spanishPrompt}" th:remove="tag"></span>
 
-        <ul>
+        <ul id="interaction-1">
             <span th:each="option : ${data.options}" th:remove="tag">
-                <li>
+                <li class="order-choice">
                     <p th:utext="${option.enText}" th:remove="tag"></p>
                     <p class="languagedivider">&#xA0;</p>
                     <p th:utext="${option.esnText}" th:remove="tag"></p>
