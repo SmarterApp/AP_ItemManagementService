@@ -12,7 +12,7 @@
 
         <table>
             <tr th:each="option, status : ${data.options}">
-                <td class="noborder" width="30px">
+                <td valign="top" class="noborder" width="30px">
                     <img th:if="${status.index &lt; 10}" th:src="|option${status.index}.png|"/>
                     <img th:if="${status.index &gt; 9}" th:src="option.png"/>
                 </td>
