@@ -102,6 +102,11 @@ td {
 td.noborder {
     border: none
 }
+td.noborder-input {
+    border:none;
+    width: 30px;
+    vertical-align: top;
+}
 .center {
     text-align: center;
 }
