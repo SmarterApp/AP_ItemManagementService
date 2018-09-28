@@ -16,26 +16,40 @@
             <span th:utext="${data.partA.enPrompt}" th:remove="tag"></span>
             <span th:utext="${data.partA.espPrompt}" th:remove="tag"></span>
 
-            <ul>
-                <li th:each="prompt,status : ${data.partA.answerPrompts}">
-                    <span th:utext="${prompt}" th:remove="tag"></span>
-                </li>
-            </ul>
+            <table>
+                <tr th:each="option, status : ${data.partA.answerPrompts}">
+                    <td class="noborder-input">
+                        <img th:if="${status.index &lt; 10}" th:src="|option${status.index}.png|"/>
+                        <img th:if="${status.index &gt; 9}" th:src="option.png"/>
+                    </td>
+                    <td class="noborder">
+                        <p th:utext="${option}" th:remove="tag"></p>
+                    </td>
+                </tr>
+            </table>
 
             <h4><div>Part B</div></h4>
             <span th:utext="${data.partA.enPrompt}" th:remove="tag"></span>
             <span th:utext="${data.partA.espPrompt}" th:remove="tag"></span>
 
             <div th:switch="${data.partB.type}">
-                    <span th:case="'Multiple Select'" th:each="prompt,status : ${data.partB.answerPrompts}" th:remove="tag">
-                        <input type="checkbox" th:id="|answer${status.index}"/>
-                        <span th:utext="${prompt}" th:remove="tag"></span>
-                    </span>
-                    <ul th:case="*">
-                        <li th:each="prompt,status : ${data.partB.answerPrompts}">
-                            <p th:utext="${prompt}" th:remove="tag"></p>
-                        </li>
-                    </ul>
+                <table th:case="'Multiple Select'" >
+                    <tr th:each="prompt, status : ${data.partB.answerPrompts}">
+                        <td class="noborder-input"><img src="checkbox.png"/></td>
+                        <td class="noborder"><span th:utext="${prompt}" th:remove="tag"></span></td>
+                    </tr>
+                </table>
+                <table th:case="*">
+                    <tr th:each="option, status : ${data.partB.answerPrompts}">
+                        <td valign="top" class="noborder-input">
+                            <img th:if="${status.index &lt; 10}" th:src="|option${status.index}.png|"/>
+                            <img th:if="${status.index &gt; 9}" th:src="option.png"/>
+                        </td>
+                        <td class="noborder">
+                            <p th:utext="${option}" th:remove="tag"></p>
+                        </td>
+                    </tr>
+                </table>
             </div>
 
         </div>
