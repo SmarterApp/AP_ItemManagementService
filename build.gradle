@@ -16,6 +16,7 @@
 import com.bmuschko.gradle.docker.tasks.image.DockerBuildImage
 import com.bmuschko.gradle.docker.tasks.image.DockerPushImage
 import com.bmuschko.gradle.docker.tasks.image.DockerRemoveImage
+import org.apache.tools.ant.BuildException
 import org.apache.tools.ant.filters.ReplaceTokens
 
 buildscript {
@@ -66,7 +67,7 @@ configurations {
 }
 
 dependencies {
-    compile 'org.opentestsystem.ap:ap-common:0.4.54'
+    compile "org.opentestsystem.ap:ap-common:${commonVersion}"
 
     compile 'org.springframework.boot:spring-boot-starter-actuator'
     compile 'org.springframework.boot:spring-boot-starter-security'
@@ -343,6 +344,30 @@ flyway {
     user = project.dbUser
     password = project.dbPassword
     schemas = ['iat']
+}
+
+/***************************
+ * set common version
+ ***************************/
+
+task updateCommonVersion {
+    doLast {
+        doCommonVersionUpdate(project.newCommonVersion)
+    }
+}
+
+def doCommonVersionUpdate(String version) {
+    String currentVersion = project.commonVersion
+    File propertiesFile = project.file(Project.GRADLE_PROPERTIES)
+    if (!propertiesFile.file) {
+        propertiesFile.append("commonVersion=${version}")
+    }else {
+        try {
+            project.ant.replace(file: propertiesFile, token: "commonVersion=${currentVersion}", value: "commonVersion=${version}", failOnNoReplacements: true)
+        } catch (BuildException e) {
+            throw new GradleException("Failed to update version in ${Project.GRADLE_PROPERTIES}.  Check the property exists and is formatted correctly.")
+        }
+    }
 }
 
 /***************************
