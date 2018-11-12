@@ -13,7 +13,10 @@
             <table>
                 <tr th:each="option, status : ${data.options}">
                     <td class="noborder-input"><img src="checkbox.png"/></td>
-                    <td class="noborder" th:utext="|${option.esnText}&nbsp;${option.enText}|">}</td>
+                    <td class="noborder">
+                        <span th:utext="${option.esnText}">}</span>
+                        <span th:utext="${option.enText}">}</span>
+                    </td>
                 </tr>
             </table>
         </div>
