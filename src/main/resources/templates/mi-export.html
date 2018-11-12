@@ -10,33 +10,35 @@
         <span th:utext="${data.spanishPrompt}" th:remove="tag"></span>
         <span th:utext="${data.englishPrompt}" th:remove="tag"></span>
 
-        <table>
-            <tbody>
-            <tr>
-                <!-- This empty TD is necessary for the formatting of the item itself-->
-                <td class="noborder">&nbsp;</td>
-                <td width="20%" th:each="header : ${data.table.tableHeaders}">
-                    <p th:utext="${header.spanishContent}" th:remove="tag"></p><p class="languagedivider">&#xA0;</p><p th:utext="${header.englishContent}" th:remove="tag"></p>
-                </td>
-            </tr>
-            <tr th:each="row : ${data.table.rows}">
-                <span th:each="cell : ${row.cells}" th:remove="tag">
-                    <div th:switch="${cell.type}" th:remove="tag">
-                        <span th:case="'label'" th:remove="tag">
-                            <td>
-                                <p th:utext="${cell.spanishContent}" th:remove="tag"></p><p class="languagedivider">&#xA0;</p><p th:utext="${cell.englishContent}" th:remove="tag"></p>
-                            </td>
-                        </span>
-                        <span th:case="*" th:remove="tag">
-                            <td class="center">
-                                <img src="checkbox.png"/>
-                            </td>
-                        </span>
-                    </div>
-                </span>
-            </tr>
-            </tbody>
-        </table>
+        <div style="padding-top: 10px;">
+            <table>
+                <tbody>
+                <tr>
+                    <!-- This empty TD is necessary for the formatting of the item itself-->
+                    <td class="noborder">&nbsp;</td>
+                    <td width="20%" th:each="header : ${data.table.tableHeaders}">
+                        <p th:utext="${header.spanishContent}" th:remove="tag"></p><p class="languagedivider">&#xA0;</p><p th:utext="${header.englishContent}" th:remove="tag"></p>
+                    </td>
+                </tr>
+                <tr th:each="row : ${data.table.rows}">
+                    <span th:each="cell : ${row.cells}" th:remove="tag">
+                        <div th:switch="${cell.type}" th:remove="tag">
+                            <span th:case="'label'" th:remove="tag">
+                                <td>
+                                    <p th:utext="${cell.spanishContent}" th:remove="tag"></p><p class="languagedivider">&#xA0;</p><p th:utext="${cell.englishContent}" th:remove="tag"></p>
+                                </td>
+                            </span>
+                            <span th:case="*" th:remove="tag">
+                                <td class="center">
+                                    <img src="checkbox.png"/>
+                                </td>
+                            </span>
+                        </div>
+                    </span>
+                </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 
     <div id="item-rubrics" th:if="${data.includeRubrics}">
