@@ -29,8 +29,7 @@ h4 div {
     padding: 5px;
 }
 p {
-    margin-block-start: 5px;
-    margin-block-end: 10px;
+    margin: 0 !important;
 }
 ul,ol{
     margin: 0;

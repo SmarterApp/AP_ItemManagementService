@@ -11,7 +11,9 @@
         <span th:utext="${data.spanishPrompt}" th:remove="tag"></span>
         <span th:utext="${data.englishPrompt}" th:remove="tag"></span>
 
-        <p th:utext="${data.table.spanishTitle}" th:remove="tag"></p><p class="languagedivider">&#xA0;</p><p th:utext="${data.table.englishTitle}" th:remove="tag"></p>
+        <p th:utext="${data.table.spanishTitle}" th:remove="tag"></p>
+        <p class="languagedivider">&#xA0;</p>
+        <p th:utext="${data.table.englishTitle}" th:remove="tag"></p>
 
         <form>
             <table border="1">

@@ -43,12 +43,6 @@ spring:
       location: "${java.io.tmpdir}"
       maxFileSize: "10MB"
 
-flyway:
-  enabled: true
-  url: "jdbc:postgresql://localhost:5432/iat"
-  user: "iat_admin"
-  password: "${DB_PASSWORD}"
-
 itembank:
   host: "https://gitlab-dev.smarterbalanced.org"
   accessToken: "${GITLAB_ACCESS_TOKEN}"
@@ -105,10 +99,7 @@ spring:
   profiles: dev
   datasource:
     url: "jdbc:postgresql://imrt-qa-db.cjqp2fdamfoh.us-east-2.rds.amazonaws.com:5432/iat"
-
-flyway:
-  enabled: true
-  url: "jdbc:postgresql://imrt-qa-db.cjqp2fdamfoh.us-east-2.rds.amazonaws.com:5432/iat"
+    max-active: 2
 
 itembank:
   group: "iat-development"
@@ -117,11 +108,8 @@ itembank:
 spring:
   profiles: uat
   datasource:
-    url: "jdbc:mysql://iat-uat-db.cjqp2fdamfoh.us-east-2.rds.amazonaws.com:3306/iat?useSSL=false"
-
-flyway:
-  enabled: false
-  url: "jdbc:mysql://iat-uat-db.cjqp2fdamfoh.us-east-2.rds.amazonaws.com:3306/iat?useSSL=false"
+    url: "jdbc:postgresql:imrt-db-uat-aurora.cjqp2fdamfoh.us-east-2.rds.amazonaws.com"
+    max-active: 2
 
 itembank:
   group: "iat-uat"
