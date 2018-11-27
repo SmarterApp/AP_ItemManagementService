@@ -65,7 +65,6 @@ itembank:
     accessKey: "${IAT_AWS_ACCESS_KEY}"
     secretKey: "${IAT_AWS_ACCESS_SECRET}"
   events:
-    exchange: "iat_item_event_exchange"
     queue:
       queueName: "iat_item_event_queue"
     errorQueue:
