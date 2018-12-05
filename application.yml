@@ -53,7 +53,7 @@ itembank:
   apiVersion: "/api/v4"
   bankKey: "187"
   systemVersion: "iat-25"
-  itemBankViewerUrl: "http://itemreview.smarterbalanced.org/iris/Pages/item.xhtml?bankId=${itembank.bankKey}&type=%s&id=%s"
+  itemBankViewerUrl: "https://irv-stage.smarterbalanced.org/?itemKey=%s&namespace=${itembank.group}&bankKey=${itembank.bankKey}"
   enabled:
     broker: true
     database: true
