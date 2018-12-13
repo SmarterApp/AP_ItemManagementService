@@ -68,7 +68,6 @@ configurations {
 
 dependencies {
     compile "org.opentestsystem.ap:ap-common:${commonVersion}"
-    compile "org.opentestsystem.shared:content-spec-id:${contentSpecIdVersion}"
 
     compile 'org.springframework.boot:spring-boot-starter-actuator'
     compile 'org.springframework.boot:spring-boot-starter-security'
