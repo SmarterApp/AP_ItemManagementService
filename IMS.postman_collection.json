@@ -51,7 +51,7 @@
 					"raw": "{\n  \"message\": \"begin edit transaction\"\n}"
 				},
 				"url": {
-					"raw": "http://localhost:8081/api/v1/items/208077/transactions/core",
+					"raw": "http://localhost:8081/api/v1/items/208136/transactions/review",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -61,9 +61,9 @@
 						"api",
 						"v1",
 						"items",
-						"208077",
+						"208136",
 						"transactions",
-						"core"
+						"review"
 					]
 				}
 			},
@@ -205,10 +205,10 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"message\": \"save transaction\",\n    \"item\": {\n        \"id\": \"208077\",\n        \"type\": \"sa\",\n        \"version\": \"iat-18\",\n        \"asl\": {\n            \"attachments\": [],\n            \"isAslProvided\": false,\n            \"isAslRequired\": \"undetermined\"\n        },\n        \"audio\": {\n            \"audioResources\": []\n        },\n        \"braille\": {\n            \"attachments\": [],\n            \"isBrailleProvided\": false,\n            \"isBrailleRequired\": \"undetermined\"\n        },\n        \"cc\": {\n            \"attachments\": [],\n            \"isCcProvided\": false,\n            \"isCcRequired\": \"undetermined\",\n            \"itemCcAudioAssociations\": []\n        },\n        \"core\": {\n            \"attachments\": [],\n            \"contentUpdateNeeds\": [],\n            \"en\": {\n                \"exemplarResponses\": [],\n                \"isManagedByIat\": true,\n                \"isProvided\": true,\n                \"isRequired\": \"true\",\n                \"prompt\": \"What is 1+1, 2+2\",\n                \"rubrics\": [],\n                \"updatedDate\": \"2018-08-26T17:53:39.296Z\"\n            },\n            \"enemyItems\": [],\n            \"metadata\": {\n                \"accessibilityLanguageComplexity\": \"\",\n                \"algebraDescriptor1\": \"\",\n                \"algebraDescriptor2\": \"\",\n                \"allowCalculator\": \"\",\n                \"claim2Category\": \"\",\n                \"claim2SubCategory\": \"\",\n                \"contentTaskModel\": \"\",\n                \"copyrightHolder\": \"\",\n                \"copyrightHolderOther\": \"\",\n                \"depthOfKnowledge\": \"\",\n                \"easyListeningFormula\": \"\",\n                \"estimatedQuintile\": \"\",\n                \"evidenceStatement\": \"\",\n                \"intendedGrade\": \"\",\n                \"itemAuthor\": \"\",\n                \"languageFeatures\": \"\",\n                \"maxGrade\": \"\",\n                \"maximumPoints\": \"\",\n                \"meaningPurpose\": \"\",\n                \"minGrade\": \"\",\n                \"organizationName\": \"\",\n                \"organizationTypeId\": \"\",\n                \"performanceTask\": \"\",\n                \"performanceTaskPosition\": \"\",\n                \"presentationFormat\": [],\n                \"primaryClaim\": \"\",\n                \"primaryCommonCoreStandard\": \"\",\n                \"primaryContentDomain\": \"\",\n                \"primaryEmphasis\": null,\n                \"primaryMathematicalPractice\": \"\",\n                \"primaryTarget\": \"\",\n                \"primaryTargetSet\": \"\",\n                \"quaternaryClaim\": \"\",\n                \"quaternaryCommonCoreStandard\": \"\",\n                \"quaternaryContentDomain\": \"\",\n                \"quaternaryMathematicalPractice\": \"\",\n                \"quaternaryTarget\": \"\",\n                \"readabilityFleschKincaid\": \"\",\n                \"readabilityLexile\": \"\",\n                \"scorePoints\": \"\",\n                \"scoringEngine\": \"\",\n                \"secondaryClaim\": \"\",\n                \"secondaryCommonCoreStandard\": \"\",\n                \"secondaryContentDomain\": \"\",\n                \"secondaryMathematicalPractice\": \"\",\n                \"secondaryTarget\": \"\",\n                \"specificationsVersion\": \"\",\n                \"stimulusFormat\": \"\",\n                \"stimulusGenre\": \"\",\n                \"stimulusLength\": \"\",\n                \"stimulusLiteraryCategory\": \"\",\n                \"stimulusLiteraryKnowledgeDemands\": \"\",\n                \"stimulusName\": \"\",\n                \"structure\": \"\",\n                \"subject\": \"\",\n                \"tertiaryClaim\": \"\",\n                \"tertiaryCommonCoreStandard\": \"\",\n                \"tertiaryContentDomain\": \"\",\n                \"tertiaryMathematicalPractice\": \"\",\n                \"tertiaryTarget\": \"\",\n                \"testCategory\": \"\",\n                \"version\": \"0.0\",\n                \"wordCount\": \"\",\n                \"writingPurpose\": \"\"\n            },\n            \"scoring\": {\n                \"defaultScore\": 0,\n                \"isManagedByIat\": true,\n                \"rubric\": \"\",\n                \"rules\": [],\n                \"variables\": []\n            },\n            \"stimulusId\": null,\n            \"testAdministration\": {\n                \"administrations\": [],\n                \"fieldTestAdministrationId\": \"\"\n            },\n            \"tutorialId\": null\n        },\n        \"glossary\": {\n            \"terms\": []\n        },\n        \"images\": {\n            \"imageResources\": []\n        },\n        \"textToSpeech\": {\n            \"isSightTTSProvided\": false,\n            \"isVisualTTSProvided\": false,\n            \"isVisualTTSRequired\": \"undetermined\"\n        },\n        \"translations\": {\n            \"esp\": {\n                \"exemplarResponses\": [],\n                \"isManagedByIat\": true,\n                \"isProvided\": false,\n                \"isRequired\": \"undetermined\",\n                \"prompt\": \"\",\n                \"rubrics\": [],\n                \"updatedDate\": \"2018-08-26T17:53:39.296Z\"\n            }\n        },\n        \"workflow\": {\n            \"workflowStatusCode\": \"Draft\"\n        }\n    }\n}"
+					"raw": "{\n    \"message\": \"saving item\",\n    \"item\": {\n        \"id\": \"208136\",\n        \"type\": \"sa\",\n        \"version\": \"iat-20\",\n        \"asl\": {\n            \"attachments\": [],\n            \"isAslProvided\": false,\n            \"isAslRequired\": \"undetermined\"\n        },\n        \"audio\": {\n            \"audioResources\": []\n        },\n        \"braille\": {\n            \"attachments\": [],\n            \"isBrailleProvided\": false,\n            \"isBrailleRequired\": \"undetermined\"\n        },\n        \"cc\": {\n            \"attachments\": [],\n            \"isCcProvided\": false,\n            \"isCcRequired\": \"undetermined\",\n            \"itemCcAudioAssociations\": []\n        },\n        \"core\": {\n            \"attachments\": [],\n            \"contentUpdateNeeds\": [],\n            \"en\": {\n                \"exemplarResponses\": [],\n                \"isManagedByIat\": true,\n                \"isProvided\": true,\n                \"isRequired\": \"true\",\n                \"prompt\": \"\",\n                \"rubrics\": [],\n                \"updatedDate\": \"2018-09-18T22:15:54.488Z\"\n            },\n            \"enemyItems\": [],\n            \"metadata\": {\n                \"accessibilityLanguageComplexity\": \"\",\n                \"algebraDescriptor1\": \"\",\n                \"algebraDescriptor2\": \"\",\n                \"allowCalculator\": \"\",\n                \"claim2Category\": \"\",\n                \"claim2SubCategory\": \"\",\n                \"contentTaskModel\": \"\",\n                \"copyrightHolder\": \"\",\n                \"copyrightHolderOther\": \"\",\n                \"depthOfKnowledge\": \"\",\n                \"easyListeningFormula\": \"\",\n                \"estimatedQuintile\": \"\",\n                \"evidenceStatement\": \"\",\n                \"intendedGrade\": \"\",\n                \"itemAuthor\": \"\",\n                \"languageFeatures\": \"\",\n                \"maxGrade\": \"\",\n                \"maximumPoints\": \"\",\n                \"meaningPurpose\": \"\",\n                \"minGrade\": \"\",\n                \"organizationName\": \"\",\n                \"organizationTypeId\": \"\",\n                \"performanceTask\": \"\",\n                \"performanceTaskPosition\": \"\",\n                \"presentationFormat\": [],\n                \"primaryClaim\": \"\",\n                \"primaryCommonCoreStandard\": \"\",\n                \"primaryContentDomain\": \"\",\n                \"primaryEmphasis\": null,\n                \"primaryMathematicalPractice\": \"\",\n                \"primaryTarget\": \"\",\n                \"primaryTargetSet\": \"\",\n                \"quaternaryClaim\": \"\",\n                \"quaternaryCommonCoreStandard\": \"\",\n                \"quaternaryContentDomain\": \"\",\n                \"quaternaryMathematicalPractice\": \"\",\n                \"quaternaryTarget\": \"\",\n                \"readabilityFleschKincaid\": \"\",\n                \"readabilityLexile\": \"\",\n                \"scorePoints\": \"\",\n                \"scoringEngine\": \"\",\n                \"secondaryClaim\": \"\",\n                \"secondaryCommonCoreStandard\": \"\",\n                \"secondaryContentDomain\": \"\",\n                \"secondaryMathematicalPractice\": \"\",\n                \"secondaryTarget\": \"\",\n                \"specificationsVersion\": \"\",\n                \"stimulusFormat\": \"\",\n                \"stimulusGenre\": \"\",\n                \"stimulusLength\": \"\",\n                \"stimulusLiteraryCategory\": \"\",\n                \"stimulusLiteraryKnowledgeDemands\": \"\",\n                \"stimulusName\": \"\",\n                \"structure\": \"\",\n                \"subject\": \"\",\n                \"tertiaryClaim\": \"\",\n                \"tertiaryCommonCoreStandard\": \"\",\n                \"tertiaryContentDomain\": \"\",\n                \"tertiaryMathematicalPractice\": \"\",\n                \"tertiaryTarget\": \"\",\n                \"testCategory\": \"\",\n                \"version\": \"0.0\",\n                \"wordCount\": \"\",\n                \"writingPurpose\": \"\"\n            },\n            \"scoring\": {\n                \"defaultScore\": 0,\n                \"isManagedByIat\": true,\n                \"rubric\": \"\",\n                \"rules\": [],\n                \"variables\": []\n            },\n            \"stimulusId\": null,\n            \"testAdministration\": {\n                \"administrations\": [],\n                \"fieldTestAdministrationId\": \"\"\n            },\n            \"tutorialId\": null\n        },\n        \"glossary\": {\n            \"isEnglishGlossaryProvided\": false,\n            \"isIllustratedGlossaryProvided\": false,\n            \"isIllustratedGlossaryRequired\": \"undetermined\",\n            \"isTranslatedGlossaryProvided\": false,\n            \"isTranslatedGlossaryRequired\": \"undetermined\",\n            \"terms\": []\n        },\n        \"images\": {\n            \"imageResources\": []\n        },\n        \"review\": {\n            \"dataReview\": {\n                \"facilitator\": {\n                    \"feedback\": \"Accept\",\n                    \"feedbackComment\": \"Good level of detail\",\n                    \"username\": \"bwade@fairwaytech.com\"\n                },\n                \"members\": [{\n                    \"feedback\": \"Accept w revisions\",\n                    \"feedbackComment\": \"More clarity\",\n                    \"username\": \"terry@fairwaytech.com\"\n                },{\n                    \"feedback\": \"Reject\",\n                    \"feedbackComment\": \"Nope\",\n                    \"username\": \"bwade@fairwaytech.com\"\n                }]\n            },\n            \"educatorCommitteeReview\": {\n                \"facilitator\": {\n                    \"feedback\": {\n                        \"feedback\": \"Accept\",\n                        \"feedbackComment\": \"This looks ready\",\n                        \"username\": \"hal@fairwaytech.com\"\n                    },\n                    \"passesAccessibilityQualityCriteria\": \"Yes\",\n                    \"passesAccessibilityQualityCriteriaComment\": \"good\",\n                    \"passesBiasAndSensitivityQualityCriteria\": \"No\",\n                    \"passesBiasAndSensitivityQualityCriteriaComment\": \"bad\",\n                    \"passesContentQualityCriteria\": \"Maybe\",\n                    \"passesContentQualityCriteriaComment\": \"not good, not bad\"\n                },\n                \"members\": [\n                    {\n                        \"feedback\": {\n                            \"feedback\": \"Accept with revisions\",\n                            \"feedbackComment\": \"Consider this...\",\n                            \"username\": \"bdrainer@fairwaytech.com\"\n                        },\n                        \"passesAccessibilityQualityCriteria\": \"Yes\",\n                        \"passesAccessibilityQualityCriteriaComment\": \"good\",\n                        \"passesBiasAndSensitivityQualityCriteria\": \"No\",\n                        \"passesBiasAndSensitivityQualityCriteriaComment\": \"bad\",\n                        \"passesContentQualityCriteria\": \"Maybe\",\n                        \"passesContentQualityCriteriaComment\": \"not good, not bad\"\n                    }\n                ]\n            }\n        },\n        \"textToSpeech\": {\n            \"isSightTTSProvided\": false,\n            \"isVisualTTSProvided\": false,\n            \"isVisualTTSRequired\": \"undetermined\"\n        },\n        \"translations\": {\n            \"esp\": {\n                \"exemplarResponses\": [],\n                \"isManagedByIat\": true,\n                \"isProvided\": false,\n                \"isRequired\": \"undetermined\",\n                \"prompt\": \"\",\n                \"rubrics\": [],\n                \"updatedDate\": \"2018-09-18T22:15:54.489Z\"\n            }\n        },\n        \"workflow\": {\n            \"workflowStatusCode\": \"Draft\"\n        }\n    }\n}"
 				},
 				"url": {
-					"raw": "http://localhost:8081/api/v1/items/208077",
+					"raw": "http://localhost:8081/api/v1/items/208136",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -218,7 +218,7 @@
 						"api",
 						"v1",
 						"items",
-						"208077"
+						"208136"
 					]
 				}
 			},
@@ -351,11 +351,7 @@
 		{
 			"name": "Patch Item",
 			"request": {
-<<<<<<< HEAD
-				"method": "PUT",
-=======
 				"method": "PATCH",
->>>>>>> develop
 				"header": [
 					{
 						"key": "Content-Type",
@@ -367,11 +363,7 @@
 					"raw": "{\n  \"message\": \"change workflow status\",\n  \"oldValue\": \"Draft\",\n  \"newValue\": \"AccessibilityUpload\"\n}"
 				},
 				"url": {
-<<<<<<< HEAD
-					"raw": "http://localhost:8081/api/v1/items/208124/fields/workflow.workflowStatusCode",
-=======
 					"raw": "http://localhost:8081/api/v1/items/208128/fields/workflow.workflowStatusCode",
->>>>>>> develop
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -381,13 +373,110 @@
 						"api",
 						"v1",
 						"items",
-<<<<<<< HEAD
-						"208124",
-=======
 						"208128",
->>>>>>> develop
 						"fields",
 						"workflow.workflowStatusCode"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Assign Item",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"message\": \"change workflow status\",\n  \"oldValue\": \"Draft\",\n  \"newValue\": \"AccessibilityUpload\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/v1/items/208215/assignments/bdrainer@fairwaytech.com",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"items",
+						"208215",
+						"assignments",
+						"bdrainer@fairwaytech.com"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Unassign Item",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"message\": \"change workflow status\",\n  \"oldValue\": \"Draft\",\n  \"newValue\": \"AccessibilityUpload\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/v1/items/208212/assignments/bdrainer@fairwaytech.com",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"items",
+						"208212",
+						"assignments",
+						"bdrainer@fairwaytech.com"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Item Assignments",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"message\": \"change workflow status\",\n  \"oldValue\": \"Draft\",\n  \"newValue\": \"AccessibilityUpload\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/v1/items/208215/assignments",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"items",
+						"208215",
+						"assignments"
 					]
 				}
 			},
@@ -565,10 +654,10 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"message\": \"committing transaction\",\n    \"item\": {\n        \"id\": \"208077\",\n        \"type\": \"sa\",\n        \"version\": \"iat-18\",\n        \"asl\": {\n            \"attachments\": [],\n            \"isAslProvided\": false,\n            \"isAslRequired\": \"undetermined\"\n        },\n        \"audio\": {\n            \"audioResources\": []\n        },\n        \"braille\": {\n            \"attachments\": [],\n            \"isBrailleProvided\": false,\n            \"isBrailleRequired\": \"undetermined\"\n        },\n        \"cc\": {\n            \"attachments\": [],\n            \"isCcProvided\": false,\n            \"isCcRequired\": \"undetermined\",\n            \"itemCcAudioAssociations\": []\n        },\n        \"core\": {\n            \"attachments\": [],\n            \"contentUpdateNeeds\": [],\n            \"en\": {\n                \"exemplarResponses\": [],\n                \"isManagedByIat\": true,\n                \"isProvided\": true,\n                \"isRequired\": \"true\",\n                \"prompt\": \"What is the answer to the riddle?\",\n                \"rubrics\": [],\n                \"updatedDate\": \"2018-08-26T17:53:39.296Z\"\n            },\n            \"enemyItems\": [],\n            \"metadata\": {\n                \"accessibilityLanguageComplexity\": \"\",\n                \"algebraDescriptor1\": \"\",\n                \"algebraDescriptor2\": \"\",\n                \"allowCalculator\": \"\",\n                \"claim2Category\": \"\",\n                \"claim2SubCategory\": \"\",\n                \"contentTaskModel\": \"\",\n                \"copyrightHolder\": \"\",\n                \"copyrightHolderOther\": \"\",\n                \"depthOfKnowledge\": \"\",\n                \"easyListeningFormula\": \"\",\n                \"estimatedQuintile\": \"\",\n                \"evidenceStatement\": \"\",\n                \"intendedGrade\": \"\",\n                \"itemAuthor\": \"\",\n                \"languageFeatures\": \"\",\n                \"maxGrade\": \"\",\n                \"maximumPoints\": \"\",\n                \"meaningPurpose\": \"\",\n                \"minGrade\": \"\",\n                \"organizationName\": \"\",\n                \"organizationTypeId\": \"\",\n                \"performanceTask\": \"\",\n                \"performanceTaskPosition\": \"\",\n                \"presentationFormat\": [],\n                \"primaryClaim\": \"\",\n                \"primaryCommonCoreStandard\": \"\",\n                \"primaryContentDomain\": \"\",\n                \"primaryEmphasis\": null,\n                \"primaryMathematicalPractice\": \"\",\n                \"primaryTarget\": \"\",\n                \"primaryTargetSet\": \"\",\n                \"quaternaryClaim\": \"\",\n                \"quaternaryCommonCoreStandard\": \"\",\n                \"quaternaryContentDomain\": \"\",\n                \"quaternaryMathematicalPractice\": \"\",\n                \"quaternaryTarget\": \"\",\n                \"readabilityFleschKincaid\": \"\",\n                \"readabilityLexile\": \"\",\n                \"scorePoints\": \"\",\n                \"scoringEngine\": \"\",\n                \"secondaryClaim\": \"\",\n                \"secondaryCommonCoreStandard\": \"\",\n                \"secondaryContentDomain\": \"\",\n                \"secondaryMathematicalPractice\": \"\",\n                \"secondaryTarget\": \"\",\n                \"specificationsVersion\": \"\",\n                \"stimulusFormat\": \"\",\n                \"stimulusGenre\": \"\",\n                \"stimulusLength\": \"\",\n                \"stimulusLiteraryCategory\": \"\",\n                \"stimulusLiteraryKnowledgeDemands\": \"\",\n                \"stimulusName\": \"\",\n                \"structure\": \"\",\n                \"subject\": \"\",\n                \"tertiaryClaim\": \"\",\n                \"tertiaryCommonCoreStandard\": \"\",\n                \"tertiaryContentDomain\": \"\",\n                \"tertiaryMathematicalPractice\": \"\",\n                \"tertiaryTarget\": \"\",\n                \"testCategory\": \"\",\n                \"version\": \"0.0\",\n                \"wordCount\": \"\",\n                \"writingPurpose\": \"\"\n            },\n            \"scoring\": {\n                \"defaultScore\": 0,\n                \"isManagedByIat\": true,\n                \"rubric\": \"\",\n                \"rules\": [],\n                \"variables\": []\n            },\n            \"stimulusId\": null,\n            \"testAdministration\": {\n                \"administrations\": [],\n                \"fieldTestAdministrationId\": \"\"\n            },\n            \"tutorialId\": null\n        },\n        \"glossary\": {\n            \"terms\": []\n        },\n        \"images\": {\n            \"imageResources\": []\n        },\n        \"textToSpeech\": {\n            \"isSightTTSProvided\": false,\n            \"isVisualTTSProvided\": false,\n            \"isVisualTTSRequired\": \"undetermined\"\n        },\n        \"translations\": {\n            \"esp\": {\n                \"exemplarResponses\": [],\n                \"isManagedByIat\": true,\n                \"isProvided\": false,\n                \"isRequired\": \"undetermined\",\n                \"prompt\": \"\",\n                \"rubrics\": [],\n                \"updatedDate\": \"2018-08-26T17:53:39.296Z\"\n            }\n        },\n        \"workflow\": {\n            \"workflowStatusCode\": \"Draft\"\n        }\n    }\n}"
+					"raw": "{\n    \"message\": \"committing item\",\n    \"item\": {\n        \"id\": \"208136\",\n        \"type\": \"sa\",\n        \"version\": \"iat-20\",\n        \"asl\": {\n            \"attachments\": [],\n            \"isAslProvided\": false,\n            \"isAslRequired\": \"undetermined\"\n        },\n        \"audio\": {\n            \"audioResources\": []\n        },\n        \"braille\": {\n            \"attachments\": [],\n            \"isBrailleProvided\": false,\n            \"isBrailleRequired\": \"undetermined\"\n        },\n        \"cc\": {\n            \"attachments\": [],\n            \"isCcProvided\": false,\n            \"isCcRequired\": \"undetermined\",\n            \"itemCcAudioAssociations\": []\n        },\n        \"core\": {\n            \"attachments\": [],\n            \"contentUpdateNeeds\": [],\n            \"en\": {\n                \"exemplarResponses\": [],\n                \"isManagedByIat\": true,\n                \"isProvided\": true,\n                \"isRequired\": \"true\",\n                \"prompt\": \"\",\n                \"rubrics\": [],\n                \"updatedDate\": \"2018-09-18T22:15:54.488Z\"\n            },\n            \"enemyItems\": [],\n            \"metadata\": {\n                \"accessibilityLanguageComplexity\": \"\",\n                \"algebraDescriptor1\": \"\",\n                \"algebraDescriptor2\": \"\",\n                \"allowCalculator\": \"\",\n                \"claim2Category\": \"\",\n                \"claim2SubCategory\": \"\",\n                \"contentTaskModel\": \"\",\n                \"copyrightHolder\": \"\",\n                \"copyrightHolderOther\": \"\",\n                \"depthOfKnowledge\": \"\",\n                \"easyListeningFormula\": \"\",\n                \"estimatedQuintile\": \"\",\n                \"evidenceStatement\": \"\",\n                \"intendedGrade\": \"\",\n                \"itemAuthor\": \"\",\n                \"languageFeatures\": \"\",\n                \"maxGrade\": \"\",\n                \"maximumPoints\": \"\",\n                \"meaningPurpose\": \"\",\n                \"minGrade\": \"\",\n                \"organizationName\": \"\",\n                \"organizationTypeId\": \"\",\n                \"performanceTask\": \"\",\n                \"performanceTaskPosition\": \"\",\n                \"presentationFormat\": [],\n                \"primaryClaim\": \"\",\n                \"primaryCommonCoreStandard\": \"\",\n                \"primaryContentDomain\": \"\",\n                \"primaryEmphasis\": null,\n                \"primaryMathematicalPractice\": \"\",\n                \"primaryTarget\": \"\",\n                \"primaryTargetSet\": \"\",\n                \"quaternaryClaim\": \"\",\n                \"quaternaryCommonCoreStandard\": \"\",\n                \"quaternaryContentDomain\": \"\",\n                \"quaternaryMathematicalPractice\": \"\",\n                \"quaternaryTarget\": \"\",\n                \"readabilityFleschKincaid\": \"\",\n                \"readabilityLexile\": \"\",\n                \"scorePoints\": \"\",\n                \"scoringEngine\": \"\",\n                \"secondaryClaim\": \"\",\n                \"secondaryCommonCoreStandard\": \"\",\n                \"secondaryContentDomain\": \"\",\n                \"secondaryMathematicalPractice\": \"\",\n                \"secondaryTarget\": \"\",\n                \"specificationsVersion\": \"\",\n                \"stimulusFormat\": \"\",\n                \"stimulusGenre\": \"\",\n                \"stimulusLength\": \"\",\n                \"stimulusLiteraryCategory\": \"\",\n                \"stimulusLiteraryKnowledgeDemands\": \"\",\n                \"stimulusName\": \"\",\n                \"structure\": \"\",\n                \"subject\": \"\",\n                \"tertiaryClaim\": \"\",\n                \"tertiaryCommonCoreStandard\": \"\",\n                \"tertiaryContentDomain\": \"\",\n                \"tertiaryMathematicalPractice\": \"\",\n                \"tertiaryTarget\": \"\",\n                \"testCategory\": \"\",\n                \"version\": \"0.0\",\n                \"wordCount\": \"\",\n                \"writingPurpose\": \"\"\n            },\n            \"scoring\": {\n                \"defaultScore\": 0,\n                \"isManagedByIat\": true,\n                \"rubric\": \"\",\n                \"rules\": [],\n                \"variables\": []\n            },\n            \"stimulusId\": null,\n            \"testAdministration\": {\n                \"administrations\": [],\n                \"fieldTestAdministrationId\": \"\"\n            },\n            \"tutorialId\": null\n        },\n        \"glossary\": {\n            \"isEnglishGlossaryProvided\": false,\n            \"isIllustratedGlossaryProvided\": false,\n            \"isIllustratedGlossaryRequired\": \"undetermined\",\n            \"isTranslatedGlossaryProvided\": false,\n            \"isTranslatedGlossaryRequired\": \"undetermined\",\n            \"terms\": []\n        },\n        \"images\": {\n            \"imageResources\": []\n        },\n        \"review\": {\n            \"dataReview\": {\n                \"facilitator\": {\n                    \"feedback\": \"Accept\",\n                    \"feedbackComment\": \"Good level of detail\",\n                    \"username\": \"bwade@fairwaytech.com\"\n                },\n                \"members\": [{\n                    \"feedback\": \"Accept w revisions\",\n                    \"feedbackComment\": \"More clarity\",\n                    \"username\": \"terry@fairwaytech.com\"\n                },{\n                    \"feedback\": \"Reject\",\n                    \"feedbackComment\": \"Nope\",\n                    \"username\": \"bwade@fairwaytech.com\"\n                }]\n            },\n            \"educatorCommitteeReview\": {\n                \"facilitator\": {\n                    \"feedback\": {\n                        \"feedback\": \"Accept\",\n                        \"feedbackComment\": \"This looks ready\",\n                        \"username\": \"hal@fairwaytech.com\"\n                    },\n                    \"passesAccessibilityQualityCriteria\": \"Yes\",\n                    \"passesAccessibilityQualityCriteriaComment\": \"good\",\n                    \"passesBiasAndSensitivityQualityCriteria\": \"No\",\n                    \"passesBiasAndSensitivityQualityCriteriaComment\": \"bad\",\n                    \"passesContentQualityCriteria\": \"Maybe\",\n                    \"passesContentQualityCriteriaComment\": \"not good, not bad\"\n                },\n                \"members\": [\n                    {\n                        \"feedback\": {\n                            \"feedback\": \"Accept with revisions\",\n                            \"feedbackComment\": \"Consider this...\",\n                            \"username\": \"bdrainer@fairwaytech.com\"\n                        },\n                        \"passesAccessibilityQualityCriteria\": \"Yes\",\n                        \"passesAccessibilityQualityCriteriaComment\": \"good\",\n                        \"passesBiasAndSensitivityQualityCriteria\": \"No\",\n                        \"passesBiasAndSensitivityQualityCriteriaComment\": \"bad\",\n                        \"passesContentQualityCriteria\": \"Maybe\",\n                        \"passesContentQualityCriteriaComment\": \"not good, not bad\"\n                    }\n                ]\n            }\n        },\n        \"textToSpeech\": {\n            \"isSightTTSProvided\": false,\n            \"isVisualTTSProvided\": false,\n            \"isVisualTTSRequired\": \"undetermined\"\n        },\n        \"translations\": {\n            \"esp\": {\n                \"exemplarResponses\": [],\n                \"isManagedByIat\": true,\n                \"isProvided\": false,\n                \"isRequired\": \"undetermined\",\n                \"prompt\": \"\",\n                \"rubrics\": [],\n                \"updatedDate\": \"2018-09-18T22:15:54.489Z\"\n            }\n        },\n        \"workflow\": {\n            \"workflowStatusCode\": \"Draft\"\n        }\n    }\n}"
 				},
 				"url": {
-					"raw": "http://localhost:8081/api/v1/items/208077/transactions",
+					"raw": "http://localhost:8081/api/v1/items/208136/transactions",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -578,7 +667,7 @@
 						"api",
 						"v1",
 						"items",
-						"208077",
+						"208136",
 						"transactions"
 					]
 				}
@@ -783,7 +872,7 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:8081/api/v1/items/208093",
+					"raw": "http://localhost:8081/api/v1/items/208215",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -793,7 +882,7 @@
 						"api",
 						"v1",
 						"items",
-						"208093"
+						"208215"
 					]
 				}
 			},
@@ -897,7 +986,7 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:8081/api//v1/items/workflow-statuses",
+					"raw": "http://localhost:8081/api//v1/items/workflow-statuses/Draft",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -908,7 +997,8 @@
 						"",
 						"v1",
 						"items",
-						"workflow-statuses"
+						"workflow-statuses",
+						"Draft"
 					]
 				}
 			},
@@ -1163,8 +1253,8 @@
 					"formdata": [
 						{
 							"key": "file",
-							"value": "",
-							"type": "file"
+							"type": "file",
+							"src": ""
 						}
 					]
 				},
