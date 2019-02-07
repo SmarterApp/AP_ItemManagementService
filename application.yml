@@ -51,7 +51,7 @@ itembank:
   group: "${GITLAB_GROUP}"
   localBaseDir: "${HOME}/ItemBank"
   apiVersion: "/api/v4"
-  bankKey: "187"
+  bankKey: "200"
   systemVersion: "iat-25"
   itemBankViewerUrl: "https://irv-stage.smarterbalanced.org/?itemKey=%s&namespace=${itembank.group}&bankKey=${itembank.bankKey}"
   enabled:
