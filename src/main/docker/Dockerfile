@@ -13,9 +13,9 @@ VOLUME ["/tmp"]
 
 COPY ap-ims.jar /
 
-RUN apk --no-cache add curl
+RUN apk add --update curl && rm -rf /var/cache/apk/*
 
-RUN apk --no-cache add git
+RUN apk add --update jq && rm -rf /var/cache/apk/*
 
 ENTRYPOINT ["/usr/bin/java"]
 
