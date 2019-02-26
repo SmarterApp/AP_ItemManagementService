@@ -28,8 +28,8 @@
             </table>
 
             <h4><div>Part B</div></h4>
-            <span th:utext="${data.partA.espPrompt}" th:remove="tag"></span>
-            <span th:utext="${data.partA.enPrompt}" th:remove="tag"></span>
+            <span th:utext="${data.partB.espPrompt}" th:remove="tag"></span>
+            <span th:utext="${data.partB.enPrompt}" th:remove="tag"></span>
 
             <div th:switch="${data.partB.type}">
                 <table th:case="'Multiple Select'" >
