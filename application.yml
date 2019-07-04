@@ -62,6 +62,7 @@ itembank:
     endpointUrl: "https://s3.us-east-2.amazonaws.com"
     region: "us-east-2"
     bucketName: "${itembank.group}"
+    versionedBucketName: "${itembank.group}-versioned"
     accessKey: "${IAT_AWS_ACCESS_KEY}"
     secretKey: "${IAT_AWS_ACCESS_SECRET}"
   events:
