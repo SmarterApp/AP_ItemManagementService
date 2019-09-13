@@ -81,6 +81,7 @@ dependencies {
 
     compile 'org.springframework.cloud:spring-cloud-starter-config'
     compile 'org.springframework.cloud:spring-cloud-starter-feign'
+    compile 'org.springframework.cloud:spring-cloud-starter-sleuth'
 
     compile 'org.springframework.security.extensions:spring-security-saml2-core:1.0.2.RELEASE'
     compile 'org.springframework.retry:spring-retry'

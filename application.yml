@@ -15,6 +15,12 @@
 server:
   port: 8081
 
+tims-content-types:
+  mappings:
+    "brf": "application/braille"
+    "prn": "application/braille"
+    "qrx": "application/xml"
+
 security:
   basic:
     enabled: "${SECURITY_ENABLED:true}"

@@ -2,8 +2,9 @@
 <Configuration status="warn">
     <Properties>
         <Property name="PID">????</Property>
+        <Property name="APPLICATION">ap-ims</Property>
         <Property name="LOG_LEVEL_PATTERN">%5p</Property>
-        <Property name="CONSOLE_LOG_PATTERN">%clr{%d{yyyy-MM-dd HH:mm:ss.SSS}}{faint} %clr{${LOG_LEVEL_PATTERN}} %clr{${sys:PID}}{magenta} %clr{---}{faint} %clr{[%15.15t]}{faint} %clr{%-40.40c{1.}}{cyan} %clr{:}{faint} %m%n</Property>
+        <Property name="CONSOLE_LOG_PATTERN">%clr{%d{yyyy-MM-dd HH:mm:ss.SSS}}{faint} %clr{${LOG_LEVEL_PATTERN}} [${env:APPLICATION},%X{X-B3-TraceId},%X{X-B3-SpanId},%X{X-Span-Export}] %clr{${sys:PID}}{magenta} %clr{---}{faint} %clr{[%15.15t]}{faint} %clr{%-40.40c{1.}}{cyan} %clr{:}{faint} %m%n</Property>
         <Property name="HOSTNAME">${env:HOSTNAME:-unknown}</Property>
         <Property name="GRAYLOG_HOST">${env:GRAYLOG_HOST:-localhost}</Property>
         <Property name="GRAYLOG_PORT">${env:GRAYLOG_PORT:-12201}</Property>
