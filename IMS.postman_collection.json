@@ -6,6 +6,66 @@
 	},
 	"item": [
 		{
+			"name": "Get Item Version",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/api/v1/item-versions/209455?version=",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"item-versions",
+						"209455"
+					],
+					"query": [
+						{
+							"key": "version",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Item Resource",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/v1/item-versions/46577/resources/glossary/46577_1_arabic_1_item_67127_v6_67127_01arabic_glossary_ogg_m4a.ogg",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"item-versions",
+						"46577",
+						"resources",
+						"glossary",
+						"46577_1_arabic_1_item_67127_v6_67127_01arabic_glossary_ogg_m4a.ogg"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Begin Create Transaction",
 			"request": {
 				"method": "POST",
@@ -298,10 +358,10 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"message\": \"save transaction\",\n    \"item\": {\n        \"id\": \"181\",\n        \"type\": \"tut\",\n        \"core\": {\n            \"en\": {\n                \"content\": \"English content\",\n                \"isRequired\": true,\n                \"isProvided\": true\n            }\n        },\n        \"asl\": {\n            \"attachments\": [],\n            \"isAslRequired\": \"undetermined\",\n            \"isAslProvided\": false\n        },\n        \"braille\": {\n            \"attachments\": [],\n            \"isBrailleRequired\": \"undetermined\",\n            \"isBrailleProvided\": false\n        },\n        \"cc\": {\n            \"attachments\": [],\n            \"isCcRequired\": \"undetermined\",\n            \"isCcProvided\": false\n        },\n        \"images\": {\n            \"imageResources\": []\n        },\n        \"audio\": {\n            \"audioResources\": []\n        },\n        \"translations\": {\n            \"esp\": {\n                \"content\": \"Spanish content\",\n                \"isRequired\": false,\n                \"isProvided\": false\n            }\n        },\n        \"workflow\": {\n          \"workflowStatusCode\": \"Draft\"\n        }\n    }\n}"
+					"raw": "{\n  \"message\": \"save transaction\",\n    \"item\": {\n        \"id\": \"208231\",\n        \"itsId\": \"\",\n        \"type\": \"tut\",\n        \"version\": \"iat-25\",\n        \"asl\": {\n            \"attachments\": [],\n            \"isAslProvided\": false,\n            \"isAslRequired\": \"undetermined\"\n        },\n        \"assignments\": [],\n        \"audio\": {\n            \"audioResources\": []\n        },\n        \"braille\": {\n            \"attachments\": [],\n            \"isBrailleProvided\": false,\n            \"isBrailleRequired\": \"undetermined\"\n        },\n        \"cc\": {\n            \"attachments\": [],\n            \"isCcProvided\": false,\n            \"isCcRequired\": \"undetermined\",\n            \"itemCcAudioAssociations\": []\n        },\n        \"core\": {\n            \"attachments\": [],\n            \"contentUpdateNeeds\": [],\n            \"en\": {\n                \"content\": \"\",\n                \"isManagedByIat\": true,\n                \"isProvided\": true,\n                \"isRequired\": \"true\",\n                \"updatedDate\": \"2019-03-23T14:53:18.617Z\"\n            },\n            \"metadata\": {\n                \"accessibilityLanguageComplexity\": \"\",\n                \"algebraDescriptor1\": \"\",\n                \"algebraDescriptor2\": \"\",\n                \"allowCalculator\": \"\",\n                \"claim2Category\": \"\",\n                \"claim2SubCategory\": \"\",\n                \"contentTaskModel\": \"\",\n                \"copyrightHolder\": \"\",\n                \"copyrightHolderOther\": \"\",\n                \"depthOfKnowledge\": \"\",\n                \"easyListeningFormula\": \"\",\n                \"estimatedQuintile\": \"\",\n                \"evidenceStatement\": \"\",\n                \"intendedGrade\": \"\",\n                \"itemAuthor\": \"\",\n                \"languageFeatures\": \"\",\n                \"maxGrade\": \"\",\n                \"maximumPoints\": \"\",\n                \"meaningPurpose\": \"\",\n                \"minGrade\": \"\",\n                \"organizationName\": \"\",\n                \"organizationTypeId\": \"\",\n                \"performanceTask\": \"\",\n                \"performanceTaskPosition\": \"\",\n                \"presentationFormat\": [],\n                \"primaryClaim\": \"\",\n                \"primaryCommonCoreStandard\": \"\",\n                \"primaryContentDomain\": \"\",\n                \"primaryEmphasis\": null,\n                \"primaryMathematicalPractice\": \"\",\n                \"primaryTarget\": \"\",\n                \"primaryTargetSet\": \"\",\n                \"quaternaryClaim\": \"\",\n                \"quaternaryCommonCoreStandard\": \"\",\n                \"quaternaryContentDomain\": \"\",\n                \"quaternaryMathematicalPractice\": \"\",\n                \"quaternaryTarget\": \"\",\n                \"readabilityFleschKincaid\": \"\",\n                \"readabilityLexile\": \"\",\n                \"scorePoints\": \"\",\n                \"scoringEngine\": \"\",\n                \"secondaryClaim\": \"\",\n                \"secondaryCommonCoreStandard\": \"\",\n                \"secondaryContentDomain\": \"\",\n                \"secondaryMathematicalPractice\": \"\",\n                \"secondaryTarget\": \"\",\n                \"specificationsVersion\": \"\",\n                \"stimulusFormat\": \"\",\n                \"stimulusGenre\": \"\",\n                \"stimulusLength\": \"\",\n                \"stimulusLiteraryCategory\": \"\",\n                \"stimulusLiteraryKnowledgeDemands\": \"\",\n                \"stimulusName\": \"\",\n                \"structure\": \"\",\n                \"subject\": \"\",\n                \"tertiaryClaim\": \"\",\n                \"tertiaryCommonCoreStandard\": \"\",\n                \"tertiaryContentDomain\": \"\",\n                \"tertiaryMathematicalPractice\": \"\",\n                \"tertiaryTarget\": \"\",\n                \"testCategory\": \"\",\n                \"version\": \"0.0\",\n                \"wordCount\": \"\",\n                \"writingPurpose\": \"\"\n            }\n        },\n        \"glossary\": {\n            \"isEnglishGlossaryProvided\": false,\n            \"isIllustratedGlossaryProvided\": false,\n            \"isIllustratedGlossaryRequired\": \"undetermined\",\n            \"isTranslatedGlossaryProvided\": false,\n            \"isTranslatedGlossaryRequired\": \"undetermined\",\n            \"terms\": []\n        },\n        \"images\": {\n            \"imageResources\": []\n        },\n        \"review\": {\n            \"dataReview\": {\n                \"facilitator\": {\n                    \"feedback\": \"\",\n                    \"feedbackComment\": \"\",\n                    \"username\": \"\"\n                },\n                \"members\": []\n            },\n            \"educatorCommitteeReview\": {\n                \"facilitator\": {\n                    \"feedback\": {\n                        \"feedback\": \"\",\n                        \"feedbackComment\": \"\",\n                        \"username\": \"\"\n                    },\n                    \"passesAccessibilityQualityCriteria\": \"\",\n                    \"passesAccessibilityQualityCriteriaComment\": \"\",\n                    \"passesBiasAndSensitivityQualityCriteria\": \"\",\n                    \"passesBiasAndSensitivityQualityCriteriaComment\": \"\",\n                    \"passesContentQualityCriteria\": \"\",\n                    \"passesContentQualityCriteriaComment\": \"\"\n                },\n                \"members\": []\n            }\n        },\n        \"serverManaged\": {\n            \"id\": \"208231\",\n            \"itsId\": \"\",\n            \"primaryEnhancedId\": \"\",\n            \"quaternaryEnhancedId\": \"\",\n            \"secondaryEnhancedId\": \"\",\n            \"tertiaryEnhancedId\": \"\",\n            \"type\": \"tut\",\n            \"version\": \"iat-25\"\n        },\n        \"textToSpeech\": {\n            \"isSightTTSProvided\": false,\n            \"isVisualTTSProvided\": false,\n            \"isVisualTTSRequired\": \"undetermined\"\n        },\n        \"translations\": {\n            \"esp\": {\n                \"content\": \"\",\n                \"isManagedByIat\": true,\n                \"isProvided\": false,\n                \"isRequired\": \"undetermined\",\n                \"updatedDate\": \"2019-03-23T14:53:18.617Z\"\n            }\n        },\n        \"workflow\": {\n            \"workflowStatusCode\": \"Draft\"\n        }\n    },\n    \"transactions\": [\n        {\n            \"section\": \"create\",\n            \"userName\": \"anonymousUser\",\n            \"create\": true,\n            \"master\": false\n        }\n    ]\n}"
 				},
 				"url": {
-					"raw": "http://localhost:8081/api/v1/items/181",
+					"raw": "http://localhost:8081/api/v1/items/208231",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -311,7 +371,7 @@
 						"api",
 						"v1",
 						"items",
-						"181"
+						"208231"
 					]
 				}
 			},
@@ -360,10 +420,10 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"message\": \"change workflow status\",\n  \"oldValue\": \"Draft\",\n  \"newValue\": \"AccessibilityUpload\"\n}"
+					"raw": "{\n  \"message\": \"change workflow status\",\n  \"oldValue\": \"FinalApproval\",\n  \"newValue\": \"FieldTest\"\n}"
 				},
 				"url": {
-					"raw": "http://localhost:8081/api/v1/items/208128/fields/workflow.workflowStatusCode",
+					"raw": "http://localhost:8081/api/v1/items/208716/fields/workflow.workflowStatusCode",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -373,9 +433,77 @@
 						"api",
 						"v1",
 						"items",
-						"208128",
+						"208716",
 						"fields",
 						"workflow.workflowStatusCode"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Save Data Review Feedback",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\n\t\"feedback\": \"Accept with revisions\",\n\t\"feedbackComment\": \"I'll allow this\",\n\t\"commitMessage\" : \"\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/v1/items/20303/review/data/member",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"items",
+						"20303",
+						"review",
+						"data",
+						"member"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Save Educator Committee Review Feedback",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"feedback\": {\n\t\t\"feedback\": \"Accept with revisions\",\n\t\t\"feedbackComment\": \"Ready to release\"\n\t},\n\t\n    \"passesContentQualityCriteria\" : \"Yes\",\n\n    \"passesContentQualityCriteriaComment\" : \"Yes\",\n\n    \"passesBiasAndSensitivityQualityCriteria\" : \"Yes\",\n\n    \"passesBiasAndSensitivityQualityCriteriaComment\" : \"Yes\",\n\n    \"passesAccessibilityQualityCriteria\" : \"Yes\",\n\n    \"passesAccessibilityQualityCriteriaComment\" : \"Yes\",\n    \n    \"commitMessage\" : \"\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/v1/items/20303/review/educatorcommittee/facilitator",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"items",
+						"20303",
+						"review",
+						"educatorcommittee",
+						"facilitator"
 					]
 				}
 			},
@@ -396,7 +524,7 @@
 					"raw": "{\n  \"message\": \"change workflow status\",\n  \"oldValue\": \"Draft\",\n  \"newValue\": \"AccessibilityUpload\"\n}"
 				},
 				"url": {
-					"raw": "http://localhost:8081/api/v1/items/208215/assignments/bdrainer@fairwaytech.com",
+					"raw": "http://localhost:8081/api/v1/items/208216/assignments/brett",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -406,9 +534,9 @@
 						"api",
 						"v1",
 						"items",
-						"208215",
+						"208216",
 						"assignments",
-						"bdrainer@fairwaytech.com"
+						"brett"
 					]
 				}
 			},
@@ -429,7 +557,7 @@
 					"raw": "{\n  \"message\": \"change workflow status\",\n  \"oldValue\": \"Draft\",\n  \"newValue\": \"AccessibilityUpload\"\n}"
 				},
 				"url": {
-					"raw": "http://localhost:8081/api/v1/items/208212/assignments/bdrainer@fairwaytech.com",
+					"raw": "http://localhost:8081/api/v1/items/208215/assignments/tess@fairwaytech.com",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -439,9 +567,9 @@
 						"api",
 						"v1",
 						"items",
-						"208212",
+						"208215",
 						"assignments",
-						"bdrainer@fairwaytech.com"
+						"tess@fairwaytech.com"
 					]
 				}
 			},
@@ -839,10 +967,6 @@
 			"request": {
 				"method": "DELETE",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
 				"url": {
 					"raw": "http://localhost:8081/api/v1/items/138/files/item_144_ASL_STEM.webm",
 					"protocol": "http",
@@ -867,12 +991,8 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
 				"url": {
-					"raw": "http://localhost:8081/api/v1/items/208215",
+					"raw": "http://localhost:8081/api/v1/items/208267",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -882,7 +1002,7 @@
 						"api",
 						"v1",
 						"items",
-						"208215"
+						"208267"
 					]
 				}
 			},
@@ -893,12 +1013,8 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
 				"url": {
-					"raw": "http://localhost:8081/api/v1/items/205033/versions",
+					"raw": "http://localhost:8081/api/v1/items/208261/versions",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -908,7 +1024,7 @@
 						"api",
 						"v1",
 						"items",
-						"205033",
+						"208261",
 						"versions"
 					]
 				}
@@ -920,10 +1036,6 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
 				"url": {
 					"raw": "http://localhost:8081/api/v1/items/68/versions?format=csv",
 					"protocol": "http",
@@ -953,12 +1065,8 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
 				"url": {
-					"raw": "http://localhost:8081/api/v1/items/61/diff/4973f93699e12840aad73e70c49f9293e666e51d",
+					"raw": "http://localhost:8081/api/v1/items/183250/diff/3e93ecb830b7d88ee8a7fd59e2436a9a676113bb",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -968,9 +1076,9 @@
 						"api",
 						"v1",
 						"items",
-						"61",
+						"183250",
 						"diff",
-						"4973f93699e12840aad73e70c49f9293e666e51d"
+						"3e93ecb830b7d88ee8a7fd59e2436a9a676113bb"
 					]
 				}
 			},
@@ -981,12 +1089,8 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
 				"url": {
-					"raw": "http://localhost:8081/api//v1/items/workflow-statuses/Draft",
+					"raw": "http://localhost:8081/api//v1/items/workflow-statuses",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -997,8 +1101,7 @@
 						"",
 						"v1",
 						"items",
-						"workflow-statuses",
-						"Draft"
+						"workflow-statuses"
 					]
 				}
 			},
@@ -1009,10 +1112,6 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
 				"url": {
 					"raw": "http://localhost:8081/api/v1/items/61/files/item_61_enu_uncontracted.brf",
 					"protocol": "http",
@@ -1037,10 +1136,6 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
 				"url": {
 					"raw": "http://localhost:8081/api/v1/items/eq/equation-editor-configurations",
 					"protocol": "http",
@@ -1064,10 +1159,6 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
 				"url": {
 					"raw": "http://localhost:8081/api/v1/items/605/validation",
 					"protocol": "http",
@@ -1127,10 +1218,6 @@
 						"value": "application/json"
 					}
 				],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
 				"url": {
 					"raw": "http://localhost:8081/api/v1/items/savedSearch/ken.hermens@smarterbalanced.org",
 					"protocol": "http",
@@ -1187,10 +1274,6 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
 				"url": {
 					"raw": "http://localhost:8081/api/v1/props/itembankviewer/2858?type=Item",
 					"protocol": "http",
@@ -1220,10 +1303,6 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
 				"url": {
 					"raw": "http://localhost:8081/api/v1/items/208057/resources/create",
 					"protocol": "http",
@@ -1253,8 +1332,8 @@
 					"formdata": [
 						{
 							"key": "file",
-							"type": "file",
-							"src": ""
+							"value": null,
+							"type": "file"
 						}
 					]
 				},
@@ -1271,6 +1350,29 @@
 						"items",
 						"files",
 						"testadmin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sync item",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/api/v1/items/209302/sync",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"items",
+						"209302",
+						"sync"
 					]
 				}
 			},

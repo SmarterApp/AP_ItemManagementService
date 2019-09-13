@@ -80,11 +80,8 @@ cache:
 
 logging:
   level:
-    org:
-      opentestsystem:
-        ap:
-          ims: "debug"
-          common: "debug"
+    org.opentestsystem.ap.ims: "debug"
+    org.opentestsystem.ap.common: "debug"
 
 ---
 spring:
