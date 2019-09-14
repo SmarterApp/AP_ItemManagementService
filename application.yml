@@ -15,11 +15,15 @@
 server:
   port: 8081
 
-tims-content-types:
+tims-item-resource:
+  resourceDir: "${HOME}/TimsItemResources"
+  cleanupEveryMillis: 30000
+  cleanupThresholdMillis: 15000
   mappings:
     "brf": "application/braille"
     "prn": "application/braille"
     "qrx": "application/xml"
+
 
 security:
   basic:
@@ -77,8 +81,8 @@ itembank:
       queueName: "iat_item_event_queue.dlq"
 
 tasks:
-  itemCleanupThresholdMillis : "7200000"
-  itemCleanupRunEveryMillis: "7200000"
+  itemCleanupThresholdMillis : "10000"
+  itemCleanupRunEveryMillis: "30000"
 
 # cache expiration for things like workflow status
 cache:
