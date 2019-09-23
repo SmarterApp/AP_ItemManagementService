@@ -17,6 +17,6 @@ RUN apk add --update curl && rm -rf /var/cache/apk/*
 
 RUN apk add --update jq && rm -rf /var/cache/apk/*
 
-ENTRYPOINT ["/usr/bin/java"]
+ENV MAX_HEAP_SIZE -Xmx384m
 
-CMD ["-jar", "/ap-ims.jar"]
+CMD java $MAX_HEAP_SIZE $JAVA_OPTS -jar ap-ims.jar

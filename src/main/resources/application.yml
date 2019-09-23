@@ -20,10 +20,76 @@ management:
 api:
   context-path: "/api"
 
+security:
+  basic:
+    enabled: \${SECURITY_ENABLED:true}
+
 spring:
   jackson:
     deserialization:
       fail_on_unknown_properties: false
     mapper:
       sort_properties_alphabetically: true
+  session:
+    enabled: \${SESSION_CLUSTER_ENABLED:true}
+  datasource:
+    url: "jdbc:postgresql://localhost:5432/iat"
+    username: \${DB_USER}
+    password: \${DB_PASSWORD}
+    validationQuery: "SELECT 1"
+  jpa:
+    hibernate:
+      ddl-auto: "validate"
+    properties:
+      hibernate:
+        show_sql: true
+        use_sql_comments: true
+        format_sql: true
+  http:
+    multipart:
+      location: \${java.io.tmpdir}
+      maxFileSize: "10MB"
 
+itembank:
+  systemVersion: "iat-41"
+  localBaseDir: \${HOME}/ItemBank
+  itemBankViewerUrl: "https://irv-stage.smarterbalanced.org/?itemKey=%s&namespace=\${itembank.group}&bankKey=\${itembank.bankKey}"
+  systemUser:
+    userName: "iat-item-management-service@smarterbalanced.org"
+    fullName: "Item Management Service"
+  enabled:
+    broker: true
+    database: true
+    producer: true
+  services:
+    history:
+      url: "http://localhost:8086"
+  aws:
+    endpointUrl: "https://s3.us-east-2.amazonaws.com"
+    region: "us-east-2"
+    bucketName: \${GITLAB_GROUP}
+    versionedBucketName: \${GITLAB_GROUP}-versioned
+    accessKey: \${IAT_AWS_ACCESS_KEY}
+    secretKey: \${IAT_AWS_ACCESS_SECRET}
+  events:
+    queue:
+      queueName: "iat_item_event_queue"
+    errorQueue:
+      queueName: "iat_item_event_queue.dlq"
+
+tasks:
+  itemCleanupThresholdMillis : "10000"
+  itemCleanupRunEveryMillis: "30000"
+
+# cache expiration for things like workflow status
+cache:
+  expirationSeconds: 30
+
+tims-item-resource:
+  resourceDir: \${HOME}/TimsItemResources
+  cleanupEveryMillis: 30000
+  cleanupThresholdMillis: 15000
+  mappings:
+    "brf": "application/braille"
+    "prn": "application/braille"
+    "qrx": "application/xml"
