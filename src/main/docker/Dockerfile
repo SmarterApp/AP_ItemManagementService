@@ -13,11 +13,11 @@ VOLUME ["/tmp"]
 
 COPY ap-ims.jar /
 
-RUN apt-get update
-
-RUN apt-get install curl
-
-RUN apt-get clean
+#RUN apt-get update
+#
+#RUN apt-get install curl
+#
+#RUN apt-get clean
 
 ENV MAX_HEAP_SIZE -Xmx384m
 
