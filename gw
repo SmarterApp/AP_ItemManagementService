@@ -8,4 +8,7 @@
 #
 # Make script executable: chmod +x gw
 #
+
+export LOGGING_CONFIG=classpath:log4j2-local.xml
+
 ./gradlew $@
