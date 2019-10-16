@@ -87,8 +87,8 @@ cache:
 
 tims-item-resource:
   resourceDir: \${HOME}/TimsItemResources
-  cleanupEveryMillis: 30000
-  cleanupThresholdMillis: 15000
+  cleanupEveryMillis: 1800000
+  cleanupThresholdMillis: 1800000
   mappings:
     "brf": "application/braille"
     "prn": "application/braille"
