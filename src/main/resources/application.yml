@@ -78,8 +78,8 @@ itembank:
       queueName: "iat_item_event_queue.dlq"
 
 tasks:
-  itemCleanupThresholdMillis : "10000"
-  itemCleanupRunEveryMillis: "30000"
+  itemCleanupThresholdMillis : "1800000"
+  itemCleanupRunEveryMillis: "1800000"
 
 # cache expiration for things like workflow status
 cache:
