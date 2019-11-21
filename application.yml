@@ -22,13 +22,6 @@ logging:
 
 ---
 spring:
-  profiles: dev-rabbit
-  rabbitmq:
-    username: "fw-imrt"
-    password: "${IAT_RABBIT_PASSWORD}"
-
----
-spring:
   profiles: dev
   datasource:
     url: "jdbc:postgresql://imrt-qa-db.cjqp2fdamfoh.us-east-2.rds.amazonaws.com:5432/iat"
@@ -53,16 +46,4 @@ itembank:
     bucketName: "iat-uat"
     versionedBucketName: "iat-uat-versioned"
 
----
-spring:
-  profiles: prod-mirror
-  datasource:
-    url: "jdbc:postgresql://tims-prod-mirror.cjqp2fdamfoh.us-east-2.rds.amazonaws.com:5432/iat"
-    tomcat:
-      max-active: 2
-
-itembank:
-  aws:
-    bucketName: "iat-prod-mirror"
-    versionedBucketName: "iat-prod-mirror-versioned"
 
