@@ -17,8 +17,8 @@ info:
 management:
   context-path: "/manage"
 
-api:
-  context-path: "/api"
+jwt:
+  secret: "\${TIMS_JWT_SECRET}"
 
 security:
   basic:
@@ -30,8 +30,6 @@ spring:
       fail_on_unknown_properties: false
     mapper:
       sort_properties_alphabetically: true
-  session:
-    enabled: \${SESSION_CLUSTER_ENABLED:true}
   datasource:
     url: "jdbc:postgresql://localhost:5432/iat"
     username: \${DB_USER}
@@ -45,6 +43,8 @@ spring:
         show_sql: true
         use_sql_comments: true
         format_sql: true
+        id:
+          new_generator_mappings: true
   http:
     multipart:
       location: \${java.io.tmpdir}
