@@ -1,3 +1,6 @@
+# !!! IMPORTANT !!! - Archived
+This project has been archived and is no longer actively maintained.  All code has been migrated to the [TIMS project](https://github.com/SmarterApp/TIMS).
+
 # Assessment Production - Item Management Service - ap-ims
 Micro-service exposing API for CRUD operations for assessment items in the item bank
 
